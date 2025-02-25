@@ -2,7 +2,7 @@
 
 The title says "Zork" but I'm using that classic game as a stand-in to mean "interactive fiction" in general.
 
-The purpose of this repository is to collect my findings while using [Cosmopolitan Libc](https://github.com/jart/cosmopolitan) to build and run the tools (both modern and historical) for interactive fiction authoring.
+The purpose of this repository is to gather my findings/research while using [Cosmopolitan Libc](https://github.com/jart/cosmopolitan) to build and run tools (modern and historical) for IF authoring. When necessary, I supply modified source code to enhance or enable compilation via `cosmocc` (replace deprecated functions, etc.)
 
 The final product of the build process for each tool is a [single executable in the APE format](https://justine.lol/ape.html). An APE file self-contains everything it needs to run natively on the [wide range of 64-bit machines supported by the Cosmopolitan project](https://github.com/jart/cosmopolitan?tab=readme-ov-file#support-vector). We don't need separate builds for each platform. In some cases we don't even really need a makefile any more. By swapping the compiler for `cosmocc` we can generate a platform-indepedent/agnostic tool which can be enjoyed by the widest audience possible.
 
