@@ -59,7 +59,7 @@ I modified this to add VT100 terminal codes for a more polished presentation. Th
 ### Building Mojozork
 `cosmocc -o mojozork mojozork.c`
 
-## Frotz
+## [Frotz](https://davidgriffith.gitlab.io/frotz/)
 A Unix/DOS z-machine interpreter, this long-running project has been ported over [to a huge number of vintage and modern machines](http://www.ifarchive.org/if-archive/infocom/interpreters/frotz/). Its "dumb" version plays a wider variety of games than #Mojozork (above), but provides only raw output; no status line or anything resembling "layout."
 
 There are two other variations of Frotz which provide a more robust visual experience: SDL and Curses
@@ -69,12 +69,14 @@ I felt intimidated by the SDL version; I'm unclear about Cosmopolitan Libc's bou
 Clone the source from here: https://gitlab.com/DavidGriffith/frotz
 From the `frotz/src/dumb` directory of Frotz: `cosmocc/bin/make -j`
 
-## Infocom's ZIP
-This is it, the big one, the OG written by the company that invented the z-machine itself. Until a couple of years ago we never had the source code to Infocom's own z-machine interpreters. [Now we have them all.](https://github.com/erkyrath/infocom-zcode-terps)
+## [Infocom's ZIP](https://github.com/erkyrath/infocom-zcode-terps/blob/master/unix/phg_zip.c)
+This is it, the big one, the OG written by the company that invented the z-machine itself. Until a couple of years ago we never had the source code to Infocom's own z-machine interpreters. [Now we have them all.](https://github.com/erkyrath/infocom-zcode-terps) 
 
-Most are written in assembly, targetting each platform's hardware directly. They had to really squeeze as much as they could out of those older machines, especially since Infocom was asking each machine to do natural language processing in a virutal machine in realtime with as little as 16K.
+Most of the interpreters are written in assembly, targetting each platform's hardware directly. They had to really squeeze as much as they could out of those older machines, especially since Infocom was asking each machine to do natural language processing in a virutal machine in realtime with as little as 16K.
 
-Their first work was on the PDP-10 in FORTRAN, but to bring Zork to a wider audience they realized they would need to abstract things more to support the burgeoning home computer market. One operating system they did choose to target was Unix which they wrote in plain-ole C. Lucky for us! With a little elbow grease to modernize older C coding conventions and deprecations, it worked.
+Their first work was on the PDP-10 in FORTRAN, but to bring Zork to a wider audience they realized they would need to abstract things more to support the burgeoning home computer market. One operating system they did choose to target was Unix which they wrote in plain-ole C. Lucky for us! 
+
+I focused on Paul Gross's modified Unix code, `phg_zip.c` because I somehow find it easier to follow. 🤷‍♂️ With a little elbow grease to modernize older coding conventions and deprecations, it worked.
 
 I can't express what a fantastic feeling it was to see that *original* code spring back to life on a modern computer and to know it was instantly available to almost anyone who wanted to try it out. No platform-specific shenanigans or workaround or makefiles. Just build and go. This, to my mind, is how preservation should be; so simple anyone can do it.
 
