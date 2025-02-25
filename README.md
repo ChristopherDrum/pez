@@ -72,9 +72,9 @@ This is it, the big one, the OG written by the company that invented the z-machi
 
 Most are written in assembly, targetting each platform's hardware directly. They had to really squeeze as much as they could out of those older machines, especially since Infocom was asking each machine to do natural language processing in a virutal machine in realtime with as little as 16K.
 
-Their first work was on the PDP-10 in FORTRAN, but to bring Zork to a wider audience they realized they would need to abstract things more to support the burgeoning home computer market. One operating system they did choose to target was Unix which they wrote that in plain-ole C. Lucky for us! With a little elbow grease to modernize some of the older C coding conventions they used, it worked.
+Their first work was on the PDP-10 in FORTRAN, but to bring Zork to a wider audience they realized they would need to abstract things more to support the burgeoning home computer market. One operating system they did choose to target was Unix which they wrote in plain-ole C. Lucky for us! With a little elbow grease to modernize older C coding conventions and deprecations, it worked.
 
-I can't express what a fantastic feeling it was to see that *original* code spring back to life on a modern computer and to know I could share it with most people who might be interested in trying it out.
+I can't express what a fantastic feeling it was to see that *original* code spring back to life on a modern computer and to know it was instantly available to almost anyone who wanted to try it out. No platform-specific shenanigans or workaround or makefiles. Just build and go. This, to my mind, is how preservation should be; so simple anyone can do it.
 
 This version of their interpreter only plays z3 games, but *does* include VT100-style character/terminal handling code to give a proper, real-deal, Infocom presentation. I saw code for split screen handling so even *Seastalker*'s radar should work I think. 🤔
 
