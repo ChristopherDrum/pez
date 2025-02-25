@@ -50,8 +50,8 @@ The Dialog source includes a makefile, but it isn't strictly necessary.<br>Run e
 # Playing
 Once we have our code written and compiled into a z-machine ready file, we need to be able to play and test it. That's where a z-machine interpreter comes in. I've written a full-featured one called Status Line for the Pico-8 in Lua, but of course we need a C-based one for this project.
 
-## Mojozork
-The first z-machine I tried, due to its single-file, no external dependencies simplicity. It only supports `.z3` games, which excludes a huge number of games, but does enable Infocom classics and many recent PunyInform games.
+## [Mojozork](https://github.com/icculus/mojozork)
+The first z-machine I tried, it gave me a quick way to test a z-machine interpreter with its single-file, no-external-dependencies simplicity. It only supports `.z3` games, which excludes a huge number of games, but does enable Infocom classics and many recent PunyInform games.
 (link here)
 
 I modified this to add VT100 terminal codes for a more polished presentation. This repo adds the inverted status bar and provides simple window scrolling in an 80 char x 24 line window. Classic presentation for classic games.
