@@ -26,19 +26,24 @@ Not to be confused with the `cosmocc` C compiler which builds the executables fo
 Inform7 is technically the more relevant language to use these days, but at my current experience level it is too large and machine-dependent (very graphics/UI-heavy; maybe there is a subset I can target?) to tackle for this project. I've been using the Inform6 compiler, which gives us a little more flexibility in the compilation to target the limitations of specific interpreters (see #Playing below)
 
 ### Building Inform6
-It couldn't be simpler. Assuming `cosmocc` is in your `$PATH` and you're in the `inform6` folder:
-`cosmocc -o inform6 inform.c`
+The code can be cloned from: https://github.com/DavidKinder/Inform6<br><br>
+[It's super simple to compile](https://github.com/DavidKinder/Inform6#using-inform-6) and we can trivially modify its compilation to point to `cosmocc`. From inside the `inform6` repo folder:<br>`cosmocc -o inform6 *.c`
 
 ## DialogC
-A newcomer to the scene, the interactive fiction is working to keep the project alive (appears to have been abandoned?) The language is quite different to Inform, taking a very Prolog "logic based" approach. This is similar to the change made to Inform from 6 to 7, however the languages couldn't be more different.
+A newcomer to the scene, the interactive fiction community is working to keep the project alive (appears to have been abandoned?) [The Dialog language is quite different to Inform](https://linusakesson.net/dialog/index.php), taking a very Prolog "logic based" approach. This is conceptually similar to the changes made in Inform from v6 to v7.
 
-Where Inform7 takes a "literate" and "English language-like" approach, Dialog looks and feels more like a "typical" programming language. However, at the end of the day it can compile itself down to the same z-machine opcodes as Inform. If I write another text adventure, I will most likely write it in Dialog.
+Where Inform7 takes a "literate" and "English language-like" approach, Dialog looks and feels more like a "typical" programming language. However, at the end of the day it compiles itself down to the same z-machine opcodes as Inform.
 
-Dialog can only target .z5 and higher for its builds, so they won't run on the interpreters in this list (yet). But a .z8 file compiled using this APE build ran perfectly in Status Line, so I feel confident the APE workflow will be sound.
+Dialog can only target .z5 and higher for its builds, which will run on the `dfrotz` interpreter. I tested with compiling a .z8 file using this APE build and it ran perfectly in Status Line, so I feel confident an APE-based workflow for Dialog will be sound.
 
 ### Building DialogC
-Again, it was simplicity, just copying some text from the makefile. I think now it could probably be have been built using the `cosmos` buid of `make` and running the makefile directly.
-`cosmocc -DVERSION=\"0m/03\" -o dialogc frontend.c backend_z.c runtime_z.c blorb.c dumb_output.c dumb_report.c arena.c ast.c parse.c compile.c eval.c accesspred.c unicode.c backend.c aavm.c backend_aa.c crc32.c`
+Sorce code can be downloaded from: https://hd0.linusakesson.net/files/dialog-0m03_0_46.zip
+
+The Dialog source includes a makefile, but it isn't strictly necessary.<br>Run either of these from inside `/dialog-0m03_0_46/src`
+
+- Using the makefile: `/cosmocc/bin/make -j dialogc`<br>
+- Invoking `cosmocc` directly: `cosmocc -DVERSION=\"0m/03\" -o dialogc frontend.c backend_z.c runtime_z.c blorb.c dumb_output.c dumb_report.c arena.c ast.c parse.c compile.c eval.c accesspred.c unicode.c backend.c aavm.c backend_aa.c crc32.c`
+
 
 # Playing
 Once we have our code written and compiled into a z-machine ready file, we need to be able to play and test it. That's where a z-machine interpreter comes in. I've written a full-featured one called Status Line for the Pico-8 in Lua, but of course we need a C-based one for this project.
@@ -52,28 +57,29 @@ I modified this to add VT100 terminal codes for a more polished presentation. Th
 ### Building Mojozork
 `cosmocc -o mojozork mojozork.c`
 
-## Frotz ("dumb" version)
-A Unix/DOS z-machine interpreter, this long-running project has been ported over [to a huge number of vintage and modern machines](http://www.ifarchive.org/if-archive/infocom/interpreters/frotz/). It's "dumb" version plays a wider variety of games than #Mojozork (above), but provides only raw output; no status line or anything resembling "layout."
+## Frotz
+A Unix/DOS z-machine interpreter, this long-running project has been ported over [to a huge number of vintage and modern machines](http://www.ifarchive.org/if-archive/infocom/interpreters/frotz/). Its "dumb" version plays a wider variety of games than #Mojozork (above), but provides only raw output; no status line or anything resembling "layout."
 
-There are two other variations of Frotz which provide a more robust, visual experience: SDL and Curses
-I felt intimidated by the SDL version; I'm unclear about Cosmopolitan Libc's boundaries when it comes to GUI and and graphics stuff. The Curses version (based on ncurses) stumped me for now. See #Unsolved Mysteries, below.
+There are two other variations of Frotz which provide a more robust visual experience: SDL and Curses
+I felt intimidated by the SDL version; I'm unclear about Cosmopolitan Libc's boundaries when it comes to GUI and and graphics stuff. The Curses version (which relies on `ncurses`) stumped me for now. See #Unsolved Mysteries, below.
 
 ### Building DFrotz
-From the `dumb` directory of Frotz: `cosmocc/bin/make -j`
+Clone the source from here: https://gitlab.com/DavidGriffith/frotz
+From the `frotz/src/dumb` directory of Frotz: `cosmocc/bin/make -j`
 
 ## Infocom's ZIP
 This is it, the big one, the OG written by the company that invented the z-machine itself. Until a couple of years ago we never had the source code to Infocom's own z-machine interpreters. [Now we have them all.](https://github.com/erkyrath/infocom-zcode-terps)
 
 Most are written in assembly, targetting each platform's hardware directly. They had to really squeeze as much as they could out of those older machines, especially since Infocom was asking each machine to do natural language processing in a virutal machine in realtime with as little as 16K.
 
-Their first work was on the PDP-10 in FORTRAN, but to bring Zork to wider audience they realized they would need to abstract things more to support the burgeoning home computer market. One operating system they did choose to target was Unix, and they wrote that in plain-ole C. Lucky for me! With a little elbow grease to modernize some of the older C coding conventions they used, it worked.
+Their first work was on the PDP-10 in FORTRAN, but to bring Zork to a wider audience they realized they would need to abstract things more to support the burgeoning home computer market. One operating system they did choose to target was Unix which they wrote that in plain-ole C. Lucky for us! With a little elbow grease to modernize some of the older C coding conventions they used, it worked.
 
-I can't express what a fantastic feeling it was to see that *original* code spring back to life on a modern computer.
+I can't express what a fantastic feeling it was to see that *original* code spring back to life on a modern computer and to know I could share it with most people who might be interested in trying it out.
 
-This version of their interpreter only plays z3 games, but *does* include nice VT100-style character/terminal handling code to give a proper, real-deal, Infocom presentation. I saw code for split screen handling so even *Seastalker*'s radar should work I think. 🤔
+This version of their interpreter only plays z3 games, but *does* include VT100-style character/terminal handling code to give a proper, real-deal, Infocom presentation. I saw code for split screen handling so even *Seastalker*'s radar should work I think. 🤔
 
 ### Building ZIP
-`cosmocc -o cosmo_zip dgh_zip.c`
+`cosmocc -o zip dgh_zip.c`
 
 One thing to note is that this interpreter is made to run as a commercial product. So game files cannot be executed via command-line parameters, like the others can; it is expecting data to be ready to load at launch. Rename your .z3 file to 
 `<exact_name_of_the_executable_you_are_running>.dat`
@@ -84,11 +90,11 @@ The interpreter looks for that specific, exact file name and auto-loads it. Note
 # Unsolved Mysteries
 
 ## Adding additional libraries
-`cosmocc` comes with the Cosmopolitan Libc libraries ready to go (notice how the compilation commands so far haven't needed to point to any libraries or includes). What I can't figure out just yet is how to add new libraries to the process.
+`cosmocc` comes with the Cosmopolitan Libc libraries (think "standard C libraries") ready to go (notice how the compilation commands so far haven't needed to point to any libraries or includes). What I can't figure out just yet is how to add additional libraries to the process.
 
-There is a project called `superconfigure` which seems to address this, but I found it kind of hard to understand. I was only able to get it to build anything properly (`ncurses` is one of its bundled projects) using Ubuntu desktop in a VMware instance. Even then, I saw it had created x86_64 and ARM64... somethings... and a supposed APE file, which was only 0 bytes. I don't know what I'm supposed to do with those just yet, but it definitely seems possible; I just need more experience.
+There is a project called `superconfigure` which seems to address this, but I found it kind of hard to understand. I was only able to get it to build properly (`ncurses` is one of its bundled projects) using Ubuntu desktop in a VMware instance. Even then, I saw it had created x86_64 and ARM64... somethings... and a supposed APE file, which was only 0 bytes. I don't know what I'm supposed to do with those just yet. It definitely seems possible; I just need more experience.
 
-Getting Curses Frotz built will give us a basically "perfect" interpreter that will run anything you can throw at it on any* (within reason) 64-bit machine you like, (🤞) without the [makefile madness](https://gitlab.com/DavidGriffith/frotz/-/blob/master/Makefile?ref_type=heads) and [fractured distributables](https://pkgs.org/download/frotz) as exists currently.
+Getting `ncurses` working should enable us to do a universal build of Curses Frotz. That will give us a basically "perfect" interpreter you can run on any 64-bit machine you like (🤞), without the [fractured distributables](https://pkgs.org/download/frotz) as exists currently.
 
 # Testing the Workflow
 Once I have built the APE files (actually portable executables), I copy them as-is to each of my systems and run them natively. Windows wants file extensions, so I do have to append `.exe` to each executable, but otherwise the executables are unchanged from system to system.
