@@ -2140,13 +2140,12 @@ static void writestr_stdio(const char *_str, const uintptr slen)
 {
     static size_t current_len = 0;
 
-    char str[slen];
-    // while(isspace(*_str)) _str++;
+    char str[512];
     strncpy(str, _str, slen);
     str[slen] = '\0';
-    // printf("A(%s)\n", str);
-    // printf("B(%s)\n", _str);
-    // printf("(%zu / %zu / %zu)\n", strlen(str), strlen(_str), slen);
+    
+    //rudimentary (but better than expected!) word wrap routine
+    //does not conform to zspec at all, but for POC it's fine
     if (current_len + slen < TERMINAL_WIDTH) {
         fwrite(str, 1, slen, stdout);
         current_len += slen;
@@ -2155,7 +2154,6 @@ static void writestr_stdio(const char *_str, const uintptr slen)
         while (token)
         {
             size_t token_len = strlen(token);
-            // printf("| %s(%zu) |", token, token_len);
             if (current_len + token_len > TERMINAL_WIDTH) {
                 fwrite("\n", 1, 1, stdout);
                 current_len = 0;
