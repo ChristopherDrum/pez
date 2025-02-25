@@ -121,9 +121,9 @@ Getting a universal toolset for running these would be a great addition to havin
 
 ZILF is a modern, from scratch replacement to the ZIL compiler.
 
-If I could get a universally executable workflow using the original Infocom tools built from original Infocom source, that would be my "white whale." This project has ZIP working. Looking at the ZAP source code, it seems to follow the same patterns of old C conventions that would need updating to more modern C. But those changes should be mostly superficial and we just might have something interesting at the end of that process.
+If I could get a universally executable workflow using the original Infocom tools built from original Infocom source, that would be my "white whale." This project has ZIP working. Looking at the ZAP source code, it seems to follow the same patterns of old C conventions that would need updating to more modern C. If those changes remain as superficial as ZIP required, we just might have something interesting at the end of that conversion process.
 
-"./zip $(./zap [zork1.zil](https://github.com/the-infocom-files/zork1))" (or similar) would be the dream.
+`./zip $(./zap zork1.zil)` (or similar) would be the dream.
 
 ## More authoring options
 Need to check on emacs and the state of interactive fiction language support built-in. I doubt Dialog is included, so offering a build of `vim` of `emacs` ready for both of those languages would be nice. Maybe as I get more comfortable with more complex projects we can suggest more visual editors (Zed?).
