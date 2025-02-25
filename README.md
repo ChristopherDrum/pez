@@ -13,6 +13,7 @@ An end-to-end interactive fiction development workflow boils down to three tasks
 |**Compiling**|[Inform6](#inform6)|[DialogC](#dialogc)||
 |**Playing**|[Mojozork](#mojozork)|[Frotz](#frotz)|[Infocom's ZIP](#infocoms-zip)|
 
+<br><br><br>
 # Authoring
 
 ## vim
@@ -21,6 +22,7 @@ It worked perfectly on my test systems, and *comes with Inform syntax highlighti
 
 Download it from here: https://cosmo.zip/pub/cosmos/bin/vim
 
+<br><br><br>
 # Compiling
 Not to be confused with the `cosmocc` C compiler which builds the executables for this project, interactive fiction programming languages have their own special compilers. These compilers translate the code we write in the interactive fiction domain-specific langauges (Inform6, Dialog, ZIL) into intermediate z-machine opcodes. The z-machine itself (see #Playing below) is a virtual machine with its own opcodes. I recommend this page to understand those: https://zspec.jaredreisinger.com/zz03-opcodes
 
@@ -46,7 +48,7 @@ The Dialog source includes a makefile, but it isn't strictly necessary.<br>Run e
 - Using the makefile: `/cosmocc/bin/make -j dialogc`<br>
 - Invoking `cosmocc` directly: `cosmocc -DVERSION=\"0m/03\" -o dialogc frontend.c backend_z.c runtime_z.c blorb.c dumb_output.c dumb_report.c arena.c ast.c parse.c compile.c eval.c accesspred.c unicode.c backend.c aavm.c backend_aa.c crc32.c`
 
-
+<br><br><br>
 # Playing
 Once we have our code written and compiled into a z-machine ready file, we need to be able to play and test it. That's where a z-machine interpreter comes in. I've written a full-featured one called Status Line for the Pico-8 in Lua, but of course we need a C-based one for this project.
 
@@ -91,6 +93,7 @@ One thing to note is that this interpreter is made to run as a commercial produc
 The interpreter looks for that specific, exact file name and auto-loads it. Note on Windows, you will need to add `.com` or `.exe` to the executable to make Windows happy. This means you also need to add that to your .dat filename
 `<exact_name_of_the_executable_you_are_running>.<file_extension_you're_using>.dat`
 
+<br><br><br>
 # Testing the Workflow
 Once I have built the APE files (actually portable executables), I copy them as-is to each of my systems and run them natively. Windows wants file extensions, so I do have to append `.exe` to each executable, but otherwise the executables are unchanged from system to system.
 
@@ -109,6 +112,7 @@ In a terminal or PowerShell from within the `starter_kit` folder
 4. Play in each interpreter
 `./dfrotz ./test.z3`
 
+<br><br><br>
 # Next
 
 ## Adding additional libraries
