@@ -2,9 +2,11 @@
 
 The title says "Zork" but I'm using that classic game as a stand-in to mean "interactive fiction" in general.
 
-The purpose of this repository is to collect my findings while using [Cosmopolitan Libc](https://github.com/jart/cosmopolitan) to build and run the tools (both modern and historical) for interactive fiction authoring. In a nutshell, I wish to preserve an end-to-end development workflow which runs natively on the [wide range of 64-bit machines supported by the Cosmopolitan project](https://github.com/jart/cosmopolitan?tab=readme-ov-file#support-vector). This is a software preservation project; we can almost trivially preserve interactive fiction for the 64-bit era of computing systems.
+The purpose of this repository is to collect my findings while using [Cosmopolitan Libc](https://github.com/jart/cosmopolitan) to build and run the tools (both modern and historical) for interactive fiction authoring.
 
-An end-to-end interactive fiction workflow boils down to three tasks: authoring, compiling, and playing. Projects that I've built and tested are noted here; I'll continue to expand the list as I gain experience with the build tools and various source code. Everything is built with `cosmocc` linked against the Cosmopolitan Libc libraries.
+The final product of the build process for each tool is a [single executable in the APE format](https://justine.lol/ape.html). An APE file self-contains everything it needs to run natively on the [wide range of 64-bit machines supported by the Cosmopolitan project](https://github.com/jart/cosmopolitan?tab=readme-ov-file#support-vector). We don't need separate builds for each platform. In some cases we don't even need a makefile any more. By swapping the compiler for `cosmocc` we can generate a platform-indepedent/agnostic tool which can be enjoyed by the widest audience possible.
+
+An end-to-end interactive fiction development workflow boils down to three tasks: authoring, compiling, and playing. Projects that I've built and tested are noted here; I'll continue to expand the list as I gain experience with the build tools and various source code. Everything is built with `cosmocc` linked against the Cosmopolitan Libc libraries.
 |||||
 |-|-|-|-|
 |**Authoring**|[vim](#vim)|||
