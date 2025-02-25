@@ -29,7 +29,7 @@ Inform7 is technically the more relevant language to use these days, but at my c
 
 ### Building Inform6
 The code can be cloned from: https://github.com/DavidKinder/Inform6<br><br>
-[It's super simple to compile](https://github.com/DavidKinder/Inform6#using-inform-6) and we can trivially modify its compilation to point to `cosmocc`. From inside the `inform6` repo folder:<br>`cosmocc -o inform6 *.c`
+[It's super simple to compile](https://github.com/DavidKinder/Inform6#using-inform-6) and we can trivially modify its compilation to point to `cosmocc`.<br>From inside the `inform6` repo folder:<br>`cosmocc -o inform6 *.c`
 
 ## [DialogC](https://linusakesson.net/dialog/index.php)
 A newcomer to the scene, the interactive fiction community is working to keep the project alive (appears to have been abandoned?) [The Dialog language is quite different to Inform](https://linusakesson.net/dialog/index.php), taking a very Prolog "logic based" approach. This is conceptually similar to the changes made in Inform from v6 to v7.
