@@ -116,14 +116,12 @@ There is a project called [superconfigure](https://github.com/ahgamut/superconfi
 
 Getting `ncurses` working should enable us to do a universal build of Curses Frotz. That will give us a basically "perfect" interpreter you can run on any 64-bit machine you like (🤞), without the [fractured distributables](https://pkgs.org/download/frotz) as exists currently.
 
-## ZIL, ZAP, and ZILF
-Getting a universal toolset for running these would be a great addition to having ZIP running. ZIL was the programming language Infocom used internally for their game development, where we tend to use Inform today. ZAP was their internal ZIL compiler for generating ZIP (interpreter) compatible files (.dat maybe?). 
+## ZIL with [ZAP](https://eblong.com/infocom/#zap)
+Getting a universal toolset for running these would be a great addition to having ZIP running. ZIL was the programming language Infocom used internally for their game development, where we tend to use Inform today. This was then compiled into z-machine assembly using a tool called ZILCH. That assembly was then processed into z-machine code through a program called ZAP. The output of ZIP was a data file that ZIP interpreters could play. 
 
-ZILF is a modern, from scratch replacement to the ZIL compiler.
+ZILF and ZAPF are from-scratch replacements to the ZILCH and ZAP toolchain above. [I use these tools](https://github.com/ChristopherDrum/status-line-classics/blob/main/build.sh) to provide bespoke customizations of classic Infocom source code which are formatted to look good in Status Line. However, these tools were written in Visual Studio in C# and would need to be completely rewritten in portable C to preseve via Cosmopolitan.
 
-If I could get a universally executable workflow using the original Infocom tools built from original Infocom source, that would be my "white whale." This project has ZIP working. Looking at the ZAP source code, it seems to follow the same patterns of old C conventions that would need updating to more modern C. If those changes remain as superficial as ZIP required, we just might have something interesting at the end of that conversion process.
-
-`./zip $(./zap zork1.zil)` (or similar) would be the dream.
+[ZILCH is quite complex](https://github.com/ZoBoRf/ZILCH-How-to?tab=readme-ov-file#to-run-zilch-muddle-is-needed), and likely won't be possible to target for this project. Running original ZILCH requires ITS MUDDLE and... that's about as far as I can understand right now. Getting ZILCH alone to run at all sounds like it was a pretty monumental task; an easy compilation simply looks out of reach.
 
 ## More authoring options
 Need to check on emacs and the state of interactive fiction language support built-in. I doubt Dialog is included, so offering a build of `vim` of `emacs` ready for both of those languages would be nice. Maybe as I get more comfortable with more complex projects we can suggest more visual editors (Zed?).
