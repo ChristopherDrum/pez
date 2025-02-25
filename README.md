@@ -72,7 +72,7 @@ From the `frotz/src/dumb` directory of Frotz: `cosmocc/bin/make -j`
 ## [Infocom's ZIP](https://github.com/erkyrath/infocom-zcode-terps/blob/master/unix/phg_zip.c)
 This is it, the big one, the OG written by the company that invented the z-machine itself. Until a couple of years ago we never had the source code to Infocom's own z-machine interpreters. [Now we have them all.](https://github.com/erkyrath/infocom-zcode-terps) 
 
-Most of the interpreters are written in assembly, targetting each platform's hardware directly. They had to really squeeze as much as they could out of those older machines, especially since Infocom was asking each machine to do natural language processing in a virutal machine in realtime with as little as 16K.
+Most of the interpreters are written in assembly, targeting each platform's hardware directly. They had to really squeeze as much as they could out of those older machines, especially since Infocom was asking each machine to do natural language processing in a virtual machine in realtime with as little as 16K.
 
 Their first work was on the PDP-10 in FORTRAN, but to bring Zork to a wider audience they realized they would need to abstract things more to support the burgeoning home computer market. One operating system they did choose to target was Unix which they wrote in plain-ole C. Lucky for us! 
 
@@ -121,7 +121,7 @@ Getting `ncurses` working should enable us to do a universal build of Curses Fro
 ## ZIL with [ZAP](https://eblong.com/infocom/#zap)
 Getting a universal toolset for running these would be a great addition to having ZIP running. ZIL was the programming language Infocom used internally for their game development, where we tend to use Inform today. This was then compiled into z-machine assembly using a tool called ZILCH. That assembly was then processed into z-machine code through a program called ZAP. The output of ZIP was a data file that ZIP interpreters could play. 
 
-ZILF and ZAPF are from-scratch replacements to the ZILCH and ZAP toolchain above. [I use these tools](https://github.com/ChristopherDrum/status-line-classics/blob/main/build.sh) to provide bespoke customizations of classic Infocom source code which are formatted to look good in Status Line. However, these tools were written in Visual Studio in C# and would need to be completely rewritten in portable C to preseve via Cosmopolitan.
+ZILF and ZAPF are from-scratch replacements to the ZILCH and ZAP toolchain above. [I use these tools](https://github.com/ChristopherDrum/status-line-classics/blob/main/build.sh) to provide bespoke customizations of classic Infocom source code which are formatted to look good in Status Line. However, these tools were written in Visual Studio in C# and would need to be completely rewritten in portable C to preserve via Cosmopolitan.
 
 [ZILCH is quite complex](https://github.com/ZoBoRf/ZILCH-How-to?tab=readme-ov-file#to-run-zilch-muddle-is-needed), and likely won't be possible to target for this project. Running original ZILCH requires ITS MUDDLE and... that's about as far as I can understand right now. Getting ZILCH alone to run at all sounds like it was a pretty monumental task; an easy compilation simply looks out of reach.
 
@@ -129,4 +129,4 @@ ZILF and ZAPF are from-scratch replacements to the ZILCH and ZAP toolchain above
 Need to check on emacs and the state of interactive fiction language support built-in. I doubt Dialog is included, so offering a build of `vim` of `emacs` ready for both of those languages would be nice. Maybe as I get more comfortable with more complex projects we can suggest more visual editors (Zed?).
 
 ## Scott Adams games
-I did a quick-and-dirty build of ScottFree and played Pirate Adventure in a universal build. I had to remove some deprecated string handling to get it working, which I could put more effort into repairing properly. I'm not so clear on what "language" those games are written in these days, or how to compile for ScottFree. This is a large gap in my IF knowledgebase.
+I did a quick-and-dirty build of ScottFree and played Pirate Adventure in a universal build. I had to remove some deprecated string handling to get it working, which I could put more effort into repairing properly. I'm not so clear on what "language" those games are written in these days, or how to compile for ScottFree. This is a large gap in my IF knowledge base.
