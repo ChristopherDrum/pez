@@ -24,14 +24,14 @@ Download it from here: https://cosmo.zip/pub/cosmos/bin/vim
 # Compiling
 Not to be confused with the `cosmocc` C compiler which builds the executables for this project, interactive fiction programming languages have their own special compilers. These compilers translate the code we write in the interactive fiction domain-specific langauges (Inform6, Dialog, ZIL) into intermediate z-machine opcodes. The z-machine itself (see #Playing below) is a virtual machine with its own opcodes. I recommend this page to understand those: https://zspec.jaredreisinger.com/zz03-opcodes
 
-## Inform6
+## [Inform6](https://github.com/DavidKinder/Inform6)
 Inform7 is technically the more relevant language to use these days, but at my current experience level it is too large and machine-dependent (very graphics/UI-heavy; maybe there is a subset I can target?) to tackle for this project. I've been using the Inform6 compiler, which gives us a little more flexibility in the compilation to target the limitations of specific interpreters (see #Playing below)
 
 ### Building Inform6
 The code can be cloned from: https://github.com/DavidKinder/Inform6<br><br>
 [It's super simple to compile](https://github.com/DavidKinder/Inform6#using-inform-6) and we can trivially modify its compilation to point to `cosmocc`. From inside the `inform6` repo folder:<br>`cosmocc -o inform6 *.c`
 
-## DialogC
+## [DialogC](https://linusakesson.net/dialog/index.php)
 A newcomer to the scene, the interactive fiction community is working to keep the project alive (appears to have been abandoned?) [The Dialog language is quite different to Inform](https://linusakesson.net/dialog/index.php), taking a very Prolog "logic based" approach. This is conceptually similar to the changes made in Inform from v6 to v7.
 
 Where Inform7 takes a "literate" and "English language-like" approach, Dialog looks and feels more like a "typical" programming language. However, at the end of the day it compiles itself down to the same z-machine opcodes as Inform.
