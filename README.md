@@ -63,7 +63,7 @@ I modified this to add VT100 terminal codes for a more polished presentation. Th
 A Unix/DOS z-machine interpreter, this long-running project has been ported over [to a huge number of vintage and modern machines](http://www.ifarchive.org/if-archive/infocom/interpreters/frotz/). Its "dumb" version plays a wider variety of games than #Mojozork (above), but provides only raw output; no status line or anything resembling "layout."
 
 There are two other variations of Frotz which provide a more robust visual experience: SDL and Curses
-I felt intimidated by the SDL version; I'm unclear about Cosmopolitan Libc's boundaries when it comes to GUI and and graphics stuff. The Curses version (which relies on `ncurses`) stumped me for now. See #Unsolved Mysteries, below.
+I felt intimidated by the SDL version; I'm unclear about Cosmopolitan Libc's boundaries when it comes to GUI and and graphics stuff. The Curses version (which relies on `ncurses`) stumped me for now. See [Adding additional libraries](#adding-additional-libraries), below.
 
 ### Building DFrotz
 Clone the source from here: https://gitlab.com/DavidGriffith/frotz
@@ -89,15 +89,6 @@ One thing to note is that this interpreter is made to run as a commercial produc
 The interpreter looks for that specific, exact file name and auto-loads it. Note on Windows, you will need to add `.com` or `.exe` to the executable to make Windows happy. This means you also need to add that to your .dat filename
 `<exact_name_of_the_executable_you_are_running>.<file_extension_you're_using>.dat`
 
-# Unsolved Mysteries
-
-## Adding additional libraries
-`cosmocc` comes with the Cosmopolitan Libc libraries (think "standard C libraries") ready to go (notice how the compilation commands so far haven't needed to point to any libraries or includes). What I can't figure out just yet is how to add additional libraries to the process.
-
-There is a project called `superconfigure` which seems to address this, but I found it kind of hard to understand. I was only able to get it to build properly (`ncurses` is one of its bundled projects) using Ubuntu desktop in a VMware instance. Even then, I saw it had created x86_64 and ARM64... somethings... and a supposed APE file, which was only 0 bytes. I don't know what I'm supposed to do with those just yet. It definitely seems possible; I just need more experience.
-
-Getting `ncurses` working should enable us to do a universal build of Curses Frotz. That will give us a basically "perfect" interpreter you can run on any 64-bit machine you like (🤞), without the [fractured distributables](https://pkgs.org/download/frotz) as exists currently.
-
 # Testing the Workflow
 Once I have built the APE files (actually portable executables), I copy them as-is to each of my systems and run them natively. Windows wants file extensions, so I do have to append `.exe` to each executable, but otherwise the executables are unchanged from system to system.
 
@@ -106,7 +97,7 @@ Once I have built the APE files (actually portable executables), I copy them as-
 - MSI Katana w/13th Gen Core i7, Windows 11/WSL2
 - Ubuntu Desktop (via VMware on the Windows box)
 
-## End-to-End test steps
+## A sample end-to-End test
 In a terminal or PowerShell from within the `starter_kit` folder
 1. Start a new .inf file in vim 
 `./vim test.inf`
@@ -115,3 +106,27 @@ In a terminal or PowerShell from within the `starter_kit` folder
 `./inform6 v3 test +./punyinform`
 4. Play in each interpreter
 `./dfrotz ./test.z3`
+
+# Next
+
+## Adding additional libraries
+`cosmocc` comes with the Cosmopolitan Libc libraries (think "standard C libraries") ready to go (notice how the compilation commands so far haven't needed to point to any libraries or includes). What I can't figure out just yet is how to add additional libraries to the process.
+
+There is a project called [superconfigure](https://github.com/ahgamut/superconfigure/) which seems to address this, but I found it kind of hard to understand. I was only able to get it to build properly (`ncurses` is one of its bundled projects) using Ubuntu desktop in a VMware instance. Even then, I saw it had created x86_64 and ARM64... somethings... and a supposed APE file, which was only 0 bytes. I don't know what I'm supposed to do with those just yet. It definitely seems possible; I just need more experience.
+
+Getting `ncurses` working should enable us to do a universal build of Curses Frotz. That will give us a basically "perfect" interpreter you can run on any 64-bit machine you like (🤞), without the [fractured distributables](https://pkgs.org/download/frotz) as exists currently.
+
+## ZIL, ZAP, and ZILF
+Getting a universal toolset for running these would be a great addition to having ZIP running. ZIL was the programming language Infocom used internally for their game development, where we tend to use Inform today. ZAP was their internal ZIL compiler for generating ZIP (interpreter) compatible files (.dat maybe?). 
+
+ZILF is a modern, from scratch replacement to the ZIL compiler.
+
+If I could get a universally executable workflow using the original Infocom tools built from original Infocom source, that would be my "white whale." This project has ZIP working. Looking at the ZAP source code, it seems to follow the same patterns of old C conventions that would need updating to more modern C. But those changes should be mostly superficial and we just might have something interesting at the end of that process.
+
+"./zip $(./zap [zork1.zil](https://github.com/the-infocom-files/zork1))" (or similar) would be the dream.
+
+## More authoring options
+Need to check on emacs and the state of interactive fiction language support built-in. I doubt Dialog is included, so offering a build of `vim` of `emacs` ready for both of those languages would be nice. Maybe as I get more comfortable with more complex projects we can suggest more visual editors (Zed?).
+
+## Scott Adams games
+I did a quick-and-dirty build of ScottFree and played Pirate Adventure in a universal build. I had to remove some deprecated string handling to get it working, which I could put more effort into repairing properly. I'm not so clear on what "language" those games are written in these days, or how to compile for ScottFree. This is a large gap in my IF knowledgebase.
