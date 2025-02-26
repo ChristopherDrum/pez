@@ -32,7 +32,7 @@ Inform7 is technically the more relevant language to use these days, but at my c
 
 ### Building Inform6
 The code can be cloned from: https://github.com/DavidKinder/Inform6<br><br>
-[It's super simple to compile](https://github.com/DavidKinder/Inform6#using-inform-6) and we can trivially modify its compilation to point to `cosmocc`.<br>From inside the `inform6` repo folder:<br>`cosmocc -o inform6 *.c`
+[It's super simple to compile](https://github.com/DavidKinder/Inform6#using-inform-6) and we can trivially modify its compilation to point to `cosmocc`.<br>From inside the `inform6` repo folder:<br>`cosmocc -o inform6 *.c -mtiny`
 
 ## [DialogC](https://linusakesson.net/dialog/index.php)
 A newcomer to the scene, the interactive fiction community is working to keep the project alive (appears to have been abandoned?) [The Dialog language is quite different to Inform](https://linusakesson.net/dialog/index.php), taking a very Prolog "logic based" approach. This is conceptually similar to the changes made in Inform from v6 to v7.
@@ -47,7 +47,7 @@ Sorce code can be downloaded from: https://hd0.linusakesson.net/files/dialog-0m0
 The Dialog source includes a makefile, but it isn't strictly necessary.<br>Run either of these from inside `/dialog-0m03_0_46/src`
 
 - Using the makefile: `/cosmocc/bin/make -j dialogc`<br>
-- Invoking `cosmocc` directly: `cosmocc -DVERSION=\"0m/03\" -o dialogc frontend.c backend_z.c runtime_z.c blorb.c dumb_output.c dumb_report.c arena.c ast.c parse.c compile.c eval.c accesspred.c unicode.c backend.c aavm.c backend_aa.c crc32.c`
+- Invoking `cosmocc` directly: `cosmocc -DVERSION=\"0m/03\" -o dialogc frontend.c backend_z.c runtime_z.c blorb.c dumb_output.c dumb_report.c arena.c ast.c parse.c compile.c eval.c accesspred.c unicode.c backend.c aavm.c backend_aa.c crc32.c -mtiny`
 
 <br><br><br>
 # Playing
@@ -60,7 +60,7 @@ The first z-machine I tried, it gave me a quick way to test a z-machine interpre
 I modified this to add VT100 terminal codes for a more polished presentation. This repo adds the inverted status bar and provides simple window scrolling in an 80 char x 24 line window. Classic presentation for classic games.
 
 ### Building Mojozork
-`cosmocc -o mojozork mojozork.c`
+`cosmocc -o mojozork mojozork.c -mtiny`
 
 ## [Frotz](https://davidgriffith.gitlab.io/frotz/)
 A Unix/DOS z-machine interpreter, this long-running project has been ported over [to a huge number of vintage and modern machines](http://www.ifarchive.org/if-archive/infocom/interpreters/frotz/). Its "dumb" version plays a wider variety of games than #Mojozork (above), but provides only raw output; no status line or anything resembling "layout."
@@ -86,7 +86,7 @@ I can't express what a fantastic feeling it was to see that *original* code spri
 This version of their interpreter only plays z3 games, but *does* include VT100-style character/terminal handling code to give a proper, real-deal, Infocom presentation. I saw code for split screen handling so even *Seastalker*'s radar should work I think. 🤔
 
 ### Building ZIP
-`cosmocc -o zip dgh_zip.c`
+`cosmocc -o zip dgh_zip.c -mtiny`
 
 One thing to note is that this interpreter is made to run as a commercial product. So game files cannot be executed via command-line parameters, like the others can; it is expecting data to be ready to load at launch. Rename your .z3 file to 
 `<exact_name_of_the_executable_you_are_running>.dat`
