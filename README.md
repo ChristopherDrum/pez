@@ -1,4 +1,5 @@
 # Portable Executable Zork
+![Screenshot of resurrected ZIP (z-machine interpreter) by Infocom for Unix, running in Windows 11 PowerShell and Ubuntu WSL2](https://github.com/user-attachments/assets/35e9b894-9114-4bb9-bcaa-a186e454b043)
 
 The title says "Zork" but I'm using that classic game as a stand-in to mean "interactive fiction" in general.
 
