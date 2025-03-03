@@ -479,26 +479,32 @@ write_chart()
 {
   int out, ct;
   char chart_buf[255];
-  struct tm *tms;
-  long tt = time(0);
+
+  time_t tt = time(NULL);
+  struct tm *tms = localtime(&tt);
+
   objseek(OBJ_ENDLOD_LOC, FALSE);
   endlod = objgetb() << 8;
   endlod |= objgetb();
+
   out = open(&Chart_file[0], O_APPEND | O_WRONLY);
   if (out < 0) {
     out = open(&Chart_file[0], O_CREAT | O_WRONLY, 0666);
     sprintf(&chart_buf[0], "-date-  -rel-  -size-   -pre-  -obj-  -glo-  -voc-\n");
-    write(out, &chart_buf[0], strlen(&chart_buf[0])); }
-  tms = localtime(&tt);
+    write(out, &chart_buf[0], strlen(&chart_buf[0])); 
+  }
+
   sprintf(&chart_buf[0], " %2d/%02d   %3d   %6d   %5d  %5d   %3d   %5d\n",
-	  tms->tm_mon+1, tms->tm_mday, Release, Objtop, endlod,
-	  ObjectC, GvarC - GVARBASE, VocC);
+    tms->tm_mon+1, tms->tm_mday, Release, Objtop, endlod,
+    ObjectC, GvarC - GVARBASE, VocC);
   write(out, &chart_buf[0], strlen(&chart_buf[0]));
   close(out);
   sprintf(&chart_buf[0], "from %s.zip, %2d/%02d/%02d %d:%02d:%02d.",
 	  Game_name, tms->tm_mon+1, tms->tm_mday, tms->tm_year,
 	  tms->tm_hour, tms->tm_min, tms->tm_sec);
-  add_vers_resource(Release, &chart_buf[0]); }
+  printf("*** write_chart is about to add_vers_resource\n");
+  add_vers_resource(Release, &chart_buf[0]); 
+}
 
 /*
  

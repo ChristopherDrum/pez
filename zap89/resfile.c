@@ -57,6 +57,11 @@ long offset from 256 to resource data
 /* #define JAN_1_1970 030744725620 */
 #define JAN_1_1970 030744723624
 
+extern struct timezone {
+  int tz_minuteswest;
+  int tz_dsttime;
+};
+
 unsigned char res_buf[512];
 
 res_map(type, length, pointer, which)
@@ -311,8 +316,8 @@ add_vers_resource(version, text)
 int version;
 char *text;
 {
+  printf("> add_vers_resource called");
   size_t text_len = strlen(text);
-  printf("> add_vers_resource: %d, (%d)%s", version, text_len, text);
   
   int reslen = 8;		/* Base length */
   char buf[255];

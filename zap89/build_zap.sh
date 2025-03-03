@@ -19,7 +19,7 @@ echo "...done"
 #first, build the mkcomptime helper executable
 #we can probably just rework things to eliminate the need for this
 echo "Building mkcomptime and running getdate..."
-cosmocc -std=c89 -o mkcomptime mkcomptime.c
+cc -std=c89 -o mkcomptime mkcomptime.c
 
 #getdate script uses the mkcomptime executable made above
 #overly convoluted way to create a timestamp :/
@@ -30,7 +30,7 @@ function make_o_files {
 	local arr=("$@")
 	for element in "${arr[@]}"; do
 		echo "Building $element.o"
-		cosmocc -std=c89 -w -g -c -o "$element.o" "$element.c"
+		cc -std=c89 -w -g -c -o "$element.o" "$element.c"
 	done
 }
 
@@ -40,5 +40,5 @@ make_o_files "${zap_files[@]}"
 
 #combine the .o files into an APE
 echo "Linking into an APE file..."
-cosmocc -std=c89 -o zap *.o
+cc -std=c89 -g -o zap *.o
 echo "Done with the build!"
