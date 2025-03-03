@@ -520,8 +520,8 @@ int lexadd( LEXBUF **lxPP, int *lxXP, int tktype, char *tokenP, int tokenL )
 	// char		*tokenP;	/* New token */
 	// int		tokenL;		/* Length of token */
 {
-		LEXBUF		*lxP;
-		unsigned int	lxX;
+	LEXBUF		*lxP;
+	unsigned int	lxX;
 
     lxP = *lxPP;
     lxX = *lxXP;
@@ -534,7 +534,7 @@ int lexadd( LEXBUF **lxPP, int *lxXP, int tktype, char *tokenP, int tokenL )
 	lxP->lx_data[lxX] = TKEOB;	/* Mark end of block */
 
 	if ( ( lxP = (LEXBUF *)MALLOC( sizeof(LEXBUF) ) ) == NULL ) {
-	    my_fprintf( stderr, "ZAP: Can't allocate LEXBUF(1) in lexadd()\n", NULL, NULL, NULL, NULL);
+	    my_fprintf( stderr, "ZAP: Can't allocate LEXBUF(1) in lexadd()\n");
 	    return( SCMEMORY );
 	}
 
@@ -553,6 +553,7 @@ int lexadd( LEXBUF **lxPP, int *lxXP, int tktype, char *tokenP, int tokenL )
     *LasttkP = tktype;
     if ( tokenL != 0 ) {
 	memcpy( LasttkP+1, tokenP, tokenL );
+	printf("after lexadd memcpy: %s", (char*)LasttkP+1);
 	lxX += tokenL;
     }
 

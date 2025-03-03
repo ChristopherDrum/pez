@@ -89,14 +89,14 @@ int addfstr( char *strP )/* Addr of zstring */
 	   struct freq_node *new;
     if (build_freq) return(SCOK);
     if ( FreqC == MAXFREQSTR )
-	zerror( E_PASS1, "Too many frequent strings at \"%s\"", strP, NULL, NULL,NULL);
+	zerror( E_PASS1, "Too many frequent strings at \"%s\"", strP);
     else {
         new = (struct freq_node *)MALLOC(sizeof(struct freq_node));
 	new->next = Freqstr[(unsigned char)(*strP)];
 	Freqstr[(unsigned char)(*strP)] = new;
         len = strlen( strP );		/* Number of bytes */
 	if ( ( new->fs_strP = CALLOC( 1, len+1 ) ) == NULL )
-	    zerror( E_PASS1, "addfstr: can not allocate string space!",NULL, NULL, NULL,NULL);
+	    zerror( E_PASS1, "addfstr: can not allocate string space!");
 	else {
 	    strcpy( new->fs_strP, strP );
 	    new->fs_len = len;

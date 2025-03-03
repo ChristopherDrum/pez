@@ -127,6 +127,8 @@ SYMBOL *symenter(STABLE *table, char *name, int size)
 	SYMBOL *sym;
 	SYMBOL **p;
 
+	printf("symenter name: %s\n", name);
+
     /* get the hash bucket address */
     p = &table->stab_buckets[hash(name,table->stab_hsize)];
 
@@ -257,11 +259,11 @@ int hash(char *name, int hsize)
 	// char *name;		/* the symbol name */
 	// int hsize;		/* the hash table size */
 {
-	 int i;
-	 char valarr[4];
+	int i;
+	char valarr[4];
 
-  *(long *)valarr = 0L;
-  for (i = 0; *name != '\0'; name++)
-    valarr[i++ % 4] ^= *name;
-  return (*(long *)valarr % hsize);
+	*(long *)valarr = 0L;
+	for (i = 0; *name != '\0'; name++)
+		valarr[i++ % 4] ^= *name;
+	return (*(long *)valarr % hsize);
 }

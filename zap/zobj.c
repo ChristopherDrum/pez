@@ -161,7 +161,7 @@ int objfinish()
 	objtell();
 	top_page = Objtop / PAGE_SIZE;
 	if (top_page > NUM_PAGES - 1) {
-	  zerror(E_ALWAYS,"Uh Oh!  Game is too big!",NULL, NULL, NULL,NULL);
+	  zerror(E_ALWAYS,"Uh Oh!  Game is too big!");
 	  return(SCERR);
 	}
 	length = Objtop / div_val;
@@ -519,7 +519,7 @@ int objvocab(VNODE *nodes[])
 
   /* Check for partially filled node not yet inserted */
   if ( CurvocP != NULL ) {
-    zerror( E_PASS1, "warning - partial vocabulary data discarded",NULL, NULL, NULL,NULL);
+    zerror( E_PASS1, "warning - partial vocabulary data discarded");
     CFREE( CurvocP,1,sizeof(VNODE) + Vocreclen - 1 );
     CurvocP = NULL;
     VocX = 0;
@@ -593,7 +593,7 @@ static int addvbyte( UBYTE b )
     if ( ( VocX == 0 ) && ( CurvocP == NULL ) ) {
 	CurvocP = (VNODE *)CALLOC( 1, sizeof(VNODE) + Vocreclen - 1);
 	if ( CurvocP == NULL ) {
-	    zerror( E_ALWAYS, "can not allocate vocabulary tree node!",NULL, NULL, NULL,NULL);
+	    zerror( E_ALWAYS, "can not allocate vocabulary tree node!");
 	    return( SCMEMORY );
 	}
     }
@@ -684,7 +684,7 @@ int voclabel( LGSYMBOL *symP )/* Ptr to the symbol table entry */
 
     /* Make a label node for this label */
     if ( ( vlP = (VLABEL *)CALLOC( 1, sizeof(VLABEL) ) ) == NULL ) {
-	zerror( E_ALWAYS, "can not allocate vocabulary label node!",NULL, NULL, NULL,NULL);
+	zerror( E_ALWAYS, "can not allocate vocabulary label node!");
 	return( SCMEMORY );
     }
 

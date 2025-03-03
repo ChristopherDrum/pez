@@ -329,7 +329,7 @@ int assync( int errF )
 	    return( sts );
 
 	if ( errF ) {
-	    zerror( E_PASS1, "unexpected stuff on line.",NULL, NULL, NULL,NULL);
+	    zerror( E_PASS1, "unexpected stuff on line.");
 	    return( SCERR );
 	}
     }
@@ -360,6 +360,9 @@ the caller.
 
 int asnxtoken()
 {
+	printf("> asnxtoken; advance to next token\n");
+	printf("\tLextkP (lex token pointer) %d:%s\n", (int)*LextkP, (char*)LextkP+1);
+
 	int		tktype;
 	int		skipF;		/* If already skipped */
 	LEXBUF		*lexP;		/* For freeing lex buffers */
@@ -449,7 +452,7 @@ int asnxtoken()
 	    default:
 		zerror( E_ALWAYS,
 			 "unknown token %d -- asnxtoken() internal error!!",
-				 tktype, NULL, NULL,NULL);
+				 tktype);
 		return( SCERR );
 		break;
 	}

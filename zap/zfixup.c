@@ -151,7 +151,7 @@ static int fix_syms( FIXUP **fix_list )
 	return(sts);		/* Abort!  abort! */
       FREE(fix); }
     else {
-      zerror(E_ALWAYS,"Undefined symbol %s in fixup",fix->fx_sym->lg_sym.sym_name, NULL, NULL,NULL);
+      zerror(E_ALWAYS,"Undefined symbol %s in fixup",fix->fx_sym->lg_sym.sym_name);
       /* Used to return, leading to completely useless ZIP files. */
       *fixP = fix->fx_next;
       FREE(fix); }
@@ -192,7 +192,7 @@ static int fixupone(FIXUP *fix) /* The fixup block */
   case FXBYTE:			/* Straight byte reference */
     if ((value & ~0xff) != 0)
       zerror(E_ALWAYS, "forward reference to %s does not resolve to byte",
-	     sym->lg_sym.sym_name, NULL, NULL,NULL);
+	     sym->lg_sym.sym_name);
     objseek(fix->fx_addr, FALSE);
     if ((sts = objputb(value)) == SCOK)
       sts = SCNOTDONE;
@@ -240,7 +240,7 @@ static int fixupone(FIXUP *fix) /* The fixup block */
       sts = SCNOTDONE;	/* No shortening of jumps */
     break;
   default:
-    zerror(E_ALWAYS, "internal error - unknown fixup class %d",	(int)fix->fx_class, NULL, NULL,NULL);
+    zerror(E_ALWAYS, "internal error - unknown fixup class %d",	(int)fix->fx_class);
     sts = SCERR;
     break; }
   return(sts);
@@ -305,7 +305,7 @@ int makefixup(LGSYMBOL *symP, int class, long addr, ZNUM off)
     printf("Reference to W?NORTH\n"); */
   if (build_freq) return(SCOK);
   if ((fixP = (FIXUP *)MALLOC(sizeof(FIXUP))) == NULL) {
-    zerror(E_ALWAYS, "can not allocate fixup block in makefixup()",NULL, NULL, NULL,NULL);
+    zerror(E_ALWAYS, "can not allocate fixup block in makefixup()");
     return(SCMEMORY); }
   if ((State & AS_VOCAB) != 0) { /* We're building vocabulary */
     fixP->fx_next = CurvocP->vn_fixups;	/* So just chain this on the current node */
@@ -370,7 +370,7 @@ static int undefsym( LGSYMBOL *symP )
 {
     /* If the symbol is undefined, print it. */
     if ( ( symP->lg_val.v_flags & ST_DEFINED ) == 0 )
-	zerror( E_ALWAYS, "\"%s\" undefined.", symP->lg_sym.sym_name, NULL, NULL,NULL);
+	zerror( E_ALWAYS, "\"%s\" undefined.", symP->lg_sym.sym_name);
 
     return( SCOK );
 }

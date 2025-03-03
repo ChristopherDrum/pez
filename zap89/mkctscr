@@ -1,0 +1,1 @@
+cc -g -c comptime.c -D'DATE_TIME="3/3/25 9:10"'

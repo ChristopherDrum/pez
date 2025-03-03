@@ -50,7 +50,10 @@ int asequate()
   int got_type;
 
   /* get ptr to equate symbol name */
-  memcpy( &nameP, LextkP+1, sizeof(char *) );
+  // memcpy( nameP, LextkP+1, sizeof(char *) );
+  nameP = (char *)(LextkP + 1);
+	printf("> asequate for nameP: %s\n", nameP);
+
   if (strcmp(nameP, "LAST-OBJECT") == 0)
     nameP = nameP;
 
@@ -64,7 +67,7 @@ int asequate()
   /* Make sure value is absolute */
   if ( ( val.v_flags & ST_REL ) != 0 )
     /* Just give warning, and proceed */
-    zerror( E_PASS1, "warning - non-absolute value in equate",NULL, NULL, NULL,NULL);
+    zerror( E_PASS1, "warning - non-absolute value in equate");
   
   /* Enter symbol/value in symbol table */
   symP = (LGSYMBOL *)symenter( Gblsymtab, nameP, sizeof( LGSYMBOL ) );
@@ -109,7 +112,9 @@ int aslabel()
     LGSYMBOL	*symP;		/* Ptr to symbol table entry */
 
     tktype = *LextkP;			/* Get label token type */
-    memcpy( &nameP, LextkP+1, sizeof(char *) ); /* Ptr to symbol name */
+    // memcpy( &nameP, LextkP+1, sizeof(char *) ); /* Ptr to symbol name */
+    nameP = (char *)(LextkP + 1);
+    printf("> aslabel for nameP: %s\n", nameP);
 
     if ( ( sts = asnxtoken() ) != SCOK )
     return( sts );
@@ -134,7 +139,7 @@ int aslabel()
 
     if ( ( Pass == 0 ) && ( ( symP->lg_val.v_flags & ST_DEFINED ) != 0 ) ) {
 	/* Duplicate definition */
-	zerror( E_PASS1, "symbol \"%s\" is multiply defined", nameP, NULL, NULL,NULL);
+	zerror( E_PASS1, "symbol \"%s\" is multiply defined", nameP);
 	return( assync( FALSE ) );
     }
 

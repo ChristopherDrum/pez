@@ -54,7 +54,7 @@ int evalbyte()
   /* If absolute value, go ahead and process it */
   if ( ( val.v_flags & ST_REL ) == 0 ) {
     if ( val.v_value > 0xff )	/* Check byte range */
-      zerror( E_ALWAYS, "warning - value truncated to LSB",NULL, NULL, NULL,NULL);
+      zerror( E_ALWAYS, "warning - value truncated to LSB");
     return( objputb( (UWORD)val.v_value ) );
   }
 
@@ -100,7 +100,7 @@ int evalconst( ZNUM *resultP ) /* Where to put the answer */
 	return( assync( FALSE ) );	/* Return if problem */
 
     if ( ( val.v_flags & ST_REL ) != 0 ) {
-	zerror( E_ALWAYS, "warning - invalid use of relocatable value",NULL, NULL, NULL,NULL);
+	zerror( E_ALWAYS, "warning - invalid use of relocatable value");
 	*resultP = 0;
     }
     else
@@ -178,16 +178,16 @@ consist of any number of *defined* terms connected by plus signs.
 */
 
 int eval( VALUE *valP, LGSYMBOL **symPP )
-	// 	VALUE		*valP;		/* Where to store value */
+	// 	VALUE		*valP;	/* Where to store value */
 	// LGSYMBOL	**symPP;	/* Ptr to symbol table entry var */
 {
-		int		sts;
-	ZNUM		sv;		/* Scratch value */
-		ZNUM		value;		/* Value we're making */
-        char		*strP;		/* Ptr to a string */
+	int			sts;
+	ZNUM		sv;			/* Scratch value */
+	ZNUM		value;		/* Value we're making */
+	char		*strP;		/* Ptr to a string */
 	LGSYMBOL	*symP;		/* Symbol table entry */
 	LGSYMBOL	*dummysymP;
-        BOOL            sym_used = FALSE;
+	BOOL		sym_used = FALSE;
 
     if ( symPP == NULL )
 	symPP = &dummysymP;
@@ -199,7 +199,8 @@ int eval( VALUE *valP, LGSYMBOL **symPP )
     for( value = 0 ; ; ) {
 	switch( *LextkP ) {		/* Dispatch by type of token */
 	    case TKSYMBOL:
-		memcpy( &strP, LextkP+1, sizeof(char *) );
+		// memcpy( &strP, LextkP+1, sizeof(char *) );
+	    strP = (char *)LextkP+1;
 		symP = evalsymref( strP );	/* Find symbol */
 		if ( ( symP->lg_val.v_flags & ST_DEFINED ) == 0 ) {
 		    symP->lg_val.v_value = 0;   /* Make sure value is 0 */
@@ -209,7 +210,7 @@ int eval( VALUE *valP, LGSYMBOL **symPP )
 		if ( ( symP->lg_val.v_flags & (ST_REL|ST_VAR) ) != 0 ) {
 		    if ( sym_used ) {
 			/* Label/var reference must be only one */
-			zerror( E_PASS1, "invalid expression",NULL, NULL, NULL,NULL);
+			zerror( E_PASS1, "invalid expression");
 			return( SCNOTDONE );
 		    }
 		    sym_used = TRUE;
@@ -234,7 +235,7 @@ int eval( VALUE *valP, LGSYMBOL **symPP )
 		break;
 
 	    default:
-		zerror( E_PASS1, "invalid expression",NULL, NULL, NULL,NULL);
+		zerror( E_PASS1, "invalid expression");
 		return( SCNOTDONE );
 	}
 
@@ -291,7 +292,8 @@ function's segment.
 
 LGSYMBOL *evalsymref( char *nameP ) /* name to find */
 {
-  		LGSYMBOL	*symP;		/* Ptr to symbol */
+	printf("> evalsymref for: %s\n", nameP);
+  LGSYMBOL	*symP;		/* Ptr to symbol */
 
   /* Process by whether in a function */
   if ( ( State & AS_FUNCT ) != 0 ) {

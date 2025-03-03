@@ -92,7 +92,7 @@ int zo_1op( ODDISP *ocP )/* Opcode data ptr */
 	return( sts );
 
     if ( ArgC != 1 ) {			/* Must be one arg */
-	zerror( E_PASS1, "too few arguments.",NULL, NULL, NULL,NULL);
+	zerror( E_PASS1, "too few arguments.");
 	return( assync( FALSE ) );
     }
 
@@ -143,7 +143,7 @@ int zo_2op( ODDISP *ocP )/* Opcode data ptr */
 	return( sts );
 
     if ( ArgC < 2 ) {			/* Must be at least two args */
-	zerror( E_PASS1, "too few arguments.",NULL, NULL, NULL,NULL);
+	zerror( E_PASS1, "too few arguments.");
 	return( assync( FALSE ) );
     }
 
@@ -312,19 +312,20 @@ Returns :
 
 int zo_jump( ODDISP *ocP )/* Opcode data ptr */
 {
-		int		sts;
+	int			sts;
 	long		curaddr;
 	WORD		offset;		/* Jump displacement */
 	char		*snameP;	/* Ptr to symbol name */
-		LGSYMBOL	*symP;		/* Ptr to symtab entry */
+	LGSYMBOL	*symP;		/* Ptr to symtab entry */
 
     /* Argument must be symbolic branch location */
     if ( !anyarg() || ( *LextkP != TKSYMBOL ) ) {
-	zerror( E_PASS1, "expected branch location",NULL, NULL, NULL,NULL);
+	zerror( E_PASS1, "expected branch location");
 	return( SCNOTDONE );
     }
 
-    memcpy( &snameP, LextkP+1, sizeof(char *) );
+    // memcpy( &snameP, LextkP+1, sizeof(char *) );
+	snameP = (char *)LextkP+1;
     if ( ( sts = asnxtoken() ) != SCOK )
 	return( sts );
 
@@ -376,7 +377,7 @@ int zo_printi( ODDISP *ocP )/* Opcode data ptr */
 
     /* Get the string argument */
     if ( *LextkP != TKSTRING ) {
-	zerror( E_PASS1, "expected string.",NULL, NULL, NULL,NULL);
+	zerror( E_PASS1, "expected string.");
 	return( SCNOTDONE );
     }
 
@@ -458,11 +459,12 @@ static int zo_val( ODDISP *ocP )/* Opcode data ptr */
 
     /* Next thing must be variable name */
     if ( *LextkP != TKSYMBOL ) {
-	zerror( E_PASS1, "expected variable name",NULL, NULL, NULL,NULL);
+	zerror( E_PASS1, "expected variable name");
 	return( SCNOTDONE );
     }
 
-    memcpy( &vnameP, LextkP+1, sizeof(char *) );
+    // memcpy( &vnameP, LextkP+1, sizeof(char *) );
+	vnameP = (char *)LextkP+1;
     if ( ( sts = asnxtoken() ) != SCOK )
 	return( sts );
 
@@ -475,12 +477,12 @@ static int zo_val( ODDISP *ocP )/* Opcode data ptr */
 	symP = (LGSYMBOL *)symlookup( Gblsymtab, vnameP );
 
     if ( symP == NULL ) {
-	zerror( E_PASS1, "undefined variable \"%s\".", vnameP, NULL, NULL,NULL);
+	zerror( E_PASS1, "undefined variable \"%s\".", vnameP);
 	return( SCNOTDONE );
     }
 
     if ( ( symP->lg_val.v_flags & ST_VAR ) == 0 ) {
-	zerror( E_PASS1, "\"%s\" is not a variable.", vnameP, NULL, NULL,NULL);
+	zerror( E_PASS1, "\"%s\" is not a variable.", vnameP);
 	return( SCNOTDONE );
     }
 
@@ -518,7 +520,7 @@ static int zo_pred( ODDISP *ocP ) /* Opcode data ptr */
     else if ( ( *LextkP == TKCHAR ) && ( LextkP[1] == '/' ) )
 	sense = 0x80;			/* Branch on true */
     else {
-	zerror( E_PASS1, "expected \"\\\" or \"/\"",NULL, NULL, NULL,NULL);
+	zerror( E_PASS1, "expected \"\\\" or \"/\"");
 	return( objputb( 0x40 ) );	/* Default? */
 /*	return( SCNOTDONE );  */
     }
@@ -529,10 +531,11 @@ static int zo_pred( ODDISP *ocP ) /* Opcode data ptr */
 
     /* Next thing must be variable name */
     if ( *LextkP != TKSYMBOL ) {
-	zerror( E_PASS1, "expected variable name",NULL, NULL, NULL,NULL);
+	zerror( E_PASS1, "expected variable name");
 	return( SCNOTDONE );
     }
-    memcpy( &vnameP, LextkP+1, sizeof(char *) );
+    // memcpy( &vnameP, LextkP+1, sizeof(char *) );
+	vnameP = (char *)LextkP+1;
 
     if ( ( sts = asnxtoken() ) != SCOK )
 	return( sts );
@@ -584,7 +587,7 @@ static int zo_pred( ODDISP *ocP ) /* Opcode data ptr */
     bvalue = symP->lg_loc - (curaddr+2) +2;
     if (( ( bvalue & 0xc000 ) != 0xc000 ) && !build_freq) {
         /* Can't fit in 14 bits */
-	zerror( E_ALWAYS, "predicate reference too far",NULL, NULL, NULL,NULL);
+	zerror( E_ALWAYS, "predicate reference too far");
 	sts = SCNOTDONE;
     }
     else {
@@ -761,7 +764,7 @@ static int zo_getargs( int argmax )
 		argP->arg_type = AT_VAR;	/* Treat as variable */
 	}
 	else if ( quoted )
-	    zerror( E_PASS1, "syntax error - misplaced quote.",NULL, NULL, NULL,NULL);
+	    zerror( E_PASS1, "syntax error - misplaced quote.");
 	else if ( ( flags & ST_REL ) == 0 ) {
 	    if ( ( argP->arg_val.v_value & ~0xff ) == 0 )
 		argP->arg_type = AT_CONSTS;  /* Short constant */
@@ -775,7 +778,7 @@ static int zo_getargs( int argmax )
     }
 
     if ( ArgC > argmax ) {
-	zerror( E_PASS1, "too many arguments for opcode",NULL, NULL, NULL,NULL);
+	zerror( E_PASS1, "too many arguments for opcode");
 	return( SCNOTDONE );
     }
     return( SCOK );

@@ -3,3 +3,5 @@
 pez*
 test*
 *.dat
+*.o
+zap/.aarch64/

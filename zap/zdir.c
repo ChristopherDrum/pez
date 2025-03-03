@@ -141,7 +141,7 @@ int zd_end( int dirnum )
 int zd_insert( int dirnum )
 {
     /* All .insert directives should be removed by the lexicalizer */
-    zerror( E_ALWAYS, "internal error - .insert present in token stream", NULL, NULL, NULL, NULL);
+    zerror( E_ALWAYS, "internal error - .insert present in token stream");
     return( SCERR );
 }
 
@@ -149,7 +149,7 @@ int zd_insert( int dirnum )
 int zd_endi( int dirnum )
 {
     /* Valid .endi is processed by the lexicalizer. */
-    zerror( E_PASS1, ".endi not in insert file.", NULL, NULL, NULL, NULL);
+    zerror( E_PASS1, ".endi not in insert file.");
     return( assync( FALSE ) );
 }
 /*
@@ -306,7 +306,7 @@ int zd_chrset( int dirnum )
 	return( sts );
 
 	if ((id < 0) || (id > 2)) {
-		zerror(E_PASS1,"Bad character set id in .chrset", NULL, NULL, NULL, NULL);
+		zerror(E_PASS1,"Bad character set id in .chrset");
 		return(SCERR);
 	}
 	switch (id) {
@@ -369,8 +369,9 @@ int zd_fstr( int dirnum )
     /* Find the symbol name, and the string */
     if ( *LextkP != TKSYMBOL )
 	return( zexpected( E_PASS1, "label for string" ) );
-    memcpy( &snameP, LextkP+1, sizeof(char *) );
-    if ( ( sts = asnxtoken() ) != SCOK )
+    // memcpy( &snameP, LextkP+1, sizeof(char *) );
+	snameP = (char *)(LextkP + 1);
+	if ( ( sts = asnxtoken() ) != SCOK )
 	return( sts );
 
     ascomma();				/* Skip any comma */
@@ -385,7 +386,7 @@ int zd_fstr( int dirnum )
     /* Define the name as a global symbol */
     symP = (LGSYMBOL *)symenter( Gblsymtab, snameP, sizeof( LGSYMBOL ) );
     if ( ( Pass == 0 ) && ( ( symP->lg_val.v_flags & ST_DEFINED ) != 0 ) )
-	zerror( E_PASS1, "duplicate symbol \"%s\"", snameP, NULL, NULL, NULL);
+	zerror( E_PASS1, "duplicate symbol \"%s\"", snameP);
     else {
 	symP->lg_val.v_flags = ST_DEFINED|ST_GLOBAL;
 	symP->lg_loc = objtell();
@@ -450,8 +451,9 @@ int zd_funct( int dirnum )
     if ( *LextkP != TKSYMBOL )		/* Function must have a name */
 	return( zexpected( E_PASS1, "name of function" ) );
 
-    memcpy( &fnameP, LextkP+1, sizeof(char *) );  /* Get name */
-    asnxtoken();			/* Skip past it */
+    // memcpy( &fnameP, LextkP+1, sizeof(char *) );  /* Get name */
+	fnameP = (char *)(LextkP + 1);
+	asnxtoken();			/* Skip past it */
 	type = get_type(FALSE);	/* Look for function type after colon */
 	
 	if (ascolon() == SCOK) { /* get arg info? */
@@ -482,7 +484,7 @@ int zd_funct( int dirnum )
 	    if ( Version != 4 )		/* Should be proper model */
 		zerror( E_PASS1,
  		   "warning--default values not supported in version %d",
- 		   Version, NULL, NULL, NULL);
+ 		   Version);
 
 	    if ( asnxtoken() != SCOK )
 		continue;
@@ -494,7 +496,7 @@ int zd_funct( int dirnum )
     /* Define the function name as a global symbol */
     symP = (LGSYMBOL *)symenter( Gblsymtab, fnameP, sizeof( LGSYMBOL ) );
     if ( ( Pass == 0 ) && ( ( symP->lg_val.v_flags & ST_DEFINED ) != 0 ) )
-	zerror( E_PASS1, "duplicate function \"%s\"", fnameP, NULL, NULL, NULL);
+	zerror( E_PASS1, "duplicate function \"%s\"", fnameP);
     else {
 	symP->lg_val.v_flags = ST_DEFINED|ST_GLOBAL;
 	symP->lg_loc = objtell();
@@ -522,7 +524,7 @@ int zd_funct( int dirnum )
 						 sizeof( LGSYMBOL ) );
 	    if ( ( Pass == 0 ) &&
 		 ( ( symP->lg_val.v_flags & ST_DEFINED ) != 0 ) )
-		zerror( E_PASS1, "duplicate argument name \"%s\"", argname[i], NULL, NULL, NULL);
+		zerror( E_PASS1, "duplicate argument name \"%s\"", argname[i]);
 	    else {
 		symP->lg_val.v_flags = ST_DEFINED|ST_VAR;
 		symP->lg_val.v_value = i+1;
@@ -572,8 +574,9 @@ int zd_gstr( int dirnum )
     /* Find the symbol name, and the string */
     if ( *LextkP != TKSYMBOL )
 	return( zexpected( E_PASS1, "label for string" ) );
-    memcpy( &snameP, LextkP+1, sizeof(char *) );
-    if ( ( sts = asnxtoken() ) != SCOK )
+    // memcpy( &snameP, LextkP+1, sizeof(char *) );
+	snameP = (char *)(LextkP + 1);
+	if ( ( sts = asnxtoken() ) != SCOK )
 	return( sts );
 
     ascomma();				/* Skip any comma */
@@ -595,7 +598,7 @@ int zd_gstr( int dirnum )
     /* Define the name as a global symbol */
     symP = (LGSYMBOL *)symenter( Gblsymtab, snameP, sizeof( LGSYMBOL ) );
     if ( ( Pass == 0 ) && ( ( symP->lg_val.v_flags & ST_DEFINED ) != 0 ) )
-	zerror( E_PASS1, "duplicate symbol \"%s\"", snameP, NULL, NULL, NULL);
+	zerror( E_PASS1, "duplicate symbol \"%s\"", snameP);
     else {
 	symP->lg_val.v_flags = ST_DEFINED|ST_GLOBAL;
 	symP->lg_loc = objtell();
@@ -644,14 +647,15 @@ int zd_gvar( int dirnum )
 
     /* Make sure global variable count not exceeded */
     if ( GvarC > GVARMAX ) {
-        zerror( E_PASS1, "too many global variables", NULL, NULL, NULL, NULL);
+        zerror( E_PASS1, "too many global variables");
 	return( assync( FALSE ) );
     }
 
     /* Get the symbol name */
     if ( *LextkP != TKSYMBOL )
 	return( zexpected( E_PASS1, "global variable name" ) );
-    memcpy( &snameP, LextkP+1, sizeof(char *) );
+    // memcpy( &snameP, LextkP+1, sizeof(char *) );
+	snameP = (char *)(LextkP + 1);
     if ( ( sts = asnxtoken() ) != SCOK )
 	return( sts );
 
@@ -669,7 +673,7 @@ int zd_gvar( int dirnum )
     /* Define the "gvar" as a global symbol */
     symP = (LGSYMBOL *)symenter( Gblsymtab, snameP, sizeof( LGSYMBOL ) );
     if ( ( Pass == 0 ) && ( ( symP->lg_val.v_flags & ST_DEFINED ) != 0 ) )
-	zerror( E_PASS1, "duplicate symbol \"%s\"", snameP, NULL, NULL, NULL);
+	zerror( E_PASS1, "duplicate symbol \"%s\"", snameP);
     else {
 	symP->lg_val.v_flags = ST_DEFINED|ST_GLOBAL|ST_VAR;
 	symP->lg_val.v_value = GvarC++;
@@ -724,7 +728,7 @@ int zd_new( int dirnum )
 
     /* This implementation only implements level 5 or 6 */
     if (( level != 5 ) && (level != 6))
-	zerror( E_PASS1, "warning - unsupported level: %d", level, NULL, NULL, NULL);
+	zerror( E_PASS1, "warning - unsupported level: %d", level);
     if ( ( level >= 4 ) && ( level <= 6 ) ) {
 	Version = level;
 	version_update();
@@ -748,22 +752,25 @@ int zd_new( int dirnum )
 
 int zd_object( int dirnum )
 {
-		int		sts;
-	int		i;
+	int			sts;
+	int			i;
 	char		*onameP;	/* Object name */
-		LGSYMBOL	*symP;		/* General symbol ptr */
+	LGSYMBOL	*symP;		/* General symbol ptr */
+
 
     /* Pick up the symbol name */
     if ( *LextkP != TKSYMBOL )
 	return( zexpected( E_PASS1, "object name" ) );
-    memcpy( &onameP, LextkP+1, sizeof(char *) );
+    // memcpy( &onameP, LextkP+1, sizeof(char *) );
+	onameP = (char *)(LextkP + 1);
+	printf("building zd_object: %s", onameP);
     if ( ( sts = asnxtoken() ) != SCOK )
       return( sts );
 
     /* Define the object as a global symbol */
     symP = (LGSYMBOL *)symenter( Gblsymtab, onameP, sizeof( LGSYMBOL ) );
     if ( ( Pass == 0 ) && ( ( symP->lg_val.v_flags & ST_DEFINED ) != 0 ) )
-	zerror( E_PASS1, "duplicate symbol \"%s\"", onameP, NULL, NULL, NULL );
+	zerror( E_PASS1, "duplicate symbol \"%s\"", onameP);
     else {
 	symP->lg_val.v_flags = ST_DEFINED|ST_GLOBAL;
 	symP->lg_val.v_value = ++ObjectC;
@@ -786,7 +793,7 @@ int zd_object( int dirnum )
 	if ( ( sts != SCOK ) && ( sts != SCNOTDONE ) )
 	    return( sts );
 	if ( !anyarg() ) {
-	    zerror( E_PASS1, "too few arguments", NULL, NULL, NULL, NULL );
+	    zerror( E_PASS1, "too few arguments" );
 	    break;
 	}
 
@@ -881,7 +888,7 @@ int zd_prop( int dirnum )
 
     /* Must be in a table */
     if ( ( State & AS_TABLE ) == 0 ) {
-	zerror( E_PASS1, ".prop not in table", NULL, NULL, NULL, NULL);
+	zerror( E_PASS1, ".prop not in table");
 	return( assync( FALSE ) );
     }
 
@@ -900,7 +907,7 @@ int zd_prop( int dirnum )
 
     /* Check the property number */
     if ( ( propN & ~0x3f ) != 0 ) {
-	zerror( E_PASS1, "warning - bad property number", NULL, NULL, NULL, NULL);
+	zerror( E_PASS1, "warning - bad property number");
 	propN = propN & 0x3f;
     }
 
@@ -1018,14 +1025,15 @@ int zd_seq( int dirnum )
 	if ( *LextkP != TKSYMBOL )
 	    break;			/* All done... */
 
-	memcpy( &nameP, LextkP+1, sizeof(char *) );
+	// memcpy( &nameP, LextkP+1, sizeof(char *) );
+	nameP = (char *)(LextkP + 1);
 	if ( ( sts = asnxtoken() ) != SCOK )
 	    return( sts );
 
 	/* Define the symbol */
 	symP = (LGSYMBOL *)symenter( Gblsymtab, nameP, sizeof( LGSYMBOL ) );
 	if ( ( Pass == 0 ) && ( ( symP->lg_val.v_flags & ST_DEFINED ) != 0 ) )
-	    zerror( E_PASS1, "duplicate symbol \"%s\"", nameP, NULL, NULL, NULL);
+	    zerror( E_PASS1, "duplicate symbol \"%s\"", nameP);
 	else {
 	    symP->lg_val.v_flags = ST_DEFINED|ST_GLOBAL;
 	    symP->lg_val.v_value = value;
@@ -1132,7 +1140,7 @@ int zd_table( int dirnum )
 	if ( evalconst( (ZNUM*)&Tblsize ) != SCOK )
 	    return( assync( FALSE ) );
 	if ( Tblsize < 0 ) {
-	    zerror( E_PASS1, "warning - invalid table size -- ignored",NULL, NULL, NULL,NULL);
+	    zerror( E_PASS1, "warning - invalid table size -- ignored");
 	    Tblsize = -1;
 	}
     }
@@ -1155,7 +1163,7 @@ int zd_table( int dirnum )
 int zd_endt( int dirnum )
 {
     if ( ( State & AS_TABLE ) == 0 )
-	zerror( E_PASS1, "warning - .endt not in a table",NULL, NULL, NULL,NULL);
+	zerror( E_PASS1, "warning - .endt not in a table");
     else {
 	endtable();			/* Do end-table processing */
 	assync( TRUE );			/* Report any junk on the line */
@@ -1174,7 +1182,7 @@ static void endtable()
 	/* Table was defined with a size - must check it */
 	if ( Tblsize != tsize )
 	    zerror( E_PASS1,
-		    "warning - table length does not match declared size",NULL, NULL, NULL,NULL);
+		    "warning - table length does not match declared size");
     }
     State &= ~AS_TABLE;
 	if (table_status != NOT_IN_TABLE) {
@@ -1222,9 +1230,9 @@ int zd_vocbeg( int dirnum )
 	return( sts );
 	
     if ( Vockeylen > Vocreclen)
-      zerror( E_PASS1, "Vocab key length greater than record size",NULL, NULL, NULL,NULL);
+      zerror( E_PASS1, "Vocab key length greater than record size");
     if ( Vockeylen < 1) {
-      zerror(E_PASS1, "Vocab key size less than 1",NULL, NULL, NULL,NULL);
+      zerror(E_PASS1, "Vocab key size less than 1");
       return (sts);
     }
     State |= AS_VOCAB;
@@ -1248,7 +1256,7 @@ int zd_vocend( int dirnum )
     long vocsize;
 
     if ( ( State & AS_VOCAB ) == 0 )
-	zerror( E_PASS1, "warning - .vocend not in vocabulary area",NULL, NULL, NULL,NULL);
+	zerror( E_PASS1, "warning - .vocend not in vocabulary area");
     else {
 	State &= ~AS_VOCAB;		/* No longer in vocab */
 
@@ -1258,7 +1266,7 @@ int zd_vocend( int dirnum )
 	        vocsize = objtell() - voc_start;
 		VocC += vocsize / Vocreclen;
 		if (vocsize % Vocreclen != 0)
-			zerror( E_PASS1, "warning - Vocab area bad length",NULL, NULL, NULL,NULL);
+			zerror( E_PASS1, "warning - Vocab area bad length");
 		cur_table->it.array.num_els = vocsize / Vocreclen;
 		table_status = NOT_IN_TABLE;
 	}
@@ -1378,10 +1386,10 @@ int zd_lang( int dirnum )
   if ((sts = evalconst((ZNUM*)&lang_escape)) != SCOK)
     return(sts);
   if (lang_id != 1)
-    zerror(E_PASS1, "German and English are the only languages supported",NULL, NULL, NULL,NULL);
+    zerror(E_PASS1, "German and English are the only languages supported");
   language_char = lang_escape;
   language_table = german_table;
-  my_printf("German characters; escape is %c.\n", language_char, NULL, NULL, NULL);
+  my_printf("German characters; escape is %c.\n", language_char);
   assync(TRUE);
   return(assync(FALSE)); }
 
@@ -1391,7 +1399,7 @@ int zd_time( int dirnum ) { return zd_nyi( dirnum ); }
 int zd_nyi( int dirnum )
 {
     zerror( E_ALWAYS, "%s: directive not yet implemented",   
-	Dirtbl[dirnum].od_name, NULL, NULL,NULL);
+	Dirtbl[dirnum].od_name);
     return( assync( FALSE ) );
 }
 
@@ -1422,7 +1430,8 @@ int get_type(BOOL after_comma)
 	return( sts );
     else {
 	if ( *LextkP == TKSYMBOL )
-	    memcpy( &tnameP, LextkP+1, sizeof(char *) );
+	    // memcpy( &tnameP, LextkP+1, sizeof(char *) );
+	    tnameP = (char *)LextkP+1;
 	else if ( *LextkP == TKSTRING )
 	    tnameP = (char *)LextkP+1;
 	else
@@ -1439,7 +1448,7 @@ int get_type(BOOL after_comma)
 
 	/* Did not recognize type - give warning and default to any */
 	if ( type == -1 ) {
-	    zerror( E_PASS1, "unknown type \"%s\"", tnameP, NULL, NULL,NULL);
+	    zerror( E_PASS1, "unknown type \"%s\"", tnameP);
 	    type = ANY_SPACE;
 	}
 	}

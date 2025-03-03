@@ -84,11 +84,13 @@ is of the following form:
 
 void set_up_vocab(unsigned char header_size)
 {
+	printf("> set_up_vocab\n");
+	
 	STABLE *Vocsymtab;
 	LGSYMBOL *sym;
 	
 	if (header_size < 4)
-		zerror(E_ALWAYS, "Vocabulary table header size too small",NULL, NULL, NULL,NULL);
+		zerror(E_ALWAYS, "Vocabulary table header size too small");
 			
 	/* First set up the structure table */
 	Vocsymtab = symnew(SSHASHSIZE, 0);

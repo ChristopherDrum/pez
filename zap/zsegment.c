@@ -392,21 +392,21 @@ void segfile(char *game_name)
   strcat(&fnm[0], ".seg");
   /* Now do the actual segment file. */
   if ((segfd = open(&fnm[0],O_WRONLY | O_CREAT | O_TRUNC,0666)) < 0) {
-    my_fprintf(stderr, "ZAP: Can not open segment file \"%s\"\n", &fnm[0], NULL, NULL, NULL);
+    my_fprintf(stderr, "ZAP: Can not open segment file \"%s\"\n", &fnm[0]);
     my_exit(SCNOFILE); 
   }
 
   segloc = segbuf = 0;  /* Let's reuse the buffers */
   segputl((char *)&numsegs,sizeof(UWORD)); /* Number of segments */
   if ((sym = (LGSYMBOL*)symlookup(Gblsymtab,ENDLODSYM)) == NULL) {  /* Find the ENDLOD symbol */
-    zerror(E_ALWAYS, "No %s symbol.",ENDLODSYM, NULL, NULL,NULL);
+    zerror(E_ALWAYS, "No %s symbol.",ENDLODSYM);
     my_exit(SCERR); /* Matching the pattern of other errors in this function; doesn't seem like a "bad" idea*/
   }
   endlod_page = sym->lg_val.v_value / PAGE_SIZE; /* Endload page */
   /* Everything from the start of the file to function_space goes in segment 0 */
   if ((sym = (LGSYMBOL*)symlookup(Gblsymtab, "SEG-DATA")) != NULL) {
     seg0_data = sym->lg_val.v_value;
-    my_printf("Data from %d to %d not in segment 0.\n", seg0_data, funct_start + 256, NULL, NULL); }
+    my_printf("Data from %d to %d not in segment 0.\n", seg0_data, funct_start + 256); }
   addpages(0, seg0_data / PAGE_SIZE, segments[0]->pages); 
   funct_page = (funct_start + 256) / PAGE_SIZE;  /* First function page */
   segputl((char *)&endlod_page,sizeof(UWORD)); /* Output words */

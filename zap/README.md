@@ -47,3 +47,28 @@ Which, I mean, hey it is at least *attempting* to do something useful! Not sure 
 AND it works exactly the same in Windows 11 PowerShell. So we do have our APE build working. That was the main goal up to this point.
 
 I'll at least make some effort to debug what's happening. Maybe there's something simple and obvious that will solve this problem. Might not be a deep problem? (might also be super deep)
+
+
+----- 
+
+Trying to run the original zap in Sun Sparc VM in qemu.
+Need a baseline to run against; does this version of zap even work?
+
+Not sure how to get files onto the vm. Tried making a simple data .iso to mount, but the sparc won't see the virtual cd-rom. Which is strange, because the vm saw the OS iso, booted from it, and installed the OS without issue. Not sure what the trouble is with just mounting a simple data disk now.
+
+Data .iso was created in WSL2:
+`mkisofs -o transfer.iso -r -R -V "SUN_TRANSFER" -graft-points <data_folder_path>`
+
+Running qemu like this:
+```
+qemu-system-sparc -machine SS-5 -m 64 -hda sunos-hdd.img -device scsi-cd,channel=0,scsi-id=6,id=cdrom,drive=cdrom,physical_block_size=512 -drive if=none,file=transfer.iso,media=cdrom,id=cdrom
+```
+
+
+export CC="cosmocc -I/opt/cosmos/include -L/opt/cosmos/lib"
+export CXX="cosmoc++ -I/opt/cosmos/include -L/opt/cosmos/lib"
+export INSTALL=cosmoinstall
+export AR=cosmoar
+./configure --prefix=/opt/cosmos
+make -j
+make install

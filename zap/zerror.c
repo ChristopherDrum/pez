@@ -73,6 +73,8 @@ int zerror( int when, char *msgP, ... )
 // when	/* Mask of appropriateness */
 // msgP	/* Message string */
 {
+	printf("> zerror when: %d, msg: %s\n", when, msgP);
+	
 	int		c;
 	int		i;
 	char	sourceline[STRINGBUF+1];

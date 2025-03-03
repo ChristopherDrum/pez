@@ -301,7 +301,7 @@ static void zapinit()
 	
 	if (Release == 0)
 		Release = get_release();
-    my_printf("Release: %d\n", Release, NULL, NULL, NULL);
+    my_printf("Release: %h\n", Release);
 
     /* Define standard variables */
     def_sym( Gblsymtab, "STACK", ST_VAR, 0, VARIABLE_SPACE );
@@ -385,6 +385,7 @@ void def_sym( STABLE *symtabP, char *nameP, UWORD flags, int value, unsigned cha
   LGSYMBOL	*symP;		/* Ptr to a symbol */
 
     /* Enter the symbol in the table */
+    printf("> def_sym; defining symbol: %s\n", nameP);
     symP = (LGSYMBOL *)symenter( symtabP, *(litstr(nameP)), sizeof(LGSYMBOL) );
 
     /* Form the entry from the input values */

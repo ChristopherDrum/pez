@@ -19,7 +19,7 @@ unsigned short gen_zpcf_id(char *machine_name)
     if (memq("color", machine_name)) return(COLOR_MAC_ZPCF_ID);
     if (memq("ii", machine_name)) return(COLOR_MAC_ZPCF_ID);
     return(MAC_ZPCF_ID); }
-  zerror(E_PASS1, "Unknown machine name in zpcf definition: %s.\n", machine_name, NULL, NULL, NULL);
+  zerror(E_PASS1, "Unknown machine name in zpcf definition: %s.\n", machine_name);
   return(COLOR_MAC_ZPCF_ID); }
 
 void add_zpcf_resource(char *file_name, char *machine_name, int ideal_x, int ideal_y, int base_x, int base_y)

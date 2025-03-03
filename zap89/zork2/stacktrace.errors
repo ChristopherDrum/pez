@@ -1,0 +1,13 @@
+zap of Mar  1 2025 12:01:48.
+Release: 
+ZAP: Can't open "(null)"
+Unreferenced global: 
+
+Lexical buffer space allocated:  140737488345696
+Max lexical space allocated at any one time: 140737488345696
+Object buffer space allocated:  140737488345696
+Source bytes read:  140737488345696
+Object bytes written:  140737488345696
+Preload: -9632; 4486328 objects; 4616747 globals; 4486367 words.
+Used -9680
+Elapsed time -9696
