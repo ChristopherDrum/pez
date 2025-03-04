@@ -266,7 +266,6 @@ int
 zd_word( dirnum )
 	int		dirnum;
 {
-extern	int		evalword();
 
 	if (is_label)
 		set_table(new_table(WORD_TYPE,ANY_SPACE));
@@ -281,9 +280,9 @@ extern	int		evalword();
 
 static int
 zd_wdbyt( evalrtc )
-AREG1	int		(*evalrtc)();	/* Evaluator routine to call */
+int		(*evalrtc)();	/* Evaluator routine to call */
 {
-DREG1	int		sts;
+int		sts;
 
     for( ; ; ) {			/* Loop on values */
 	/* Process the next term */
@@ -784,15 +783,16 @@ int
 zd_object( dirnum )
 	int		dirnum;
 {
-DREG1	int		sts;
-	int		i;
-	char		*onameP;	/* Object name */
-AREG1	LGSYMBOL	*symP;		/* General symbol ptr */
+int		sts;
+int		i;
+char		*onameP;	/* Object name */
+LGSYMBOL	*symP;		/* General symbol ptr */
 
     /* Pick up the symbol name */
     if ( *LextkP != TKSYMBOL )
 	return( zexpected( E_PASS1, "zd_object: object name" ) );
     memcpy( &onameP, LextkP+1, sizeof(char *) );
+	printf("zd_object onameP: %s\n", onameP);
     if ( ( sts = asnxtoken() ) != SCOK )
       return( sts );
 
@@ -817,17 +817,23 @@ AREG1	LGSYMBOL	*symP;		/* General symbol ptr */
     }
 
     /* Process the next 7 arguments as words */
-    for( i = 0; i < 7; ++i ) {
-	sts = ascomma();		/* Skip (maybe) comma */
-	if ( ( sts != SCOK ) && ( sts != SCNOTDONE ) )
-	    return( sts );
-	if ( !anyarg() ) {
-	    zerror( E_PASS1, "zd_object: too few arguments" );
-	    break;
-	}
+    for ( i = 0; i < 6; ++i ) {
+		sts = ascomma();		/* Skip (maybe) comma */
+		if ( ( sts != SCOK ) && ( sts != SCNOTDONE ) ) {
+			return( sts );
+		}
 
-	if ( ( sts = evalword() ) != SCOK )
-	    return( sts );
+		if ( !anyarg() ) {
+			printf("zd_object: too few arguments\n");
+			zerror( E_PASS1, "zd_object: too few arguments" );
+			break;
+		}
+
+		sts = evalword();
+		printf("\tzd_object: evalword says %d\n", sts);
+		if ( sts != SCOK ) {
+			return( sts );
+		}
     }
 
     assync( TRUE );			/* Syntax check end of line */
@@ -846,7 +852,7 @@ int
 zd_page( dirnum )
 	int		dirnum;
 {
-DREG1	int		sts;
+int		sts;
 
     /* Align to next "page" */
     if ( ( sts = objalign( 512*4 ) ) != SCOK )
@@ -868,9 +874,9 @@ int
 zd_pcset( dirnum )
 	int		dirnum;
 {
-DREG2	int		sts;
+int		sts;
 	ZNUM		newpc;		/* New value for pc */
-DREG1	ZNUM		pcdiff;		/* How far to go */
+ZNUM		pcdiff;		/* How far to go */
 
     if ( ( sts = evalconst( &newpc ) ) != SCOK )
 	return( sts );
@@ -896,7 +902,7 @@ int
 zd_pdef( dirnum )
 	int		dirnum;
 {
-DREG1	int		sts;
+int		sts;
 
     /* Align to word boundary */
     if ( ( sts = objalign( 2 ) ) != SCOK )
@@ -919,7 +925,7 @@ int
 zd_prop( dirnum )
 	int		dirnum;
 {
-DREG1	int		sts;
+int		sts;
 	ZNUM		propL;		/* Property length */
 	ZNUM		propN;		/* Property number */
 
@@ -987,8 +993,8 @@ DREG1	int		sts;
 zd_segment(dirnum)
      int dirnum;
 {
-  DREG1	int		sts;
-  AREG1	UBYTE		*strP;		/* Ptr to the string */
+  int		sts;
+  UBYTE		*strP;		/* Ptr to the string */
 
   /* Find the string */
   if ( *LextkP != TKSTRING )
@@ -1012,9 +1018,9 @@ zd_endseg(dirnum)
 zd_defseg(dirnum)
      int dirnum;
 {
-  DREG1	int		sts;
-  AREG1	UBYTE		*strP;		/* Ptr to the segment */
-  AREG2 UBYTE           *astrP = NULL;          /* Pointer to adjacent segment */
+  int		sts;
+  UBYTE		*strP;		/* Ptr to the segment */
+  UBYTE           *astrP = NULL;          /* Pointer to adjacent segment */
         ZNUM            start;
 
   /* Find the string */
@@ -1054,10 +1060,10 @@ int
 zd_seq( dirnum )
 	int		dirnum;
 {
-DREG1	int		sts;
-DREG2	int		value;
+	int		sts;
+	int		value;
 	char		*nameP;		/* Ptr to symbol name */
-AREG1	LGSYMBOL	*symP;		/* Ptr to symbol block */
+	LGSYMBOL	*symP;		/* Ptr to symbol block */
 
     for( value = 0 ; ; ++value ) {	/* Loop through the list */
 	sts = ascomma();		/* Skip any comma */
@@ -1137,8 +1143,8 @@ static int
 dostr( lenF )
 	int		lenF;		/* Whether to output string length */
 {
-DREG1	int		sts;
-AREG1	UBYTE		*strP;		/* Ptr to the string */
+	int		sts;
+	UBYTE		*strP;		/* Ptr to the string */
 
     /* Find the string */
     if ( *LextkP != TKSTRING )
@@ -1233,6 +1239,7 @@ endtable()
     if ( Tblsize != -1 ) {
 	/* Table was defined with a size - must check it */
 	if ( Tblsize != tsize )
+		printf("table length %ld vs %ld\n", tsize, Tblsize);
 	    zerror( E_PASS1,
 		    "warning - table length does not match declared size" );
     }
@@ -1268,8 +1275,8 @@ int
 zd_vocbeg( dirnum )
 	int		dirnum;
 {
-DREG1	int		sts;
-DREG2   int             i;
+	int		sts;
+   int             i;
     /* Find the sort-record length */
     if ( !anyarg() )
 	return( zexpected( E_PASS1, "record length" ) );
@@ -1345,8 +1352,8 @@ int
 zd_zword( dirnum )
 	int		dirnum;
 {
-DREG1	int		sts;
-AREG1	UBYTE		*strP;		/* Ptr to the string */
+	int		sts;
+	UBYTE		*strP;		/* Ptr to the string */
 
     /* Find the string */
     if ( *LextkP != TKSTRING )
@@ -1396,7 +1403,7 @@ int dirnum;
 zd_picfile(dirnum)
 int dirnum;
 {
-  DREG1 int sts;
+   int sts;
   UBYTE *file_name, *machine_name;
   ZNUM nums[4];
   int i;

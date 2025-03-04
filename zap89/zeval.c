@@ -150,7 +150,7 @@ Returns :
 
 int evalword()
 {
-  DREG1	int		sts;
+  int		sts;
   long		curaddr;
   VALUE		val;		/* Value from expression */
   LGSYMBOL	*symP;		/* Ptr to any symbol made */

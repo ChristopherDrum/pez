@@ -388,17 +388,21 @@ the caller.
 int
 asnxtoken()
 {
-DREG1	int		tktype;
-DREG2	int		skipF;		/* If already skipped */
-AREG1	LEXBUF		*lexP;		/* For freeing lex buffers */
+int		tktype;
+int		skipF;		/* If already skipped */
+LEXBUF		*lexP;		/* For freeing lex buffers */
 
     skipF = FALSE;			/* Haven't skipped yet */
     for( ; ; ) {			/* Until we've skipped */
 	tktype = *LextkP;		/* Get current token */
 	switch ( tktype ) {
+		printf("asnxtoken type: %d", tktype);
 	    case TKFILE:		/* String attached to token */
+			/*if (tktype == TKFILE) printf("\t\tasnxtoken of type TKFILE\n");*/
 	    case TKSTRING:
+			/*if (tktype == TKSTRING) printf("\t\tasnxtoken of type TKSTRING\n");*/
 	    case TKOTHER:
+			/*if (tktype == TKOTHER) printf("\t\tasnxtoken of type TKOTHER\n");*/
 		if ( skipF )		/* Skipped? */
 		    return( SCOK );	/* Yup, return this thing */
 		skipF = TRUE;		/* Now we've skipped... */
@@ -406,16 +410,21 @@ AREG1	LEXBUF		*lexP;		/* For freeing lex buffers */
 		break;
 
 	    case TKLABEL:		/* Literal string */
+			/*if (tktype == TKLABEL) printf("\t\tasnxtoken of type TKLABEL\n");*/
 	    case TKGLABEL:
+			/*if (tktype == TKGLABEL) printf("\t\tasnxtoken of type TKGLABEL\n");*/
 	    case TKEQUATE:
+			/*if (tktype == TKEQUATE) printf("\t\tasnxtoken of type TKEQUATE\n");*/
 	    case TKSYMBOL:
-	        if ( skipF )
+			/*if (tktype == TKSYMBOL) printf("\t\tasnxtoken of type TKSYMBOL\n");*/
+		if ( skipF )
 		    return( SCOK );
 		LextkP += (sizeof(char *) +1);
 		skipF = TRUE;
 		break;
 
 	    case TKOPCODE:		/* WORD or UWORD attached */
+			/*if (tktype == TKOPCODE) printf("\t\tasnxtoken of type TKOPCODE\n");*/
 		if ( skipF )		/* Skipped to here? */
 		    return( SCOK );
 		skipF = TRUE;
@@ -423,6 +432,7 @@ AREG1	LEXBUF		*lexP;		/* For freeing lex buffers */
 		break;
 
 	    case TKINTEGER:		/* ZNUM attached */
+			/*if (tktype == TKINTEGER) printf("\t\tasnxtoken of type TKINTEGER\n");*/
 		if ( skipF )		/* Skipped to here? */
 		    return( SCOK );
 		skipF = TRUE;
@@ -430,7 +440,9 @@ AREG1	LEXBUF		*lexP;		/* For freeing lex buffers */
 		break;
 
 	    case TKCHAR:		/* Single byte attached */
+			/*if (tktype == TKCHAR) printf("\t\tasnxtoken of type TKCHAR\n");*/
 	    case TKDIRECTIVE:
+			/*if (tktype == TKDIRECTIVE) printf("\t\tasnxtoken of type TKDIRECTIVE\n");*/
 		if ( skipF )		/* Stop here? */
 		    return( SCOK );
 		skipF = TRUE;		/* stop next time... */
@@ -438,6 +450,7 @@ AREG1	LEXBUF		*lexP;		/* For freeing lex buffers */
 		break;
 
 	    case TKEOL:			/* Nothing attached */
+			/*if (tktype == TKEOL) printf("\t\tasnxtoken of type TKEOL\n");*/
 		if ( skipF )
 		    return( SCOK );
 		skipF = TRUE;
@@ -445,6 +458,7 @@ AREG1	LEXBUF		*lexP;		/* For freeing lex buffers */
 		break;
 
 	    case TKLINE:		/* Source line tracking */
+			/*if (tktype == TKLINE) printf("\t\tasnxtoken of type TKLINE\n");*/
 		if ( skipF )
 		    return( SCOK );
 		skipF = TRUE;
@@ -455,6 +469,7 @@ AREG1	LEXBUF		*lexP;		/* For freeing lex buffers */
 		break;
 
 	    case TKEOB:			/* End of lexical buffer */
+			/*if (tktype == TKEOB) printf("\t\tasnxtoken of type TKEOB\n");*/
 		LexP = LexP->lx_link;
 		LextkP = &(LexP->lx_data[0]);
 
@@ -471,6 +486,7 @@ AREG1	LEXBUF		*lexP;		/* For freeing lex buffers */
 		break;			/* Keep going! */
 
 	    case TKEOF:			/* End of source */
+			/*if (tktype == TKEOF) printf("\t\tasnxtoken of type TKEOF\n");*/
 		return( SCOK );		/* Don't skip past EOF */
 		break;
 
