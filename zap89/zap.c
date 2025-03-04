@@ -62,9 +62,6 @@ extern  BOOL    yoffsets;
 extern  int	character_count;  /* if one, print out count of characters used */
 extern  long    character_counts[];
 
-/* Local routines (and forward references) */
-UWORD	get_release();
-
 /* Local data */
 
 BOOL    xoption = FALSE;        /* Suppress YZIP offset format */
@@ -483,6 +480,9 @@ write_chart()
   time_t tt = time(NULL);
   struct tm *tms = localtime(&tt);
 
+  printf("tt = %lld\n", tt);
+  printf("%2d, %2d, %4d\n", tms->tm_mon+1, tms->tm_mday, 1900+tms->tm_year);
+
   objseek(OBJ_ENDLOD_LOC, FALSE);
   endlod = objgetb() << 8;
   endlod |= objgetb();
@@ -503,7 +503,9 @@ write_chart()
 	  Game_name, tms->tm_mon+1, tms->tm_mday, tms->tm_year,
 	  tms->tm_hour, tms->tm_min, tms->tm_sec);
   printf("*** write_chart is about to add_vers_resource\n");
-  add_vers_resource(Release, &chart_buf[0]); 
+  printf("\tRelease is: %u", Release);
+  /* printf("\tchart_buf: %s", (char*)chart_buf[0]); */
+  add_vers_resource(Release, "testing"); 
 }
 
 /*

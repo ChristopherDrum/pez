@@ -6,9 +6,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char *MALLOC(unsigned int size)
+void *MALLOC(unsigned int size)
 {
-	char *ptr;
+	void *ptr;
 	
 	if ((ptr = malloc(size)) == NULL) {
 		fprintf(stderr,"Malloc failed!!\n");
@@ -18,9 +18,9 @@ char *MALLOC(unsigned int size)
 }
 
 
-char *CALLOC(unsigned int num, unsigned int size)
+void *CALLOC(unsigned int num, unsigned int size)
 {
-	char *ptr;
+	void *ptr;
 	
 	if ((ptr = calloc(num,size)) == NULL) {
 		fprintf(stderr,"Calloc failed!!\n");
@@ -30,9 +30,9 @@ char *CALLOC(unsigned int num, unsigned int size)
 }
 
 
-char *REALLOC(void *oldptr, unsigned int size)
+void *REALLOC(void *oldptr, unsigned int size)
 {
-	char *ptr;
+	void *ptr;
 	
 	if ((ptr = realloc(oldptr,size)) == NULL) {
 		fprintf(stderr,"Realloc failed!!\n");

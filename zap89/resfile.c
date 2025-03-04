@@ -57,11 +57,6 @@ long offset from 256 to resource data
 /* #define JAN_1_1970 030744725620 */
 #define JAN_1_1970 030744723624
 
-extern struct timezone {
-  int tz_minuteswest;
-  int tz_dsttime;
-};
-
 unsigned char res_buf[512];
 
 res_map(type, length, pointer, which)
@@ -261,9 +256,8 @@ int data_len, id;
 unsigned char *data;
 {
   res_type *rtype_chain = add_a_resource_type(rtype);
-  res *rdata;
   long rtype_long;
-  rdata = rtype_chain->next_res;
+  res *rdata = rtype_chain->next_res;
   while (rdata) {
     if (rdata->res_id == id) {
       printf("Attempt to define two resources of type %s with same id (%d).\n",
@@ -312,14 +306,14 @@ char *str1, *str2;
     len2--; }
   return(0); }
 
-add_vers_resource(version, text)
-int version;
-char *text;
+void add_vers_resource(int version, char* text)
 {
   printf("> add_vers_resource called");
+  printf(" version: %d, text: %s", version, text);
+  /*
   size_t text_len = strlen(text);
   
-  int reslen = 8;		/* Base length */
+  int reslen = 8;		/* Base length 
   char buf[255];
   unsigned char *new_data, *tdata;
   int vlen;
@@ -329,6 +323,7 @@ char *text;
   sprintf(&buf[0], "%d, %s", version, text);
   reslen += strlen(&buf[0]);
   printf("\treslen calculated at: %d", reslen);
+  fflush(stdout);
   new_data = (unsigned char *)MALLOC(reslen);
   sprintf(&buf[0], "%d", version);
   new_data[0] = buf[0] - '0';
@@ -337,12 +332,14 @@ char *text;
   else new_data[1] = ((buf[1] - '0') << 4) | (buf[2] - '0');
   new_data[2] = 0x20;
   new_data[3] = 0;
-  new_data[4] = 0;			/* Country code? */
-  new_data[5] = 0;			/* Rest of country code */
-  new_data[6] = vlen;		/* Beginning of PSTRING */
+  new_data[4] = 0;			/* Country code? 
+  new_data[5] = 0;			/* Rest of country code 
+  new_data[6] = vlen;		/* Beginning of PSTRING 
   memcpy(&new_data[7], &buf[0], vlen);
   tdata = &new_data[7 + vlen];
   sprintf(&buf[0], "%d, %s", version, text);
   tdata[0] = vlen = strlen(&buf[0]);
   memcpy(&tdata[1], &buf[0], vlen);
-  add_a_resource("vers", 1, reslen, new_data); }
+  add_a_resource("vers", 1, reslen, new_data);
+  */
+}

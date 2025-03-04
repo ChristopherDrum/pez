@@ -1,0 +1,666 @@
+zap of Mar  4 2025 10:16:25.
+Release: 1
+     0  Inserting zork2.zap.
+     0  Inserting zork2dat.zap.
+"zork2dat.zap", line 703: 	.OBJECT DEAD-PALANTIR-4,0,FX?ONBIT+FX?RLANDBIT,ROOMS,DEAD-PALANTIR-3,0,T?DEAD-PALANTIR-4
+   -- too few arguments
+"zork2dat.zap", line 704: 	.OBJECT DEAD-PALANTIR-3,0,FX?ONBIT+FX?RLANDBIT,ROOMS,DEAD-PALANTIR-2,0,T?DEAD-PALANTIR-3
+   -- too few arguments
+"zork2dat.zap", line 705: 	.OBJECT DEAD-PALANTIR-2,0,FX?ONBIT+FX?RLANDBIT,ROOMS,DEAD-PALANTIR-1,0,T?DEAD-PALANTIR-2
+   -- too few arguments
+"zork2dat.zap", line 706: 	.OBJECT GLOBAL-PALANTIR,0,FX?NDESCBIT,LOCAL-GLOBALS,GAZEBO,0,T?GLOBAL-PALANTIR
+   -- too few arguments
+"zork2dat.zap", line 707: 	.OBJECT DEAD-PALANTIR-1,0,FX?ONBIT+FX?RLANDBIT,ROOMS,TINY-ROOM,0,T?DEAD-PALANTIR-1
+   -- too few arguments
+"zork2dat.zap", line 708: 	.OBJECT REPELLENT,FX?READBIT,FX?TAKEBIT,ROOM-8,0,0,T?REPELLENT
+   -- too few arguments
+"zork2dat.zap", line 709: 	.OBJECT SWORD,FX?WEAPONBIT,FX?TRYTAKEBIT+FX?TAKEBIT,INSIDE-BARROW,LAMP,0,T?SWORD
+   -- too few arguments
+"zork2dat.zap", line 710: 	.OBJECT WAND,FX?TREASURE,FX?TRYTAKEBIT+FX?TAKEBIT+FX?NDESCBIT,WIZARD,0,0,T?WAND
+   -- too few arguments
+"zork2dat.zap", line 711: 	.OBJECT WIZARD,0,FX?OPENBIT+FX?CONTBIT+FX?VICBIT+FX?VILLAIN,0,0,WAND,T?WIZARD
+   -- too few arguments
+"zork2dat.zap", line 712: 	.OBJECT GENIE,0,FX?VILLAIN+FX?VICBIT,0,0,0,T?GENIE
+   -- too few arguments
+"zork2dat.zap", line 713: 	.OBJECT ROSE,0,FX?TAKEBIT,0,0,0,T?ROSE
+   -- too few arguments
+"zork2dat.zap", line 714: 	.OBJECT RIBBON,0,FX?NDESCBIT,UNICORN,0,0,T?RIBBON
+   -- too few arguments
+"zork2dat.zap", line 715: 	.OBJECT GOLD-KEY,FX?TREASURE,FX?TRYTAKEBIT+FX?TAKEBIT+FX?NDESCBIT,UNICORN,RIBBON,0,T?GOLD-KEY
+   -- too few arguments
+"zork2dat.zap", line 716: 	.OBJECT SALTY-WATER,0,FX?DRINKBIT+FX?TAKEBIT,0,0,0,T?SALTY-WATER
+   -- too few arguments
+"zork2dat.zap", line 717: 	.OBJECT WATER,0,FX?DRINKBIT+FX?TAKEBIT,0,0,0,T?WATER
+   -- too few arguments
+"zork2dat.zap", line 718: 	.OBJECT TEAPOT,FX?TRANSBIT,FX?OPENBIT+FX?CONTBIT+FX?TAKEBIT,GAZEBO-TABLE,PLACE-MAT,0,T?TEAPOT
+   -- too few arguments
+"zork2dat.zap", line 719: 	.OBJECT PLACE-MAT,0,FX?OPENBIT+FX?CONTBIT+FX?SURFACEBIT+FX?TAKEBIT,GAZEBO-TABLE,NEWSPAPER,0,T?PLACE-MAT
+   -- too few arguments
+"zork2dat.zap", line 720: 	.OBJECT NEWSPAPER,FX?READBIT+FX?BURNBIT,FX?TAKEBIT,GAZEBO-TABLE,LETTER-OPENER,0,T?NEWSPAPER
+   -- too few arguments
+"zork2dat.zap", line 721: 	.OBJECT PALANTIR-2,FX?TRANSBIT+FX?TREASURE,FX?TAKEBIT,DREARY-ROOM,KEYHOLE-2,0,T?PALANTIR-2
+   -- too few arguments
+"zork2dat.zap", line 722: 	.OBJECT KEY,FX?TURNBIT,FX?TOOLBIT+FX?NDESCBIT+FX?TAKEBIT,KEYHOLE-2,0,0,T?KEY
+   -- too few arguments
+"zork2dat.zap", line 723: 	.OBJECT LETTER-OPENER,0,FX?TOOLBIT+FX?TAKEBIT,GAZEBO-TABLE,0,0,T?LETTER-OPENER
+   -- too few arguments
+"zork2dat.zap", line 724: 	.OBJECT KEYHOLE-2,FX?SEARCHBIT,FX?OPENBIT+FX?NDESCBIT,DREARY-ROOM,PCRACK,KEY,T?KEYHOLE-2
+   -- too few arguments
+"zork2dat.zap", line 725: 	.OBJECT KEYHOLE-1,FX?SEARCHBIT,FX?OPENBIT+FX?NDESCBIT,TINY-ROOM,0,0,T?KEYHOLE-1
+   -- too few arguments
+"zork2dat.zap", line 726: 	.OBJECT PCRACK,0,FX?NDESCBIT,DREARY-ROOM,PTABLE,0,T?PCRACK
+   -- too few arguments
+"zork2dat.zap", line 727: 	.OBJECT PTABLE,0,FX?OPENBIT+FX?SURFACEBIT+FX?CONTBIT+FX?NDESCBIT,DREARY-ROOM,0,0,T?PTABLE
+   -- too few arguments
+"zork2dat.zap", line 728: 	.OBJECT LID-2,0,FX?OPENBIT+FX?CONTBIT+FX?NDESCBIT,DREARY-ROOM,PALANTIR-2,0,T?LID-2
+   -- too few arguments
+"zork2dat.zap", line 729: 	.OBJECT LID-1,0,FX?CONTBIT+FX?NDESCBIT,TINY-ROOM,KEYHOLE-1,0,T?LID-1
+   -- too few arguments
+"zork2dat.zap", line 730: 	.OBJECT GNOME-OF-ZURICH,0,FX?VICBIT,0,0,0,T?GNOME-OF-ZURICH
+   -- too few arguments
+"zork2dat.zap", line 731: 	.OBJECT CURTAIN,0,FX?NDESCBIT,DEPOSITORY,CUBE,0,T?CURTAIN
+   -- too few arguments
+"zork2dat.zap", line 732: 	.OBJECT CUBE,FX?READBIT,FX?NDESCBIT,DEPOSITORY,0,0,T?CUBE
+   -- too few arguments
+"zork2dat.zap", line 733: 	.OBJECT BANK-BROCHURE,FX?BURNBIT+FX?READBIT,FX?TAKEBIT,DEPOSITORY,CURTAIN,0,T?BANK-BROCHURE
+   -- too few arguments
+"zork2dat.zap", line 734: 	.OBJECT PORTRAIT,FX?TREASURE+FX?BURNBIT,FX?TAKEBIT,OFFICE,0,0,T?PORTRAIT
+   -- too few arguments
+"zork2dat.zap", line 735: 	.OBJECT BILLS,FX?TREASURE+FX?BURNBIT+FX?READBIT,FX?TAKEBIT,VAULT,0,0,T?BILLS
+   -- too few arguments
+"zork2dat.zap", line 736: 	.OBJECT POSTS,0,0,POSTS-ROOM,0,0,T?POSTS
+   -- too few arguments
+"zork2dat.zap", line 737: 	.OBJECT BUCKET,FX?VEHBIT,FX?CONTBIT+FX?OPENBIT,WELL-BOTTOM,0,0,T?BUCKET
+   -- too few arguments
+"zork2dat.zap", line 738: 	.OBJECT FUSE,FX?BURNBIT,FX?TAKEBIT,COBWEBBY-CORRIDOR,0,0,T?FUSE
+   -- too few arguments
+"zork2dat.zap", line 739: 	.OBJECT BOTTOM-ETCHINGS,FX?READBIT,FX?NDESCBIT,WELL-BOTTOM,BUCKET,0,T?BOTTOM-ETCHINGS
+   -- too few arguments
+"zork2dat.zap", line 740: 	.OBJECT TOP-ETCHINGS,FX?READBIT,FX?NDESCBIT,WELL-TOP,0,0,T?TOP-ETCHINGS
+   -- too few arguments
+"zork2dat.zap", line 741: 	.OBJECT CANDY,FX?READBIT+FX?TREASURE+FX?FOODBIT,FX?INVISIBLE+FX?TAKEBIT,POOL-ROOM,POOL,0,T?CANDY
+   -- too few arguments
+"zork2dat.zap", line 742: 	.OBJECT CAGE,0,FX?INVISIBLE,CAGE-ROOM,0,0,T?CAGE
+   -- too few arguments
+"zork2dat.zap", line 743: 	.OBJECT RUBY,FX?TREASURE,FX?TAKEBIT,LAVA-ROOM,0,0,T?RUBY
+   -- too few arguments
+"zork2dat.zap", line 744: 	.OBJECT ROBOT,0,FX?VICBIT,MAGNET-ROOM,0,0,T?ROBOT
+   -- too few arguments
+"zork2dat.zap", line 745: 	.OBJECT RECEPTACLE,FX?SEARCHBIT,FX?NDESCBIT+FX?CONTBIT,BALLOON,CLOTH-BAG,0,T?RECEPTACLE
+   -- too few arguments
+"zork2dat.zap", line 746: 	.OBJECT WHITE-BOOK,FX?BURNBIT+FX?READBIT,FX?CONTBIT+FX?TAKEBIT,LIBRARY,BLUE-BOOK,0,T?WHITE-BOOK
+   -- too few arguments
+"zork2dat.zap", line 747: 	.OBJECT BLUE-BOOK,FX?BURNBIT+FX?READBIT,FX?CONTBIT+FX?TAKEBIT,LIBRARY,GREEN-BOOK,0,T?BLUE-BOOK
+   -- too few arguments
+"zork2dat.zap", line 748: 	.OBJECT GREEN-BOOK,FX?BURNBIT+FX?READBIT,FX?CONTBIT+FX?TAKEBIT,LIBRARY,0,0,T?GREEN-BOOK
+   -- too few arguments
+"zork2dat.zap", line 749: 	.OBJECT STAMP,FX?TREASURE+FX?BURNBIT+FX?READBIT,FX?TAKEBIT,PURPLE-BOOK,0,0,T?STAMP
+   -- too few arguments
+"zork2dat.zap", line 750: 	.OBJECT PURPLE-BOOK,FX?BURNBIT+FX?READBIT,FX?CONTBIT+FX?TAKEBIT,LIBRARY,WHITE-BOOK,STAMP,T?PURPLE-BOOK
+   -- too few arguments
+"zork2dat.zap", line 751: 	.OBJECT COIN,FX?TREASURE+FX?READBIT,FX?TAKEBIT,LEDGE-1,0,0,T?COIN
+   -- too few arguments
+"zork2dat.zap", line 752: 	.OBJECT POOL,0,FX?VICBIT,POOL-ROOM,LEAK,0,T?POOL
+   -- too few arguments
+"zork2dat.zap", line 753: 	.OBJECT LEAK,0,FX?NDESCBIT,POOL-ROOM,0,0,T?LEAK
+   -- too few arguments
+"zork2dat.zap", line 754: 	.OBJECT RED-ICING,FX?FOODBIT+FX?READBIT,FX?TAKEBIT,ALICE-TABLE,ORANGE-ICING,0,T?RED-ICING
+   -- too few arguments
+"zork2dat.zap", line 755: 	.OBJECT ORANGE-ICING,FX?FOODBIT+FX?READBIT,FX?TAKEBIT,ALICE-TABLE,BLUE-ICING,0,T?ORANGE-ICING
+   -- too few arguments
+"zork2dat.zap", line 756: 	.OBJECT BLUE-ICING,FX?FOODBIT+FX?READBIT,FX?TAKEBIT,ALICE-TABLE,0,0,T?BLUE-ICING
+   -- too few arguments
+"zork2dat.zap", line 757: 	.OBJECT EAT-ME-CAKE,FX?FOODBIT+FX?READBIT,FX?TAKEBIT,ALICE-TABLE,RED-ICING,0,T?EAT-ME-CAKE
+   -- too few arguments
+"zork2dat.zap", line 758: 	.OBJECT PEARL,FX?TREASURE,FX?TAKEBIT,PEARL-ROOM,0,0,T?PEARL
+   -- too few arguments
+"zork2dat.zap", line 759: 	.OBJECT MANGLED-CAGE,0,FX?TAKEBIT,0,0,0,T?MANGLED-CAGE
+   -- too few arguments
+"zork2dat.zap", line 760: 	.OBJECT ALICE-TABLE,0,FX?OPENBIT+FX?SURFACEBIT+FX?CONTBIT,TEA-ROOM,0,EAT-ME-CAKE,T?ALICE-TABLE
+   -- too few arguments
+"zork2dat.zap", line 761: 	.OBJECT BROKEN-LAMP,0,FX?TAKEBIT,0,0,0,T?BROKEN-LAMP
+   -- too few arguments
+"zork2dat.zap", line 762: 	.OBJECT LAMP,FX?LIGHTBIT,FX?TAKEBIT,INSIDE-BARROW,0,0,T?LAMP
+   -- too few arguments
+"zork2dat.zap", line 763: 	.OBJECT HOOK-1,0,0,LEDGE-1,COIN,0,T?HOOK-1
+   -- too few arguments
+"zork2dat.zap", line 764: 	.OBJECT HOOK-2,0,0,LEDGE-2,0,0,T?HOOK-2
+   -- too few arguments
+"zork2dat.zap", line 765: 	.OBJECT SLOT,0,FX?NDESCBIT+FX?OPENBIT,SAFE-ROOM,0,0,T?SLOT
+   -- too few arguments
+"zork2dat.zap", line 766: 	.OBJECT ROBOT-LABEL,FX?BURNBIT+FX?READBIT,FX?TAKEBIT,MAGNET-ROOM,ROBOT,0,T?ROBOT-LABEL
+   -- too few arguments
+"zork2dat.zap", line 767: 	.OBJECT FLASK,FX?READBIT+FX?TRANSBIT,FX?TAKEBIT,POOL-ROOM,CANDY,0,T?FLASK
+   -- too few arguments
+"zork2dat.zap", line 768: 	.OBJECT ICE,0,FX?VICBIT,GLACIER-ROOM,0,0,T?ICE
+   -- too few arguments
+"zork2dat.zap", line 769: 	.OBJECT IRON-BOX,0,FX?INVISIBLE+FX?TAKEBIT+FX?CONTBIT,CAROUSEL-ROOM,0,VIOLIN,T?IRON-BOX
+   -- too few arguments
+"zork2dat.zap", line 770: 	.OBJECT VIOLIN,FX?TREASURE,FX?TAKEBIT,IRON-BOX,0,0,T?VIOLIN
+   -- too few arguments
+"zork2dat.zap", line 771: 	.OBJECT PALANTIR-1,FX?TRANSBIT+FX?TREASURE,FX?TRYTAKEBIT+FX?TAKEBIT,CAGE-ROOM,CAGE,0,T?PALANTIR-1
+   -- too few arguments
+"zork2dat.zap", line 772: 	.OBJECT CROWN,FX?TREASURE,FX?TAKEBIT,SAFE,0,0,T?CROWN
+   -- too few arguments
+"zork2dat.zap", line 773: 	.OBJECT CLOTH-BAG,0,FX?NDESCBIT,BALLOON,0,0,T?CLOTH-BAG
+   -- too few arguments
+"zork2dat.zap", line 774: 	.OBJECT CARD,FX?BURNBIT+FX?READBIT,FX?TAKEBIT,SAFE,CROWN,0,T?CARD
+   -- too few arguments
+"zork2dat.zap", line 775: 	.OBJECT TRIANGULAR-BUTTON,0,FX?NDESCBIT,MACHINE-ROOM,SQUARE-BUTTON,0,T?TRIANGULAR-BUTTON
+   -- too few arguments
+"zork2dat.zap", line 776: 	.OBJECT SQUARE-BUTTON,0,FX?NDESCBIT,MACHINE-ROOM,0,0,T?SQUARE-BUTTON
+   -- too few arguments
+"zork2dat.zap", line 777: 	.OBJECT ROUND-BUTTON,0,FX?NDESCBIT,MACHINE-ROOM,TRIANGULAR-BUTTON,0,T?ROUND-BUTTON
+   -- too few arguments
+"zork2dat.zap", line 778: 	.OBJECT DEAD-BALLOON,0,FX?TAKEBIT,0,0,0,T?DEAD-BALLOON
+   -- too few arguments
+"zork2dat.zap", line 779: 	.OBJECT EXPLOSION,0,0,0,0,0,T?EXPLOSION
+   -- too few arguments
+"zork2dat.zap", line 780: 	.OBJECT BRICK,FX?SEARCHBIT+FX?BURNBIT,FX?OPENBIT+FX?TAKEBIT,MARBLE-HALL,0,0,T?BRICK
+   -- too few arguments
+"zork2dat.zap", line 781: 	.OBJECT BRAIDED-WIRE,0,FX?NDESCBIT,BALLOON,RECEPTACLE,0,T?BRAIDED-WIRE
+   -- too few arguments
+"zork2dat.zap", line 782: 	.OBJECT SAFE,0,FX?NDESCBIT+FX?CONTBIT,SAFE-ROOM,SLOT,CARD,T?SAFE
+   -- too few arguments
+"zork2dat.zap", line 783: 	.OBJECT BALLOON-LABEL,FX?BURNBIT+FX?READBIT,FX?TAKEBIT,0,0,0,T?BALLOON-LABEL
+   -- too few arguments
+"zork2dat.zap", line 784: 	.OBJECT BALLOON,FX?VEHBIT,FX?OPENBIT,VOLCANO-BOTTOM,0,BRAIDED-WIRE,T?BALLOON
+   -- too few arguments
+"zork2dat.zap", line 785: 	.OBJECT GNOME,0,FX?VICBIT,0,0,0,T?GNOME
+   -- too few arguments
+"zork2dat.zap", line 786: 	.OBJECT TINY-ROOM,0,FX?RLANDBIT,ROOMS,DREARY-ROOM,LID-1,T?TINY-ROOM
+   -- too few arguments
+"zork2dat.zap", line 787: 	.OBJECT PWINDOW,FX?DOORBIT,0,LOCAL-GLOBALS,PDOOR,0,T?PWINDOW
+   -- too few arguments
+"zork2dat.zap", line 788: 	.OBJECT PDOOR,FX?DOORBIT,FX?CONTBIT,LOCAL-GLOBALS,GLOBAL-WIZARD-CASE,0,T?PDOOR
+   -- too few arguments
+"zork2dat.zap", line 789: 	.OBJECT DREARY-ROOM,0,FX?ONBIT+FX?RLANDBIT,ROOMS,OFFICE,LID-2,T?DREARY-ROOM
+   -- too few arguments
+"zork2dat.zap", line 790: 	.OBJECT GAZEBO-TABLE,0,FX?OPENBIT+FX?CONTBIT+FX?SURFACEBIT+FX?NDESCBIT,GAZEBO-ROOM,0,MATCH,T?GAZEBO-TABLE
+   -- too few arguments
+"zork2dat.zap", line 791: 	.OBJECT MATCH,FX?READBIT,FX?TAKEBIT,GAZEBO-TABLE,TEAPOT,0,T?MATCH
+   -- too few arguments
+"zork2dat.zap", line 792: 	.OBJECT OFFICE,0,FX?RLANDBIT,ROOMS,DEPOSITORY,PORTRAIT,T?OFFICE
+   -- too few arguments
+"zork2dat.zap", line 793: 	.OBJECT DEPOSITORY,0,FX?ONBIT+FX?RLANDBIT,ROOMS,VAULT,BANK-BROCHURE,T?DEPOSITORY
+   -- too few arguments
+"zork2dat.zap", line 794: 	.OBJECT VAULT,0,FX?RLANDBIT,ROOMS,SMALL-ROOM,BILLS,T?VAULT
+   -- too few arguments
+"zork2dat.zap", line 795: 	.OBJECT SMALL-ROOM,0,FX?RLANDBIT,ROOMS,VIEWING-EAST,0,T?SMALL-ROOM
+   -- too few arguments
+"zork2dat.zap", line 796: 	.OBJECT VIEWING-EAST,0,FX?RLANDBIT,ROOMS,VIEWING-WEST,0,T?VIEWING-EAST
+   -- too few arguments
+"zork2dat.zap", line 797: 	.OBJECT VIEWING-WEST,0,FX?RLANDBIT,ROOMS,TELLER-EAST,0,T?VIEWING-WEST
+   -- too few arguments
+"zork2dat.zap", line 798: 	.OBJECT TELLER-EAST,0,FX?RLANDBIT,ROOMS,TELLER-WEST,0,T?TELLER-EAST
+   -- too few arguments
+"zork2dat.zap", line 799: 	.OBJECT TELLER-WEST,0,FX?RLANDBIT,ROOMS,BANK-ENTRANCE,0,T?TELLER-WEST
+   -- too few arguments
+"zork2dat.zap", line 800: 	.OBJECT BANK-ENTRANCE,0,FX?RLANDBIT,ROOMS,POOL-ROOM,0,T?BANK-ENTRANCE
+   -- too few arguments
+"zork2dat.zap", line 801: 	.OBJECT POOL-ROOM,0,FX?RLANDBIT,ROOMS,POSTS-ROOM,FLASK,T?POOL-ROOM
+   -- too few arguments
+"zork2dat.zap", line 802: 	.OBJECT POSTS-ROOM,0,FX?RLANDBIT,ROOMS,TEA-ROOM,POSTS,T?POSTS-ROOM
+   -- too few arguments
+"zork2dat.zap", line 803: 	.OBJECT TEA-ROOM,0,FX?ONBIT+FX?RLANDBIT,ROOMS,WELL-BOTTOM,ALICE-TABLE,T?TEA-ROOM
+   -- too few arguments
+"zork2dat.zap", line 804: 	.OBJECT WELL-BOTTOM,FX?RBUCKBIT,FX?RLANDBIT,ROOMS,WELL-TOP,BOTTOM-ETCHINGS,T?WELL-BOTTOM
+   -- too few arguments
+"zork2dat.zap", line 805: 	.OBJECT WELL-TOP,FX?TREASURE+FX?RBUCKBIT,FX?RLANDBIT,ROOMS,IN-CAGE,TOP-ETCHINGS,T?WELL-TOP
+   -- too few arguments
+"zork2dat.zap", line 806: 	.OBJECT IN-CAGE,FX?NWALLBIT,FX?RLANDBIT,ROOMS,CAGE-ROOM,0,T?IN-CAGE
+   -- too few arguments
+"zork2dat.zap", line 807: 	.OBJECT CAGE-ROOM,0,FX?RLANDBIT+FX?ONBIT,ROOMS,MACHINE-ROOM,PALANTIR-1,T?CAGE-ROOM
+   -- too few arguments
+"zork2dat.zap", line 808: 	.OBJECT MACHINE-ROOM,0,FX?ONBIT+FX?RLANDBIT,ROOMS,MAGNET-ROOM,ROUND-BUTTON,T?MACHINE-ROOM
+   -- too few arguments
+"zork2dat.zap", line 809: 	.OBJECT MAGNET-ROOM,0,FX?ONBIT+FX?RLANDBIT,ROOMS,LAVA-ROOM,ROBOT-LABEL,T?MAGNET-ROOM
+   -- too few arguments
+"zork2dat.zap", line 810: 	.OBJECT LAVA-ROOM,0,FX?RLANDBIT,ROOMS,SAFE-ROOM,RUBY,T?LAVA-ROOM
+   -- too few arguments
+"zork2dat.zap", line 811: 	.OBJECT SAFE-ROOM,0,FX?ONBIT+FX?RLANDBIT,ROOMS,LEDGE-2,SAFE,T?SAFE-ROOM
+   -- too few arguments
+"zork2dat.zap", line 812: 	.OBJECT LEDGE-2,0,FX?RLANDBIT,ROOMS,VOLCANO-VIEW,HOOK-2,T?LEDGE-2
+   -- too few arguments
+"zork2dat.zap", line 813: 	.OBJECT VOLCANO-VIEW,0,FX?RLANDBIT,ROOMS,LIBRARY,0,T?VOLCANO-VIEW
+   -- too few arguments
+"zork2dat.zap", line 814: 	.OBJECT LIBRARY,0,FX?RLANDBIT,ROOMS,LEDGE-1,PURPLE-BOOK,T?LIBRARY
+   -- too few arguments
+"zork2dat.zap", line 815: 	.OBJECT LEDGE-1,0,FX?RLANDBIT,ROOMS,VAIR-4,HOOK-1,T?LEDGE-1
+   -- too few arguments
+"zork2dat.zap", line 816: 	.OBJECT VAIR-4,FX?NWALLBIT+FX?RAIRBIT,0,ROOMS,VAIR-3,0,T?VAIR-4
+   -- too few arguments
+"zork2dat.zap", line 817: 	.OBJECT VAIR-3,FX?NWALLBIT+FX?RAIRBIT,0,ROOMS,VAIR-2,0,T?VAIR-3
+   -- too few arguments
+"zork2dat.zap", line 818: 	.OBJECT VAIR-2,FX?NWALLBIT+FX?RAIRBIT,0,ROOMS,VAIR-1,0,T?VAIR-2
+   -- too few arguments
+"zork2dat.zap", line 819: 	.OBJECT VAIR-1,FX?NWALLBIT+FX?RAIRBIT,0,ROOMS,VOLCANO-BOTTOM,0,T?VAIR-1
+   -- too few arguments
+"zork2dat.zap", line 820: 	.OBJECT VOLCANO-BOTTOM,0,FX?RLANDBIT,ROOMS,PEARL-ROOM,BALLOON,T?VOLCANO-BOTTOM
+   -- too few arguments
+"zork2dat.zap", line 821: 	.OBJECT PEARL-ROOM,0,FX?RLANDBIT,ROOMS,RIDDLE-ROOM,PEARL,T?PEARL-ROOM
+   -- too few arguments
+"zork2dat.zap", line 822: 	.OBJECT RIDDLE-DOOR,FX?DOORBIT,FX?NDESCBIT+FX?CONTBIT,RIDDLE-ROOM,0,0,T?RIDDLE-DOOR
+   -- too few arguments
+"zork2dat.zap", line 823: 	.OBJECT RIDDLE-ROOM,0,FX?RLANDBIT,ROOMS,CAROUSEL-ROOM,RIDDLE-DOOR,T?RIDDLE-ROOM
+   -- too few arguments
+"zork2dat.zap", line 824: 	.OBJECT CAROUSEL-ROOM,0,FX?RLANDBIT,ROOMS,WIZARDS-QUARTERS,IRON-BOX,T?CAROUSEL-ROOM
+   -- too few arguments
+"zork2dat.zap", line 825: 	.OBJECT WIZARDS-QUARTERS,0,FX?RLANDBIT,ROOMS,IN-AQUARIUM,0,T?WIZARDS-QUARTERS
+   -- too few arguments
+"zork2dat.zap", line 826: 	.OBJECT DEAD-SERPENT,0,FX?TAKEBIT+FX?VICBIT,0,0,0,T?DEAD-SERPENT
+   -- too few arguments
+"zork2dat.zap", line 827: 	.OBJECT SERPENT,0,FX?VICBIT+FX?TAKEBIT,AQUARIUM,0,0,T?SERPENT
+   -- too few arguments
+"zork2dat.zap", line 828: 	.OBJECT IN-AQUARIUM,0,FX?ONBIT+FX?RLANDBIT,ROOMS,AQUARIUM-ROOM,PALANTIR-3,T?IN-AQUARIUM
+   -- too few arguments
+"zork2dat.zap", line 829: 	.OBJECT PALANTIR-3,FX?TRANSBIT+FX?TREASURE,FX?NDESCBIT+FX?TAKEBIT,IN-AQUARIUM,0,0,T?PALANTIR-3
+   -- too few arguments
+"zork2dat.zap", line 830: 	.OBJECT AQUARIUM,0,FX?VICBIT+FX?CONTBIT+FX?OPENBIT,AQUARIUM-ROOM,0,SERPENT,T?AQUARIUM
+   -- too few arguments
+"zork2dat.zap", line 831: 	.OBJECT AQUARIUM-ROOM,0,FX?ONBIT+FX?RLANDBIT,ROOMS,PENTAGRAM-ROOM,AQUARIUM,T?AQUARIUM-ROOM
+   -- too few arguments
+"zork2dat.zap", line 832: 	.OBJECT PENTAGRAM,0,FX?OPENBIT+FX?CONTBIT+FX?SURFACEBIT+FX?NDESCBIT,PENTAGRAM-ROOM,0,0,T?PENTAGRAM
+   -- too few arguments
+"zork2dat.zap", line 833: 	.OBJECT PENTAGRAM-ROOM,0,FX?ONBIT+FX?RLANDBIT,ROOMS,TROPHY-ROOM,PENTAGRAM,T?PENTAGRAM-ROOM
+   -- too few arguments
+"zork2dat.zap", line 834: 	.OBJECT BROKEN-CASE,0,FX?OPENBIT+FX?CONTBIT,0,0,0,T?BROKEN-CASE
+   -- too few arguments
+"zork2dat.zap", line 835: 	.OBJECT WIZARD-CASE,FX?TRANSBIT,FX?CONTBIT,TROPHY-ROOM,WARNING-LABEL,0,T?WIZARD-CASE
+   -- too few arguments
+"zork2dat.zap", line 836: 	.OBJECT GLOBAL-WIZARD-CASE,0,0,LOCAL-GLOBALS,DIM-DOOR,0,T?GLOBAL-WIZARD-CASE
+   -- too few arguments
+"zork2dat.zap", line 837: 	.OBJECT WARNING-LABEL,FX?READBIT,0,TROPHY-ROOM,TROPHY-BOTTLES,0,T?WARNING-LABEL
+   -- too few arguments
+"zork2dat.zap", line 838: 	.OBJECT TROPHY-BOTTLES,0,FX?TRYTAKEBIT+FX?NDESCBIT,TROPHY-ROOM,TROPHY-SWORD,0,T?TROPHY-BOTTLES
+   -- too few arguments
+"zork2dat.zap", line 839: 	.OBJECT TROPHY-SWORD,0,FX?TRYTAKEBIT+FX?NDESCBIT,TROPHY-ROOM,WANDS,0,T?TROPHY-SWORD
+   -- too few arguments
+"zork2dat.zap", line 840: 	.OBJECT WANDS,0,FX?TRYTAKEBIT+FX?NDESCBIT,TROPHY-ROOM,0,0,T?WANDS
+   -- too few arguments
+"zork2dat.zap", line 841: 	.OBJECT DEGREE,FX?READBIT,FX?TRYTAKEBIT+FX?NDESCBIT,TROPHY-ROOM,WIZARD-CASE,0,T?DEGREE
+   -- too few arguments
+"zork2dat.zap", line 842: 	.OBJECT TROPHY-ROOM,0,FX?RLANDBIT,ROOMS,WORKBENCH-ROOM,DEGREE,T?TROPHY-ROOM
+   -- too few arguments
+"zork2dat.zap", line 843: 	.OBJECT PALANTIR-4,FX?TRANSBIT+FX?TREASURE,FX?TAKEBIT,STAND-4,0,0,T?PALANTIR-4
+   -- too few arguments
+"zork2dat.zap", line 844: 	.OBJECT STAND-4,0,FX?OPENBIT+FX?CONTBIT+FX?SURFACEBIT,0,0,PALANTIR-4,T?STAND-4
+   -- too few arguments
+"zork2dat.zap", line 845: 	.OBJECT STAND-3,0,FX?CONTBIT+FX?OPENBIT+FX?SURFACEBIT,WORKBENCH,STAND-2,0,T?STAND-3
+   -- too few arguments
+"zork2dat.zap", line 846: 	.OBJECT STAND-2,0,FX?CONTBIT+FX?OPENBIT+FX?SURFACEBIT,WORKBENCH,0,0,T?STAND-2
+   -- too few arguments
+"zork2dat.zap", line 847: 	.OBJECT STAND-1,0,FX?OPENBIT+FX?CONTBIT+FX?SURFACEBIT,WORKBENCH,STAND-3,0,T?STAND-1
+   -- too few arguments
+"zork2dat.zap", line 848: 	.OBJECT WORKBENCH,0,FX?OPENBIT+FX?CONTBIT+FX?SURFACEBIT+FX?NDESCBIT,WORKBENCH-ROOM,0,STAND-1,T?WORKBENCH
+   -- too few arguments
+"zork2dat.zap", line 849: 	.OBJECT ARCANA,0,FX?TRYTAKEBIT+FX?NDESCBIT,WORKBENCH-ROOM,WORKBENCH,0,T?ARCANA
+   -- too few arguments
+"zork2dat.zap", line 850: 	.OBJECT WORKBENCH-ROOM,0,FX?ONBIT+FX?RLANDBIT,ROOMS,WIZARDS-WORKSHOP,ARCANA,T?WORKBENCH-ROOM
+   -- too few arguments
+"zork2dat.zap", line 851: 	.OBJECT WIZARDS-WORKSHOP,FX?TREASURE,FX?RLANDBIT,ROOMS,GUARDIAN-ROOM,0,T?WIZARDS-WORKSHOP
+   -- too few arguments
+"zork2dat.zap", line 852: 	.OBJECT DOOR-KEEPER,0,FX?NDESCBIT,GUARDIAN-ROOM,0,0,T?DOOR-KEEPER
+   -- too few arguments
+"zork2dat.zap", line 853: 	.OBJECT GUARDIAN-ROOM,0,FX?RLANDBIT,ROOMS,ZORK3,DOOR-KEEPER,T?GUARDIAN-ROOM
+   -- too few arguments
+"zork2dat.zap", line 854: 	.OBJECT ZORK3,0,FX?ONBIT+FX?RLANDBIT,ROOMS,CRYPT-ROOM,0,T?ZORK3
+   -- too few arguments
+"zork2dat.zap", line 855: 	.OBJECT CRYPT,FX?READBIT,FX?NDESCBIT,CRYPT-ROOM,0,0,T?CRYPT
+   -- too few arguments
+"zork2dat.zap", line 856: 	.OBJECT HEADS,0,FX?TRYTAKEBIT+FX?NDESCBIT,CRYPT-ROOM,CRYPT,0,T?HEADS
+   -- too few arguments
+"zork2dat.zap", line 857: 	.OBJECT DIM-DOOR,FX?DOORBIT,FX?INVISIBLE+FX?CONTBIT,LOCAL-GLOBALS,CRYPT-DOOR,0,T?DIM-DOOR
+   -- too few arguments
+"zork2dat.zap", line 858: 	.OBJECT CRYPT-ROOM,FX?TREASURE,FX?RLANDBIT,ROOMS,CRYPT-ANTEROOM,HEADS,T?CRYPT-ROOM
+   -- too few arguments
+"zork2dat.zap", line 859: 	.OBJECT CRYPT-DOOR,FX?DOORBIT,FX?CONTBIT,LOCAL-GLOBALS,GLOBAL-CERBERUS,0,T?CRYPT-DOOR
+   -- too few arguments
+"zork2dat.zap", line 860: 	.OBJECT CRYPT-ANTEROOM,FX?TREASURE,FX?RLANDBIT,ROOMS,CERBERUS-ROOM,0,T?CRYPT-ANTEROOM
+   -- too few arguments
+"zork2dat.zap", line 861: 	.OBJECT CERBERUS,0,FX?CONTBIT+FX?OPENBIT+FX?VICBIT+FX?VILLAIN,CERBERUS-ROOM,0,0,T?CERBERUS
+   -- too few arguments
+"zork2dat.zap", line 862: 	.OBJECT GLOBAL-CERBERUS,0,0,LOCAL-GLOBALS,DWINDOW,0,T?GLOBAL-CERBERUS
+   -- too few arguments
+"zork2dat.zap", line 863: 	.OBJECT CERBERUS-ROOM,FX?TREASURE,FX?RLANDBIT,ROOMS,DIAMOND-9,CERBERUS,T?CERBERUS-ROOM
+   -- too few arguments
+"zork2dat.zap", line 864: 	.OBJECT DIAMOND-9,0,FX?RLANDBIT,ROOMS,DIAMOND-8,0,T?DIAMOND-9
+   -- too few arguments
+"zork2dat.zap", line 865: 	.OBJECT DIAMOND-8,0,FX?RLANDBIT,ROOMS,DIAMOND-7,0,T?DIAMOND-8
+   -- too few arguments
+"zork2dat.zap", line 866: 	.OBJECT DIAMOND-7,0,FX?RLANDBIT,ROOMS,DIAMOND-6,0,T?DIAMOND-7
+   -- too few arguments
+"zork2dat.zap", line 867: 	.OBJECT DIAMOND-6,0,FX?RLANDBIT,ROOMS,DIAMOND-5,0,T?DIAMOND-6
+   -- too few arguments
+"zork2dat.zap", line 868: 	.OBJECT DIAMOND-5,0,FX?RLANDBIT,ROOMS,DIAMOND-4,0,T?DIAMOND-5
+   -- too few arguments
+"zork2dat.zap", line 869: 	.OBJECT DIAMOND-4,0,FX?RLANDBIT,ROOMS,DIAMOND-3,0,T?DIAMOND-4
+   -- too few arguments
+"zork2dat.zap", line 870: 	.OBJECT DIAMOND-3,0,FX?RLANDBIT,ROOMS,DIAMOND-2,0,T?DIAMOND-3
+   -- too few arguments
+"zork2dat.zap", line 871: 	.OBJECT DIAMOND-2,0,FX?RLANDBIT,ROOMS,DIAMOND-1,0,T?DIAMOND-2
+   -- too few arguments
+"zork2dat.zap", line 872: 	.OBJECT DWINDOW,0,FX?TRYTAKEBIT+FX?NDESCBIT,LOCAL-GLOBALS,MENHIR,0,T?DWINDOW
+   -- too few arguments
+"zork2dat.zap", line 873: 	.OBJECT DIAMOND-1,0,FX?RLANDBIT,ROOMS,STAIRWAY-TOP,0,T?DIAMOND-1
+   -- too few arguments
+"zork2dat.zap", line 874: 	.OBJECT STAIRWAY-TOP,0,FX?RLANDBIT,ROOMS,KENNEL,0,T?STAIRWAY-TOP
+   -- too few arguments
+"zork2dat.zap", line 875: 	.OBJECT BAT,FX?READBIT+FX?WEAPONBIT,FX?TAKEBIT+FX?INVISIBLE,0,0,0,T?BAT
+   -- too few arguments
+"zork2dat.zap", line 876: 	.OBJECT COLLAR,FX?TREASURE,FX?TAKEBIT,KENNEL,0,0,T?COLLAR
+   -- too few arguments
+"zork2dat.zap", line 877: 	.OBJECT KENNEL,0,FX?RLANDBIT,ROOMS,MENHIR-ROOM,COLLAR,T?KENNEL
+   -- too few arguments
+"zork2dat.zap", line 878: 	.OBJECT GLOBAL-MENHIR,FX?READBIT,FX?NDESCBIT,LOCAL-GLOBALS,WIZ-DOOR,0,T?GLOBAL-MENHIR
+   -- too few arguments
+"zork2dat.zap", line 879: 	.OBJECT MENHIR,FX?READBIT,FX?NDESCBIT,LOCAL-GLOBALS,GLOBAL-MENHIR,0,T?MENHIR
+   -- too few arguments
+"zork2dat.zap", line 880: 	.OBJECT MENHIR-ROOM,0,FX?RLANDBIT,ROOMS,ROOM-8,0,T?MENHIR-ROOM
+   -- too few arguments
+"zork2dat.zap", line 881: 	.OBJECT ROOM-8,0,FX?RLANDBIT,ROOMS,COBWEBBY-CORRIDOR,REPELLENT,T?ROOM-8
+   -- too few arguments
+"zork2dat.zap", line 882: 	.OBJECT WIZ-DOOR,FX?DOORBIT,FX?CONTBIT,LOCAL-GLOBALS,GLOBAL-UNICORN,0,T?WIZ-DOOR
+   -- too few arguments
+"zork2dat.zap", line 883: 	.OBJECT COBWEBBY-CORRIDOR,0,FX?RLANDBIT,ROOMS,LAVA-TUBE,FUSE,T?COBWEBBY-CORRIDOR
+   -- too few arguments
+"zork2dat.zap", line 884: 	.OBJECT LAVA-TUBE,0,FX?RLANDBIT,ROOMS,GLACIER-ROOM,0,T?LAVA-TUBE
+   -- too few arguments
+"zork2dat.zap", line 885: 	.OBJECT GLACIER-ROOM,0,FX?RLANDBIT,ROOMS,COOL-ROOM,ICE,T?GLACIER-ROOM
+   -- too few arguments
+"zork2dat.zap", line 886: 	.OBJECT COOL-ROOM,0,FX?RLANDBIT,ROOMS,STONE-BRIDGE,0,T?COOL-ROOM
+   -- too few arguments
+"zork2dat.zap", line 887: 	.OBJECT STONE-BRIDGE,0,FX?RLANDBIT,ROOMS,FRESCO-ROOM,0,T?STONE-BRIDGE
+   -- too few arguments
+"zork2dat.zap", line 888: 	.OBJECT FRESCO-ROOM,0,FX?RLANDBIT,ROOMS,DRAGON-LAIR,0,T?FRESCO-ROOM
+   -- too few arguments
+"zork2dat.zap", line 889: 	.OBJECT PRINCESS,0,FX?VICBIT,DRAGON-LAIR,0,0,T?PRINCESS
+   -- too few arguments
+"zork2dat.zap", line 890: 	.OBJECT GLOBAL-PRINCESS,0,FX?VICBIT,GLOBAL-OBJECTS,WISH,0,T?GLOBAL-PRINCESS
+   -- too few arguments
+"zork2dat.zap", line 891: 	.OBJECT DEAD-DRAGON,0,FX?TAKEBIT,0,0,0,T?DEAD-DRAGON
+   -- too few arguments
+"zork2dat.zap", line 892: 	.OBJECT DRAGON,0,FX?VILLAIN,DRAGON-ROOM,0,0,T?DRAGON
+   -- too few arguments
+"zork2dat.zap", line 893: 	.OBJECT STATUETTE,FX?TREASURE,FX?TAKEBIT,CHEST,0,0,T?STATUETTE
+   -- too few arguments
+"zork2dat.zap", line 894: 	.OBJECT CHEST,0,FX?TAKEBIT+FX?CONTBIT,DRAGON-LAIR,PRINCESS,STATUETTE,T?CHEST
+   -- too few arguments
+"zork2dat.zap", line 895: 	.OBJECT DRAGON-LAIR,0,FX?RLANDBIT,ROOMS,DRAGON-ROOM,CHEST,T?DRAGON-LAIR
+   -- too few arguments
+"zork2dat.zap", line 896: 	.OBJECT DRAGON-ROOM,0,FX?RLANDBIT,ROOMS,LEDGE-TUNNEL,DRAGON,T?DRAGON-ROOM
+   -- too few arguments
+"zork2dat.zap", line 897: 	.OBJECT LEDGE-TUNNEL,0,FX?RLANDBIT,ROOMS,RAVINE-LEDGE,0,T?LEDGE-TUNNEL
+   -- too few arguments
+"zork2dat.zap", line 898: 	.OBJECT RAVINE-LEDGE,0,FX?RLANDBIT,ROOMS,DEEP-FORD,0,T?RAVINE-LEDGE
+   -- too few arguments
+"zork2dat.zap", line 899: 	.OBJECT DEEP-FORD,0,FX?RLANDBIT,ROOMS,MARBLE-HALL,0,T?DEEP-FORD
+   -- too few arguments
+"zork2dat.zap", line 900: 	.OBJECT MARBLE-HALL,0,FX?RLANDBIT,ROOMS,STREAM-PATH,BRICK,T?MARBLE-HALL
+   -- too few arguments
+"zork2dat.zap", line 901: 	.OBJECT STREAM-PATH,0,FX?RLANDBIT,ROOMS,TOPIARY-ROOM,0,T?STREAM-PATH
+   -- too few arguments
+"zork2dat.zap", line 902: 	.OBJECT TOPIARY-ROOM,0,FX?ONBIT+FX?RLANDBIT,ROOMS,FORMAL-GARDEN,0,T?TOPIARY-ROOM
+   -- too few arguments
+"zork2dat.zap", line 903: 	.OBJECT FORMAL-GARDEN,0,FX?ONBIT+FX?RLANDBIT,ROOMS,GAZEBO-ROOM,0,T?FORMAL-GARDEN
+   -- too few arguments
+"zork2dat.zap", line 904: 	.OBJECT GAZEBO-ROOM,0,FX?ONBIT+FX?RLANDBIT,ROOMS,GARDEN-NORTH,GAZEBO-TABLE,T?GAZEBO-ROOM
+   -- too few arguments
+"zork2dat.zap", line 905: 	.OBJECT GAZEBO,0,FX?NDESCBIT,LOCAL-GLOBALS,PWINDOW,0,T?GAZEBO
+   -- too few arguments
+"zork2dat.zap", line 906: 	.OBJECT GARDEN-NORTH,0,FX?ONBIT+FX?RLANDBIT,ROOMS,DARK-TUNNEL,0,T?GARDEN-NORTH
+   -- too few arguments
+"zork2dat.zap", line 907: 	.OBJECT UNICORN,0,FX?CONTBIT+FX?OPENBIT+FX?TAKEBIT+FX?VICBIT,0,0,GOLD-KEY,T?UNICORN
+   -- too few arguments
+"zork2dat.zap", line 908: 	.OBJECT GLOBAL-UNICORN,0,FX?VICBIT,LOCAL-GLOBALS,SNWL,0,T?GLOBAL-UNICORN
+   -- too few arguments
+"zork2dat.zap", line 909: 	.OBJECT DARK-TUNNEL,0,FX?RLANDBIT,ROOMS,SHALLOW-FORD,0,T?DARK-TUNNEL
+   -- too few arguments
+"zork2dat.zap", line 910: 	.OBJECT SHALLOW-FORD,0,FX?ONBIT+FX?RLANDBIT,ROOMS,GREAT-CAVERN,0,T?SHALLOW-FORD
+   -- too few arguments
+"zork2dat.zap", line 911: 	.OBJECT GREAT-CAVERN,0,FX?ONBIT+FX?RLANDBIT,ROOMS,FOOT-BRIDGE,0,T?GREAT-CAVERN
+   -- too few arguments
+"zork2dat.zap", line 912: 	.OBJECT FOOT-BRIDGE,0,FX?ONBIT+FX?RLANDBIT,ROOMS,NARROW-TUNNEL,0,T?FOOT-BRIDGE
+   -- too few arguments
+"zork2dat.zap", line 913: 	.OBJECT NARROW-TUNNEL,0,FX?ONBIT+FX?RLANDBIT,ROOMS,0,0,T?NARROW-TUNNEL
+   -- too few arguments
+"zork2dat.zap", line 914: 	.OBJECT SNWL,0,FX?NDESCBIT,LOCAL-GLOBALS,SSWL,0,T?SNWL
+   -- too few arguments
+"zork2dat.zap", line 915: 	.OBJECT SSWL,0,FX?NDESCBIT,LOCAL-GLOBALS,SWWL,0,T?SSWL
+   -- too few arguments
+"zork2dat.zap", line 916: 	.OBJECT SWWL,0,FX?NDESCBIT,LOCAL-GLOBALS,SEWL,0,T?SWWL
+   -- too few arguments
+"zork2dat.zap", line 917: 	.OBJECT SEWL,0,FX?NDESCBIT,LOCAL-GLOBALS,WELL,0,T?SEWL
+   -- too few arguments
+"zork2dat.zap", line 918: 	.OBJECT WELL,0,FX?NDESCBIT,LOCAL-GLOBALS,GLOBAL-WATER,0,T?WELL
+   -- too few arguments
+"zork2dat.zap", line 919: 	.OBJECT WISH,0,FX?NDESCBIT,GLOBAL-OBJECTS,ME,0,T?WISH
+   -- too few arguments
+"zork2dat.zap", line 920: 	.OBJECT ME,0,FX?VILLAIN,GLOBAL-OBJECTS,NORTH-WALL,0,T?ME
+   -- too few arguments
+"zork2dat.zap", line 921: 	.OBJECT INSIDE-BARROW,0,FX?ONBIT+FX?RLANDBIT,ROOMS,DEAD-PALANTIR-4,ADVENTURER,T?INSIDE-BARROW
+   -- too few arguments
+"zork2dat.zap", line 922: 	.OBJECT ADVENTURER,0,FX?INVISIBLE+FX?NDESCBIT+FX?VILLAIN,INSIDE-BARROW,SWORD,0,T?ADVENTURER
+   -- too few arguments
+"zork2dat.zap", line 923: 	.OBJECT GLOBAL-WATER,0,FX?DRINKBIT,LOCAL-GLOBALS,BRIDGE,0,T?GLOBAL-WATER
+   -- too few arguments
+"zork2dat.zap", line 924: 	.OBJECT NORTH-WALL,0,FX?NDESCBIT,GLOBAL-OBJECTS,WEST-WALL,0,T?NORTH-WALL
+   -- too few arguments
+"zork2dat.zap", line 925: 	.OBJECT WEST-WALL,0,FX?NDESCBIT,GLOBAL-OBJECTS,SOUTH-WALL,0,T?WEST-WALL
+   -- too few arguments
+"zork2dat.zap", line 926: 	.OBJECT SOUTH-WALL,0,FX?NDESCBIT,GLOBAL-OBJECTS,EAST-WALL,0,T?SOUTH-WALL
+   -- too few arguments
+"zork2dat.zap", line 927: 	.OBJECT EAST-WALL,0,FX?NDESCBIT,GLOBAL-OBJECTS,HANDS,0,T?EAST-WALL
+   -- too few arguments
+"zork2dat.zap", line 928: 	.OBJECT HANDS,0,FX?TOOLBIT+FX?NDESCBIT,GLOBAL-OBJECTS,ZORKMID,0,T?HANDS
+   -- too few arguments
+"zork2dat.zap", line 929: 	.OBJECT ZORKMID,0,0,GLOBAL-OBJECTS,GRUE,0,T?ZORKMID
+   -- too few arguments
+"zork2dat.zap", line 930: 	.OBJECT GRUE,0,0,GLOBAL-OBJECTS,GROUND,0,T?GRUE
+   -- too few arguments
+"zork2dat.zap", line 931: 	.OBJECT GROUND,0,0,GLOBAL-OBJECTS,SAILOR,0,T?GROUND
+   -- too few arguments
+"zork2dat.zap", line 932: 	.OBJECT SAILOR,0,FX?NDESCBIT,GLOBAL-OBJECTS,TUNNEL,0,T?SAILOR
+   -- too few arguments
+"zork2dat.zap", line 933: 	.OBJECT TUNNEL,0,FX?NDESCBIT,GLOBAL-OBJECTS,PATHOBJ,0,T?TUNNEL
+   -- too few arguments
+"zork2dat.zap", line 934: 	.OBJECT PATHOBJ,0,FX?NDESCBIT,GLOBAL-OBJECTS,BLESSINGS,0,T?PATHOBJ
+   -- too few arguments
+"zork2dat.zap", line 935: 	.OBJECT BRIDGE,0,FX?NDESCBIT,LOCAL-GLOBALS,ROSE-BUSH,0,T?BRIDGE
+   -- too few arguments
+"zork2dat.zap", line 936: 	.OBJECT ROSE-BUSH,0,FX?TRYTAKEBIT+FX?NDESCBIT,LOCAL-GLOBALS,MOSS,0,T?ROSE-BUSH
+   -- too few arguments
+"zork2dat.zap", line 937: 	.OBJECT MOSS,0,FX?TRYTAKEBIT+FX?NDESCBIT,LOCAL-GLOBALS,CHASM,0,T?MOSS
+   -- too few arguments
+"zork2dat.zap", line 938: 	.OBJECT CHASM,0,FX?NDESCBIT,LOCAL-GLOBALS,STREAM,0,T?CHASM
+   -- too few arguments
+"zork2dat.zap", line 939: 	.OBJECT STREAM,0,FX?NDESCBIT,LOCAL-GLOBALS,0,0,T?STREAM
+   -- too few arguments
+"zork2dat.zap", line 940: 	.OBJECT STAIRS,0,FX?CLIMBBIT+FX?NDESCBIT,LOCAL-GLOBALS,GLOBAL-PALANTIR,0,T?STAIRS
+   -- too few arguments
+"zork2dat.zap", line 941: 	.OBJECT BLESSINGS,0,FX?NDESCBIT,GLOBAL-OBJECTS,IT,0,T?BLESSINGS
+   -- too few arguments
+"zork2dat.zap", line 942: 	.OBJECT IT,0,FX?NDESCBIT,GLOBAL-OBJECTS,0,0,T?IT
+   -- too few arguments
+"zork2dat.zap", line 943: 	.OBJECT PSEUDO-OBJECT,0,0,0,0,0,T?PSEUDO-OBJECT
+   -- too few arguments
+"zork2dat.zap", line 944: 	.OBJECT ROOMS,0,0,0,0,INSIDE-BARROW,T?ROOMS
+   -- too few arguments
+"zork2dat.zap", line 945: 	.OBJECT LOCAL-GLOBALS,0,0,GLOBAL-OBJECTS,GLOBAL-PRINCESS,STAIRS,T?LOCAL-GLOBALS
+   -- too few arguments
+"zork2dat.zap", line 946: 	.OBJECT GLOBAL-OBJECTS,0,FX?SURFACEBIT+FX?TOUCHBIT+FX?INVISIBLE+FX?RMUNGBIT,0,0,LOCAL-GLOBALS,T?GLOBAL-OBJECTS
+   -- too few arguments
+"zork2dat.zap", line 947: 	.ENDT
+   -- warning - table length does not match declared size
+ 19612  Inserting dungeon.zap.
+ 19612  Inserting syntax.zap.
+ 19612  Inserting macros.zap.
+ 19650  Inserting clock.zap.
+"clock.zap", line 15: 	.FUNCT	INT,RTN,DEMON=0,E,C,INT
+   -- warning--default values not supported in version 5
+"clock.zap", line 32: 	.FUNCT	CLOCKER,C,E,TICK,FLG=0
+   -- warning--default values not supported in version 5
+ 19828  Inserting main.zap.
+"main.zap", line 118: 	.FUNCT	PERFORM,A,O=0,I=0,V,OA,OO,OI
+   -- warning--default values not supported in version 5
+   -- warning--default values not supported in version 5
+ 20443  Inserting parser.zap.
+"parser.zap", line 3: 	.FUNCT	PARSER,PTR=P-LEXSTART,WORD,VAL=0,VERB=0,LEN,DIR=0,NW=0,NUM
+   -- warning--default values not supported in version 5
+   -- warning--default values not supported in version 5
+   -- warning--default values not supported in version 5
+   -- warning--default values not supported in version 5
+   -- warning--default values not supported in version 5
+"parser.zap", line 155: 	.FUNCT	WT?,PTR,BIT,B1=5,OFFSET=P-P1OFF,TYP
+   -- warning--default values not supported in version 5
+   -- warning--default values not supported in version 5
+"parser.zap", line 166: 	.FUNCT	CLAUSE,PTR,VAL,WORD,OFF,NUM,ANDFLG=0,FIRST??=0,NW,?TMP1
+   -- warning--default values not supported in version 5
+   -- warning--default values not supported in version 5
+"parser.zap", line 262: 	.FUNCT	ORPHAN-MERGE,CNT=-1,TEMP,VERB,BEG,END,ADJ=0,WRD,?TMP1
+   -- warning--default values not supported in version 5
+   -- warning--default values not supported in version 5
+"parser.zap", line 359: 	.FUNCT	CLEAR-ITBL,CNT=-1
+   -- warning--default values not supported in version 5
+"parser.zap", line 365: 	.FUNCT	SYNTAX-CHECK,SYN,LEN,NUM,OBJ,DRIVE1=0,DRIVE2=0,PREP,VERB,TMP,?TMP2,?TMP1
+   -- warning--default values not supported in version 5
+   -- warning--default values not supported in version 5
+"parser.zap", line 452: 	.FUNCT	ORPHAN,D1,D2,CNT=-1
+   -- warning--default values not supported in version 5
+"parser.zap", line 502: 	.FUNCT	CLAUSE-COPY,BPTR,EPTR,INSERT=0,BEG,END
+   -- warning--default values not supported in version 5
+"parser.zap", line 537: 	.FUNCT	PREP-FIND,PREP,CNT=0,SIZE
+   -- warning--default values not supported in version 5
+"parser.zap", line 612: 	.FUNCT	BUT-MERGE,TBL,LEN,BUTLEN,CNT=1,MATCHES=0,OBJ,NTBL
+   -- warning--default values not supported in version 5
+   -- warning--default values not supported in version 5
+"parser.zap", line 632: 	.FUNCT	SNARFEM,PTR,EPTR,TBL,AND=0,BUT=0,LEN,WV,WORD,NW
+   -- warning--default values not supported in version 5
+   -- warning--default values not supported in version 5
+"parser.zap", line 709: 	.FUNCT	GET-OBJECT,TBL,VRB=1,BITS,LEN,XBITS,TLEN,GCHECK=0
+   -- warning--default values not supported in version 5
+   -- warning--default values not supported in version 5
+"parser.zap", line 827: 	.FUNCT	GLOBAL-CHECK,TBL,LEN,RMG,RMGL,CNT=0,OBJ,OBITS,FOO
+   -- warning--default values not supported in version 5
+"parser.zap", line 957: 	.FUNCT	MANY-CHECK,LOSS=0,TMP,?TMP1
+   -- warning--default values not supported in version 5
+"parser.zap", line 987: 	.FUNCT	ZMEMQ,ITM,TBL,SIZE=-1,CNT=1
+   -- warning--default values not supported in version 5
+   -- warning--default values not supported in version 5
+"parser.zap", line 1000: 	.FUNCT	ZMEMQB,ITM,TBL,SIZE,CNT=0
+   -- warning--default values not supported in version 5
+"parser.zap", line 1007: 	.FUNCT	LIT?,RM,OHERE,LIT=0
+   -- warning--default values not supported in version 5
+ 24327  Inserting demons.zap.
+"demons.zap", line 3: 	.FUNCT	I-SWORD,DEM,G,NG=0,P,T,L
+   -- warning--default values not supported in version 5
+ 24607  Inserting crufty.xzap.
+ 24687  Inserting verbs.zap.
+"verbs.zap", line 51: 	.FUNCT	DESCRIBE-ROOM,LOOK?=0,V?,STR,AV
+   -- warning--default values not supported in version 5
+"verbs.zap", line 96: 	.FUNCT	DESCRIBE-OBJECTS,V?=0
+   -- warning--default values not supported in version 5
+"verbs.zap", line 109: 	.FUNCT	DESCRIBE-OBJECT,OBJ,V?,LEVEL,STR=0,AV
+   -- warning--default values not supported in version 5
+"verbs.zap", line 149: 	.FUNCT	PRINT-CONT,OBJ,V?=0,LEVEL=0,Y,1ST?,AV,STR,PV?=0,INV?=0
+   -- warning--default values not supported in version 5
+   -- warning--default values not supported in version 5
+   -- warning--default values not supported in version 5
+   -- warning--default values not supported in version 5
+"verbs.zap", line 265: 	.FUNCT	V-SCORE,ASK?=1
+   -- warning--default values not supported in version 5
+"verbs.zap", line 318: 	.FUNCT	V-QUIT,ASK?=1,SCOR
+   -- warning--default values not supported in version 5
+"verbs.zap", line 338: 	.FUNCT	V-VERSION,CNT=17
+   -- warning--default values not supported in version 5
+"verbs.zap", line 391: 	.FUNCT	JIGS-UP,DESC,PLAYER?=0
+   -- warning--default values not supported in version 5
+"verbs.zap", line 427: 	.FUNCT	RANDOMIZE-OBJECTS,R=0,F,N,L
+   -- warning--default values not supported in version 5
+"verbs.zap", line 465: 	RESTORE	 \?ELS5
+   -- unexpected stuff on line.
+"verbs.zap", line 474: 	SAVE	 \?ELS5
+   -- unexpected stuff on line.
+"verbs.zap", line 507: 	.FUNCT	LKP,ITM,TBL,CNT=0,LEN
+   -- warning--default values not supported in version 5
+"verbs.zap", line 620: 	.FUNCT	ITAKE,VB=1,CNT,OBJ,?TMP1
+   -- warning--default values not supported in version 5
+"verbs.zap", line 828: 	.FUNCT	PRINT-CONTENTS,OBJ,F,N,1ST?=1
+   -- warning--default values not supported in version 5
+"verbs.zap", line 859: 	.FUNCT	CCOUNT,OBJ,CNT=0,X
+   -- warning--default values not supported in version 5
+"verbs.zap", line 866: 	.FUNCT	WEIGHT,OBJ,CONT,WT=0
+   -- warning--default values not supported in version 5
+"verbs.zap", line 951: 	.FUNCT	V-WAIT,NUM=3
+   -- warning--default values not supported in version 5
+"verbs.zap", line 1018: 	.FUNCT	GOTO,RM,V?=1,LB,WLOC,AV=0,OLIT
+   -- warning--default values not supported in version 5
+   -- warning--default values not supported in version 5
+"verbs.zap", line 1173: 	.FUNCT	V-EAT,EAT?=0,DRINK?=0,NOBJ=0
+   -- warning--default values not supported in version 5
+   -- warning--default values not supported in version 5
+   -- warning--default values not supported in version 5
+"verbs.zap", line 1764: 	.FUNCT	V-CLIMB-UP,DIR=P?UP,OBJ=0,X,?TMP1
+   -- warning--default values not supported in version 5
+   -- warning--default values not supported in version 5
+ 35887  Inserting actions.zap.
+"actions.zap", line 60: 	.FUNCT	BALLOON-FCN,RARG=0,M,R
+   -- warning--default values not supported in version 5
+"actions.zap", line 426: 	.FUNCT	I-LEDGE,RM=LEDGE-2
+   -- warning--default values not supported in version 5
+"actions.zap", line 777: 	.FUNCT	BUCKET-FCN,RARG=M-BEG
+   -- warning--default values not supported in version 5
+"actions.zap", line 1126: 	.FUNCT	ROBOT-FCN,RARG=0
+   -- warning--default values not supported in version 5
+"actions.zap", line 1189: 	.FUNCT	BKLEAVEE,RM=TELLER-EAST
+   -- warning--default values not supported in version 5
+"actions.zap", line 1224: 	.FUNCT	SCOL-OBJECT,OBJ=0
+   -- warning--default values not supported in version 5
+"actions.zap", line 1258: 	.FUNCT	V-THROUGH,OBJ=0,M
+   -- warning--default values not supported in version 5
+"actions.zap", line 1423: 	.FUNCT	GO&LOOK,RM,OHERE,OLIT,OSEEN=0
+   -- warning--default values not supported in version 5
+"actions.zap", line 1499: 	.FUNCT	PLID,OBJ1=LID-1,OBJ2=LID-2
+   -- warning--default values not supported in version 5
+   -- warning--default values not supported in version 5
+"actions.zap", line 1505: 	.FUNCT	PKH,KEYHOLE,THIS=0
+   -- warning--default values not supported in version 5
+"actions.zap", line 1669: 	.FUNCT	PALANTIR-LOOK,OBJ,INSIDE?=0,RM,OHERE
+   -- warning--default values not supported in version 5
+"actions.zap", line 2060: 	.FUNCT	RANDOM-WALK,P,T,L,S,D=0
+   -- warning--default values not supported in version 5
+"actions.zap", line 3079: 	.FUNCT	GENIE-LEAVES,NOISY?=1
+   -- warning--default values not supported in version 5
+"actions.zap", line 3085: 	.FUNCT	CASE-WORTH,F,W=0
+   -- warning--default values not supported in version 5
+"actions.zap", line 3096: 	.FUNCT	PENTAGRAM-FCN,RARG=M-BEG
+   -- warning--default values not supported in version 5
+"actions.zap", line 3148: 	.FUNCT	I-WIZARD,CAST-PROB,PCNT=0,F,WLOC
+   -- warning--default values not supported in version 5
+"actions.zap", line 3333: 	.FUNCT	ROB,WHO,WHERE,N,X,ROBBED?=0
+   -- warning--default values not supported in version 5
+ 73505  Inserting zork2str.zap.
+Unreferenced function: PRE-FILL
+Unreferenced function: DEMON
+Unreferenced function: ZPROB
+Unreferenced function: V-IS-IN
+Unreferenced global: BIGFIX
+Unreferenced function: V-FROBOZZ
+Unreferenced global: GWIM-DISABLE
+Unreferenced function: GO-NEXT
+Unreferenced table: OBJECT
+Unreferenced table: GLOBAL
+Unreferenced table: VOCAB
+Unreferenced function: GO
+Unreferenced function: PRE-DROP
+Unreferenced function: V-COMMAND
+Unreferenced function: BLAST
+
+Lexical buffer space allocated:  592296
+Max lexical space allocated at any one time: 48024
+Object buffer space allocated:  96000
+Source bytes read:  387732
+Object bytes written:  95744
+Preload: 0; 244 objects; 147 globals; 0 words.
+Used 0
+Elapsed time 0
