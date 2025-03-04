@@ -235,52 +235,43 @@ int offs, what;
 res_type *add_a_resource_type(rtype)
 char *rtype;
 {
-  printf("add_a_resource_type of type: %s\n", rtype);
   long real_type = (rtype[0] << 24) | (rtype[1] << 16) | (rtype[2] << 8) | rtype[3];
   res_type *rt_chain = resources;
   while (rt_chain) {
     if (rt_chain->res_type == real_type) break;
     rt_chain = rt_chain->next_type; }
   if (!rt_chain) {
-    rt_chain = malloc(sizeof(res_type));
+    rt_chain = (res_type *)MALLOC(sizeof(res_type));
     rt_chain->res_type = real_type;
     rt_chain->next_res = 0L;
     rt_chain->type_count = 0;
     rt_chain->next_type = resources;
     num_types++;
     resources = rt_chain; }
-  return(rt_chain);
-}
+  return(rt_chain); }
 
 add_a_resource(rtype, id, data_len, data)
 char *rtype;
 int data_len, id;
 unsigned char *data;
 {
-  printf("add_a_resource\n\trtype: %s, data_len: %d, id: %d\n", rtype, data_len, id);
-  
-  /* This check shows data was passed successfully */
-  int i;
-  for (i = 0; i < data_len; i++) {
-    printf("\tchecking passed data[%d]: %u\n", i, data[i]);		
-  }
   res_type *rtype_chain = add_a_resource_type(rtype);
+  res *rdata;
   long rtype_long;
-  res *rdata = rtype_chain->next_res;
+  rdata = rtype_chain->next_res;
   while (rdata) {
     if (rdata->res_id == id) {
       printf("Attempt to define two resources of type %s with same id (%d).\n",
 	     rtype, id);
       return; }
     rdata = rdata->res_next; }
-  rdata = malloc(sizeof(res));
+  rdata = (res *)MALLOC(sizeof(res));
   rdata->res_next = rtype_chain->next_res;
   rtype_chain->next_res = rdata;
   rtype_chain->type_count++;
   rdata->res_data_len = data_len;
   rdata->res_data = data;
-  rdata->res_id = id;
-}
+  rdata->res_id = id; }
 
 char *memq(str1, str2)
 char *str1, *str2;
@@ -316,50 +307,33 @@ char *str1, *str2;
     len2--; }
   return(0); }
 
-void add_vers_resource(int version, char* text)
+add_vers_resource(version, text)
+int version;
+char *text;
 {
-  printf("> add_vers_resource called\n");
-  printf(" version: %d, text: %s\n", version, text);
-
-  size_t text_len = strlen(text);
-  
-  int reslen = 8;		
+  int reslen = 8;		/* Base length */
   char buf[255];
+  unsigned char *new_data, *tdata;
   int vlen;
   sprintf(&buf[0], "%d", version);
-  printf("after printing version into buf, buf[0] says: %c\n", buf[0]);
   vlen = strlen(&buf[0]);
   reslen += vlen;
   sprintf(&buf[0], "%d, %s", version, text);
   reslen += strlen(&buf[0]);
-  printf("\treslen calculated at: %d\n", reslen);
-  unsigned char new_data[reslen];
+  new_data = (unsigned char *)MALLOC(reslen);
   sprintf(&buf[0], "%d", version);
-  printf("buf says: %c\n", buf[0]);
-  printf("buf says: %u\n", buf[0]-'0');
-  new_data[0] = (unsigned char)(buf[0] - '0');
+  new_data[0] = buf[0] - '0';
   if (vlen == 1) new_data[1] = 0;
   else if (vlen == 2) new_data[1] = (buf[1] - '0') << 4;
   else new_data[1] = ((buf[1] - '0') << 4) | (buf[2] - '0');
   new_data[2] = 0x20;
   new_data[3] = 0;
-  new_data[4] = 0;		
-  new_data[5] = 0;		
-  new_data[6] = vlen;
+  new_data[4] = 0;			/* Country code? */
+  new_data[5] = 0;			/* Rest of country code */
+  new_data[6] = vlen;		/* Beginning of PSTRING */
   memcpy(&new_data[7], &buf[0], vlen);
-  int vv = 7+vlen;
-  /*printf("vv at: %d\n", vv);*/
-
-  sprintf(&buf[0], "%d, %s\n", version, text);
-  /*printf("buf[0] pointing at: %s\n", &buf[0]);*/
-  vlen = strlen(&buf[0]);
-  memcpy(&new_data[vv], &buf[0], vlen);
-
-  /* This check shows real data filling new_data 
-  int i;
-  for (i = 0; i < vv+vlen; i++) {
-    printf("\tchecking new_data[%d]: %u\n", i, new_data[i]);		
-  }*/
-
-  add_a_resource("vers", 1, reslen, &new_data[0]);
-}
+  tdata = &new_data[7 + vlen];
+  sprintf(&buf[0], "%d, %s", version, text);
+  tdata[0] = vlen = strlen(&buf[0]);
+  memcpy(&tdata[1], &buf[0], vlen);
+  add_a_resource("vers", 1, reslen, new_data); }

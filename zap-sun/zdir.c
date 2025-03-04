@@ -12,13 +12,24 @@ Contained in this file:
 #include <stdio.h>
 
 #include "zap.h"
-#include "common.h"
+
 
 /* Local definitions */
 
 #define __SEG__ Seg2
 
 /* External routines */
+
+extern int my_printf();
+extern	long	objtell();
+extern	SYMBOL	*symlookup();
+extern	UBYTE	*zstr();
+extern	STABLE	*symnew();
+extern	SYMBOL	*symenter();
+extern char **segstr();
+
+extern TABLE_INFO *new_table();
+extern TABLE_INFO *array_table();
 
 
 /* External data */
@@ -791,7 +802,7 @@ AREG1	LGSYMBOL	*symP;		/* General symbol ptr */
 
     /* Pick up the symbol name */
     if ( *LextkP != TKSYMBOL )
-	return( zexpected( E_PASS1, "zd_object: object name" ) );
+	return( zexpected( E_PASS1, "object name" ) );
     memcpy( &onameP, LextkP+1, sizeof(char *) );
     if ( ( sts = asnxtoken() ) != SCOK )
       return( sts );
@@ -799,7 +810,7 @@ AREG1	LGSYMBOL	*symP;		/* General symbol ptr */
     /* Define the object as a global symbol */
     symP = (LGSYMBOL *)symenter( Gblsymtab, onameP, sizeof( LGSYMBOL ) );
     if ( ( Pass == 0 ) && ( ( symP->lg_val.v_flags & ST_DEFINED ) != 0 ) )
-	zerror( E_PASS1, "zd_object: duplicate symbol \"%s\"", onameP );
+	zerror( E_PASS1, "duplicate symbol \"%s\"", onameP );
     else {
 	symP->lg_val.v_flags = ST_DEFINED|ST_GLOBAL;
 	symP->lg_val.v_value = ++ObjectC;
@@ -822,7 +833,7 @@ AREG1	LGSYMBOL	*symP;		/* General symbol ptr */
 	if ( ( sts != SCOK ) && ( sts != SCNOTDONE ) )
 	    return( sts );
 	if ( !anyarg() ) {
-	    zerror( E_PASS1, "zd_object: too few arguments" );
+	    zerror( E_PASS1, "too few arguments" );
 	    break;
 	}
 
@@ -1402,16 +1413,16 @@ int dirnum;
   int i;
   if (*LextkP != TKSTRING)
     return(zexpected(E_PASS1, "file name"));
-	file_name = (UBYTE *)MALLOC(strlen(LextkP + 1));
-	memcpy(file_name, LextkP + 1, strlen(LextkP + 1));
+  file_name = (UBYTE *)MALLOC(strlen(LextkP + 1));
+  memcpy(file_name, LextkP + 1, strlen(LextkP + 1));
   asnxtoken();
   sts = ascomma();
   if ((sts != SCOK) && (sts != SCNOTDONE))
     return(sts);
   if (*LextkP != TKSTRING)
     return(zexpected(E_PASS1, "machine name"));
-	machine_name = (UBYTE *)MALLOC(strlen(LextkP + 1));
-	memcpy(machine_name, LextkP + 1, strlen(LextkP + 1));
+  machine_name = (UBYTE *)MALLOC(strlen(LextkP + 1));
+  memcpy(machine_name, LextkP + 1, strlen(LextkP + 1));
   if ((sts != SCOK) && (sts != SCNOTDONE))
     return(sts);
   asnxtoken();

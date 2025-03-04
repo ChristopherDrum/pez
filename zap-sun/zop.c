@@ -17,7 +17,7 @@ Contained in this file:
 */
 
 #include <stdio.h>
-#include "common.h"
+
 #include "zap.h"
 
 
@@ -113,7 +113,7 @@ DREG2	UBYTE		opcode;		/* Opcode value */
 	return( sts );
 
     if ( ArgC != 1 ) {			/* Must be one arg */
-	zerror( E_PASS1, "zo_1op: too few arguments." );
+	zerror( E_PASS1, "too few arguments." );
 	return( assync( FALSE ) );
     }
 
@@ -166,7 +166,7 @@ DREG1	int		sts;
 	return( sts );
 
     if ( ArgC < 2 ) {			/* Must be at least two args */
-	zerror( E_PASS1, "zo_2op: too few arguments." );
+	zerror( E_PASS1, "too few arguments." );
 	return( assync( FALSE ) );
     }
 

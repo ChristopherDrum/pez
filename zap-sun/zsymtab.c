@@ -17,7 +17,6 @@ Contained in this file:
 #include <ctype.h>
 
 #include "zap.h"
-#include "common.h"
 
 /* Local definitions */
 
@@ -281,11 +280,11 @@ Returns :
 */
 
 int hash(name,hsize)
-char *name;		/* the symbol name */
-int hsize;		/* the hash table size */
+AREG1	char *name;		/* the symbol name */
+DREG2	int hsize;		/* the hash table size */
 {
-int i;
-char valarr[4];
+DREG1 int i;
+AREG2 char valarr[4];
 
   *(long *)valarr = 0L;
   for (i = 0; *name != '\0'; name++)

@@ -5,11 +5,15 @@
 
 #include <stdio.h>
 
-void
+extern char *malloc();
+extern char *calloc();
+extern char *realloc();
+
+char
 *MALLOC(size)
 	unsigned int size;
 {
-	void *ptr;
+	char *ptr;
 	
 	if ((ptr = malloc(size)) == NULL) {
 		fprintf(stderr,"Malloc failed!!\n");
@@ -19,11 +23,11 @@ void
 }
 
 
-void
+char
 *CALLOC(num,size)
 	unsigned int num,size;
 {
-	void *ptr;
+	char *ptr;
 	
 	if ((ptr = calloc(num,size)) == NULL) {
 		fprintf(stderr,"Calloc failed!!\n");
@@ -33,12 +37,12 @@ void
 }
 
 
-void
+char
 *REALLOC(oldptr,size)
-	void *oldptr;
+	char *oldptr;
 	unsigned int size;
 {
-	void *ptr;
+	char *ptr;
 	
 	if ((ptr = realloc(oldptr,size)) == NULL) {
 		fprintf(stderr,"Realloc failed!!\n");
@@ -60,7 +64,7 @@ CFREE(ptr,n,size)
      char *ptr;
      unsigned int n,size;
 {
-  free(ptr);
+  cfree(ptr,n,size);
 }
 
 

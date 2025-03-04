@@ -12,7 +12,6 @@ Plus internal routines:
 	usage		Print a program usage message
 	version_update	Update Zap parameters
 */
-#include "common.h"
 
 #include <stdio.h>
 #include <ctype.h>
@@ -24,10 +23,18 @@ Plus internal routines:
 
 #include "zap.h"
 
+
 /* Local definitions */
 
 
 /* External routines */
+
+extern	SYMBOL 	*symenter();
+extern	SYMBOL	*symlookup();
+extern	STABLE	*symnew();
+extern	ST_SYMTAB	*sym_dump();
+extern char     **litstr();
+extern int my_printf();
 
 /* External data */
 
@@ -61,6 +68,9 @@ extern	UWORD	Release;
 extern  BOOL    yoffsets;
 extern  int	character_count;  /* if one, print out count of characters used */
 extern  long    character_counts[];
+
+/* Local routines (and forward references) */
+UWORD	get_release();
 
 /* Local data */
 
@@ -476,37 +486,26 @@ write_chart()
 {
   int out, ct;
   char chart_buf[255];
-
-  time_t tt = time(NULL);
-  struct tm *tms = localtime(&tt);
-
-  printf("tt = %lld\n", tt);
-  printf("%2d, %2d, %4d\n", tms->tm_mon+1, tms->tm_mday, 1900+tms->tm_year);
-
+  struct tm *tms;
+  long tt = time(0);
   objseek(OBJ_ENDLOD_LOC, FALSE);
   endlod = objgetb() << 8;
   endlod |= objgetb();
-
   out = open(&Chart_file[0], O_APPEND | O_WRONLY);
   if (out < 0) {
     out = open(&Chart_file[0], O_CREAT | O_WRONLY, 0666);
     sprintf(&chart_buf[0], "-date-  -rel-  -size-   -pre-  -obj-  -glo-  -voc-\n");
-    write(out, &chart_buf[0], strlen(&chart_buf[0])); 
-  }
-
+    write(out, &chart_buf[0], strlen(&chart_buf[0])); }
+  tms = localtime(&tt);
   sprintf(&chart_buf[0], " %2d/%02d   %3d   %6d   %5d  %5d   %3d   %5d\n",
-    tms->tm_mon+1, tms->tm_mday, Release, Objtop, endlod,
-    ObjectC, GvarC - GVARBASE, VocC);
+	  tms->tm_mon+1, tms->tm_mday, Release, Objtop, endlod,
+	  ObjectC, GvarC - GVARBASE, VocC);
   write(out, &chart_buf[0], strlen(&chart_buf[0]));
   close(out);
   sprintf(&chart_buf[0], "from %s.zip, %2d/%02d/%02d %d:%02d:%02d.",
 	  Game_name, tms->tm_mon+1, tms->tm_mday, tms->tm_year,
 	  tms->tm_hour, tms->tm_min, tms->tm_sec);
-  printf("*** write_chart is about to add_vers_resource\n");
-  /*printf("\tRelease is: %u\n", Release);
-  printf("\tchart_buf: %s\n", &chart_buf);*/
-  add_vers_resource(Release, &chart_buf); 
-}
+  add_vers_resource(Release, &chart_buf[0]); }
 
 /*
  

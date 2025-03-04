@@ -38,8 +38,6 @@ And internal routine(s):
 
 */
 
-#include "common.h"
-
 #include <stdio.h>
 #include <fcntl.h>
 #include <time.h>

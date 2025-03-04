@@ -22,7 +22,7 @@ Also internal routine(s):
 #include <stdio.h>
 
 #include "zap.h"
-#include "common.h"
+
 
 /* Local definitions */
 
