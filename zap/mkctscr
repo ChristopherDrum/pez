@@ -1,1 +1,0 @@
-cosmocc -g -c comptime.c -D'DATE_TIME="3/1/25_16:20"'

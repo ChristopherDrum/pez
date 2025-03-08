@@ -1,4 +1,4 @@
-The primary changes between this phg_zip.c and the original are
+The primary changes between cosmo/phg_zip.c and original/phg_zip.c are
 1. `NULL` definition conflict with modern C libraries; replaced those with `0` which matches the old definition
 1. Backspace (ASCII 8) recognized but my keyboard backspace (ASCII 128) needed to handling. Added check for this when inputting game commands.
 1. `<sys/termio.h>` deprecated, replaced with `<termios.h>`

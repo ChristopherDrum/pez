@@ -1,5 +1,7 @@
 # Getting `cosmocc` to run on Windows
 
+This information is only for those wanting to do builds with Cosmopolitan. The final executable does not require any of these shenanigans. On Windows, just add a `.exe` extension to the executable file name and enjoy the program.
+
 I didn't have any troubles running cosmocc from macOS terminal, but I've had difficulties getting it to work properly on Windows. This process seems to be working right now (but I'm starting to think that WSL2 installed is giving me a helping hand; paths for `bash` and `dash` report being at `usr/bin` rather than the cosmos folder)
   1. Get the `cosmos` files and point $PATH to the `\bin` folder therein. This includes a number of useful UNIX utilites which have been compiled into APE files and enables Windows to utilize them. In particular, we want `dash` but `bash` is also there and useful.
   2. Get `cosmoscc` and point $PATH to the `\bin` folder therein. The main utility we're interested in is `cosmoscc`, a `sh` script which launches the build toolchain. That toolchain consists entirely of APE builds. So, this is all single-executable/multi-platform stuff. `cosmos` batch of utilities and `dash` and such just help get Windows the tools it needs to keep up with the UNIX crowd.
