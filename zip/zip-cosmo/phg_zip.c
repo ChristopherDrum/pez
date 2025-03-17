@@ -430,7 +430,7 @@ char *init(int argc, char **argv)
 {  /* Init processes command line parameters, figures the dat file name to use,
       and sets up the debugger if requested */
 
-    char *prog, *s, *datfile = 0, *tstr, str[10], *ext = ".dat";
+    char *prog, *s, *datfile = 0, *tstr, str[10];
     short locmem = 0, i;
     int op;
     FILE *opchnfp; 
@@ -470,9 +470,17 @@ char *init(int argc, char **argv)
 		}
 #endif
 	    case 'g': {
-		datfile = (s+1);		/* change data file */
-		while (*(s+1)) s++;	/* skip rest of arg */
-		break;
+			if (*(s+1)) {
+				datfile = (s+1);		/* change data file */
+				while (*(s+1)) s++;	/* skip rest of arg */
+			} else if (*(argv + 1)) {  // If filename is a separate argument
+				datfile = *(++argv);
+				--argc;
+			} else {
+				printf("Error: -g requires a filename\n");
+				exit(1);
+			}
+			break;
 		}
 	    default : printf("\nUnknown switch: %c\n", lc(*s)); break;
 	    }					/* end of switch */
@@ -488,9 +496,6 @@ char *init(int argc, char **argv)
       i = 0;
       while (*s) 
 	gamfbuf[i++] = *s++;
-      s = ext;
-      while (*s)
-	gamfbuf[i++] = *s++;		/* add on ".dat" */
       datfile = gamfbuf;
       }
     return(datfile);
