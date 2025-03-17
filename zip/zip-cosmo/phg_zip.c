@@ -268,10 +268,6 @@ int    *ssp;			/* stack pointers */
 short argblk[MAXARGS];		/* argument block for variable length ops */
 
 
-/* procedures */
-
-char *init(int argc, char **argv);
-
 
 /************************************************************************
 *									*
@@ -374,6 +370,25 @@ void restart();
 void zremove(ZOBJECT obj);
 void printi();
 void printd(ZOBJECT obj);
+
+char *init(int argc, char **argv);
+void sysini();
+void zipbgn();
+void restart();
+void nxtins();
+
+void md_putc(char byte);
+void mtime();
+void cls();
+void locate(short row, short col);
+void hilite(int attrib);
+int lc(int c);
+int scrwid();
+void md_ttyres();
+void z_exit();
+void mcrlf();
+int md_getl(char *buf, int cnt);
+void md_initty();
 
 
 /************************************************************************

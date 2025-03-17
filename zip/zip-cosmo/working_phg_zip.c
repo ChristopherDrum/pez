@@ -701,7 +701,7 @@ void sysini()
     setup();				/* setup screen characteristics */
 }
 
-void zipbgn()
+void sysini()
 { /*	ZIPBGN initializes the ZIL world's link to the interpreter.  Pointers
 	to each of the tables referenced are set up.  Type of status line, and
 	interpreter capabilities are set up (split screen).  Break characters
