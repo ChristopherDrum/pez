@@ -400,8 +400,7 @@ void md_initty();
 ************************************************************************/
 
 
-main(argc,argv)  
-int argc; char **argv; 
+int main(int argc, char **argv)  
 {
     char *datname;
 
