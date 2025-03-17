@@ -430,7 +430,7 @@ char *init(int argc, char **argv)
 {  /* Init processes command line parameters, figures the dat file name to use,
       and sets up the debugger if requested */
 
-    char *prog, *s, *datfile = 0, *tstr, str[10];
+    char *prog, *s, *datfile = 0, *tstr, str[10], *ext = ".dat";
     short locmem = 0, i;
     int op;
     FILE *opchnfp; 
@@ -477,9 +477,16 @@ char *init(int argc, char **argv)
 				datfile = *(++argv);
 				--argc;
 			} else {
-				printf("Error: -g requires a filename\n");
-				exit(1);
+				printf("Error: -g used without a file name; falling back to default load mechanism\n");
 			}
+			break;
+		}
+		case 'h': {
+			printf("Available launch options are:\n");
+			printf("\t-g <path_to_z3_file>: launch a specific z3 game file\n");
+			printf("\t-d: turn on debugger (if executable built with _DEBUG flag)\n");
+			printf("\t-h: this help information\n");
+			printf("\n");
 			break;
 		}
 	    default : printf("\nUnknown switch: %c\n", lc(*s)); break;
@@ -492,10 +499,14 @@ char *init(int argc, char **argv)
     else
       memreq = DATASIZ;				/* use predetermined size */
     if (datfile == 0) THEN {
+		printf("Attempting to load %s.dat\n", prog);
       s = prog;				/* get program name */
       i = 0;
       while (*s) 
 	gamfbuf[i++] = *s++;
+      s = ext;
+      while (*s)
+	gamfbuf[i++] = *s++;		/* add on ".dat" */
       datfile = gamfbuf;
       }
     return(datfile);
