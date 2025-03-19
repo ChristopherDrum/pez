@@ -1,3 +1,5 @@
+__static_yoink("zipos");
+
 /************************************************************************
 *									*
 *									*
@@ -147,6 +149,7 @@ A	PHG		Initial implementation.  Known paging bug, rarely
 #include <sys/signal.h>
 #include <termios.h>
 #include <ctype.h>
+#include <cosmo.h>
 //original dev comment above says that tam.h is included but not implemented; we don't need it
 //#include <tam.h>			/* contains AT&T 7300 window support */
 #include "phg_zipdefs.h"
@@ -402,6 +405,8 @@ void md_initty();
 
 int main(int argc, char **argv)  
 {
+    /*cosmo_args() exists, but this old code relies heavily on argc*/
+    LoadZipArgs(&argc, &argv);
     char *datname;
 
     if (datname = init(argc,argv)) THEN	/* get command line stuff */
@@ -436,9 +441,14 @@ char *init(int argc, char **argv)
     FILE *opchnfp; 
 
     prog = argv[0];
+    printf("arg count is: %d\n", argc);
+    printf("prog is: %s\n", prog);
+    printf("argv[1] says: %s\n", argv[1]);
     while (--argc) {
       if ((*++argv)[0] == '-') {
+          printf("Got a run flag\n");
 	for (s = &((*argv)[1]); *s; s++) {
+        printf("Flag is: %s\n", s);
 	  switch (lc(*s)) {
 #ifdef _DEBUG
 	    case 'd': {
