@@ -16,6 +16,7 @@ To get this to build with a modern compiler, a few simple changes were required
 1. Simplified the `srand()` seeding
 1. Old C coding style used "locally-scoped forward declarations" for external functions that would be called in a routine. A modern C compiler doesn't seem to understand this pattern and complained about functions not being defined before use, or being "redefined." A full set of forward declarations for all functions made compilation much easier.
 1. Return types added to all functions.
+1. Added support for CTRL-D to exit the game.
 1. Function definitions declared in K&R style, with parameter types in a separate line after the initial declaration. I matched those declarations with the new forward declarations (though K&R style seems to work OK)
 1. I'm not entirely clear what was happening but stdout buffer needed more frequent `fflush()` calls than was being done. I wasn't seeing realtime updates of the status bar; screen refreshes were lagging by one full user action.
 1. Inclusion of a couple of Cosmopolitan best practices
