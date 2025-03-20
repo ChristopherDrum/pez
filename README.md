@@ -1,20 +1,22 @@
-# Portable Executable Zork
+# Portable Executable Z-Machine
 ![Screenshot of resurrected ZIP (z-machine interpreter) by Infocom for Unix, running in Windows 11 PowerShell and Ubuntu WSL2](https://github.com/user-attachments/assets/35e9b894-9114-4bb9-bcaa-a186e454b043)
-
-The title says "Zork" but I'm using that classic game as a stand-in to mean "interactive fiction" in general.
 
 The purpose of this repository is to gather my findings/research while using [Cosmopolitan Libc](https://github.com/jart/cosmopolitan) to build and run tools (modern and historical) for IF authoring. When necessary, I supply modified source code to enhance a project (make it more flexible, or improve output) or enable compilation via `cosmocc` (replace deprecated functions, etc.)
 
 The final product of the build process for each tool is a [single executable in the APE format](https://justine.lol/ape.html). An APE file self-contains everything it needs to run natively on the [wide range of 64-bit machines supported by the Cosmopolitan project](https://github.com/jart/cosmopolitan?tab=readme-ov-file#support-vector). We don't need separate builds for each platform. In some cases we don't even really need a makefile any more. By swapping the compiler for `cosmocc` we can generate a platform-indepedent/agnostic tool which can be enjoyed by the widest audience possible.
 
 An end-to-end interactive fiction development workflow boils down to three tasks: authoring, compiling, and playing. Projects that I've built and tested are noted here; I'll continue to expand the list as I gain experience with the build tools and various source code. Everything is built with `cosmocc` linked against the Cosmopolitan Libc libraries.
+
+As well, the `/zip/cosmo_source` folder shows off one of the most interesting features of the APE format: the ability to embed executable launch arguments and application data, to auto-launch into a specific user experience. The Zork trilogy  in this repo's "Releases" demonstrates the profound utility of this approach. The included makefile makes it easy to build your own standalone games with embedded zmachine.
+
 |||||
 |-|-|-|-|
 |**Authoring**|[vim](#vim)|||
 |**Compiling**|[Inform6](#inform6)|[DialogC](#dialogc)||
 |**Playing**|[Mojozork](#mojozork)|[Frotz](#frotz)|[Infocom's ZIP](#infocoms-zip)|
 
-<br><br><br>
+<br>
+
 # Authoring
 
 ## vim
@@ -23,7 +25,8 @@ It worked perfectly on my test systems, and *comes with Inform syntax highlighti
 
 Download it from here: https://cosmo.zip/pub/cosmos/bin/vim
 
-<br><br><br>
+<br>
+
 # Compiling
 Not to be confused with the `cosmocc` C compiler which builds the executables for this project, interactive fiction programming languages have their own special compilers. These compilers translate the code we write in the interactive fiction domain-specific langauges (Inform6, Dialog, ZIL) into intermediate z-machine opcodes. The z-machine itself (see #Playing below) is a virtual machine with its own opcodes. I recommend this page to understand those: https://zspec.jaredreisinger.com/zz03-opcodes
 
@@ -42,14 +45,15 @@ Where Inform7 takes a "literate" and "English language-like" approach, Dialog lo
 Dialog can only target .z5 and higher for its builds, which will run on the `dfrotz` interpreter. I tested with compiling a .z8 file using this APE build and it ran perfectly in Status Line, so I feel confident an APE-based workflow for Dialog will be sound.
 
 ### Building DialogC
-Sorce code can be downloaded from: https://hd0.linusakesson.net/files/dialog-0m03_0_46.zip
+Source can be downloaded from: https://hd0.linusakesson.net/files/dialog-0m03_0_46.zip
 
 The Dialog source includes a makefile, but it isn't strictly necessary.<br>Run either of these from inside `/dialog-0m03_0_46/src`
 
 - Using the makefile: `/cosmocc/bin/make -j dialogc`<br>
 - Invoking `cosmocc` directly: `cosmocc -DVERSION=\"0m/03\" -o dialogc frontend.c backend_z.c runtime_z.c blorb.c dumb_output.c dumb_report.c arena.c ast.c parse.c compile.c eval.c accesspred.c unicode.c backend.c aavm.c backend_aa.c crc32.c -mtiny`
 
-<br><br><br>
+<br>
+
 # Playing
 Once we have our code written and compiled into a z-machine ready file, we need to be able to play and test it. That's where a z-machine interpreter comes in. I've written a full-featured one called Status Line for the Pico-8 in Lua, but of course we need a C-based one for this project.
 
@@ -69,8 +73,8 @@ There are two other variations of Frotz which provide a more robust visual exper
 I felt intimidated by the SDL version; I'm unclear about Cosmopolitan Libc's boundaries when it comes to GUI and and graphics stuff. The Curses version (which relies on `ncurses`) stumped me for now. See [Adding additional libraries](#adding-additional-libraries), below.
 
 ### Building DFrotz
-Clone the source from here: https://gitlab.com/DavidGriffith/frotz
-From the `frotz/src/dumb` directory of Frotz: `cosmocc/bin/make -j`
+Clone the source from here: https://gitlab.com/DavidGriffith/frotz<br>
+From `frotz/src/dumb` run `cosmocc/bin/make -j`
 
 ## [Infocom's ZIP](https://github.com/erkyrath/infocom-zcode-terps/blob/master/unix/phg_zip.c)
 This is it, the big one, the OG written by the company that invented the z-machine itself. Until a couple of years ago we never had the source code to Infocom's own z-machine interpreters. [Now we have them all.](https://github.com/erkyrath/infocom-zcode-terps) 
@@ -86,15 +90,16 @@ I can't express what a fantastic feeling it was to see that *original* code spri
 This version of their interpreter only plays z3 games, but *does* include VT100-style character/terminal handling code to give a proper, real-deal, Infocom presentation. I saw code for split screen handling so even *Seastalker*'s radar should work I think. 🤔
 
 ### Building ZIP
-`cosmocc -o zip dgh_zip.c -mtiny`
+`cosmocc -o zm dgh_zip.c -mtiny`<br>
+(building as `zm` to not conflict the the `zip` utility)
 
-One thing to note is that this interpreter is made to run as a commercial product. So game files cannot be executed via command-line parameters, like the others can; it is expecting data to be ready to load at launch. Rename your .z3 file to 
-`<exact_name_of_the_executable_you_are_running>.dat`
+A makefile is included in `/zip/cosmo_source` that gives you two build options:
 
-The interpreter looks for that specific, exact file name and auto-loads it. Note on Windows, you will need to add `.com` or `.exe` to the executable to make Windows happy. This means you also need to add that to your .dat filename
-`<exact_name_of_the_executable_you_are_running>.<file_extension_you're_using>.dat`
+1. A raw zmachine with can be run with the `-g` flag and a path to a `.z3` game file.
+2. A self-contained, fully embedded game + zmachine which can run as-is without any additional files necessary. This leverages the power of the APE file format and its ability to autoload launch arguments and embed data files directly into its .zip-based archive.
 
-<br><br><br>
+<br>
+
 # Testing the Workflow
 Once I have built the APE files (actually portable executables), I copy them as-is to each of my systems and run them natively. Windows wants file extensions, so I do have to append `.exe` to each executable, but otherwise the executables are unchanged from system to system.
 

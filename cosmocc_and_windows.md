@@ -1,6 +1,6 @@
 # Getting `cosmocc` to run on Windows
 
-This information is only for those wanting to do builds with Cosmopolitan. The final executable does not require any of these shenanigans. On Windows, just add a `.exe` extension to the executable file name and enjoy the program.
+This is kind of diary of my investigations (struggles) with getting Windows to play nicely with Cosmopolitan build tools. The final executable does not require any of these shenanigans. On Windows, just add a `.exe` extension to the executable file name and enjoy the program.
 
 I didn't have any troubles running cosmocc from macOS terminal, but I've had difficulties getting it to work properly on Windows. This process seems to be working right now (but I'm starting to think that WSL2 installed is giving me a helping hand; paths for `bash` and `dash` report being at `usr/bin` rather than the cosmos folder)
   1. Get the `cosmos` files and point $PATH to the `\bin` folder therein. This includes a number of useful UNIX utilites which have been compiled into APE files and enables Windows to utilize them. In particular, we want `dash` but `bash` is also there and useful.
@@ -22,3 +22,4 @@ sudo sh -c 'echo -1 > /proc/sys/fs/binfmt_misc/cli'     # remove Ubuntu's MZ int
 sudo sh -c 'echo -1 > /proc/sys/fs/binfmt_misc/status'  # remove ALL binfmt_misc entries
 ```
 seems to be the trick. I put an alias to this in my .zshrc which I can trigger with `prepcosmo` before I start doing builds.
+6. (2025/03/20) Running zip/cosmo_source/makefile in PowerShell directly works perfectly; no `wsl` prefix/setup/prep necessary.
