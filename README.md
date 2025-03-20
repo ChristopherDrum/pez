@@ -1,5 +1,7 @@
-# Portable Executable Z-Machine
+# Portable Executable Zork
 ![Screenshot of resurrected ZIP (z-machine interpreter) by Infocom for Unix, running in Windows 11 PowerShell and Ubuntu WSL2](https://github.com/user-attachments/assets/35e9b894-9114-4bb9-bcaa-a186e454b043)
+
+Here, I'm using "Zork" as a shorthand to represent "the world of interactive fiction" in general. This project is not exclusive to Zork nor its z-machine. The [Å-machine](https://linusakesson.net/dialog/aamachine/index.php) and the [Scott Adams](https://www.ifwiki.org/Scott_Adams) games are also under investigation.
 
 The purpose of this repository is to gather my findings/research while using [Cosmopolitan Libc](https://github.com/jart/cosmopolitan) to build and run tools (modern and historical) for IF authoring. When necessary, I supply modified source code to enhance a project (make it more flexible, or improve output) or enable compilation via `cosmocc` (replace deprecated functions, etc.)
 
