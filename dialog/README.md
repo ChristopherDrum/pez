@@ -1,4 +1,4 @@
-## About Dialog and Cosmopolitan
+# About Dialog and Cosmopolitan
 
 Compiling the dialog compiler with `cosmocc` is simplicity.
 Download the Dialog compiler source code from: https://hd0.linusakesson.net/files/dialog-0m03_0_46.zip

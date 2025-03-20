@@ -1,4 +1,4 @@
-## About This Project
+# About This Project
 
 Before I thought of tackling the original Infocom ZIP code (/zip/cosmo_source in this repo), my early work in using Cosmopolitan needed a simple project. `mojozork` is a single-file implementation of a basic z-machine. I modified it to include basic VT100 terminal character codes and more `fflush(stdout)` calls for realtime updates.
 
