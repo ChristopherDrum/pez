@@ -29,8 +29,6 @@ It worked perfectly on my test systems, and *comes with Inform syntax highlighti
 
 Download it from here: https://cosmo.zip/pub/cosmos/bin/vim
 
-<br>
-
 # Compiling
 
 Not to be confused with the `cosmocc` C compiler which builds the executables for this project, interactive fiction programming languages have their own special compilers. These compilers translate the code we write in the interactive fiction domain-specific languages (Inform6, Dialog, ZIL) into intermediate z-machine opcodes. The z-machine itself (see #Playing below) is a virtual machine with its own opcodes. I recommend this page to understand those: https://zspec.jaredreisinger.com/zz03-opcodes
@@ -62,8 +60,6 @@ The Dialog source includes a makefile, but it isn't strictly necessary.<br>Run e
 
 - Using the makefile: `/cosmocc/bin/make -j dialogc`<br>
 - Invoking `cosmocc` directly: `cosmocc -DVERSION=\"0m/03\" -o dialogc frontend.c backend_z.c runtime_z.c blorb.c dumb_output.c dumb_report.c arena.c ast.c parse.c compile.c eval.c accesspred.c unicode.c backend.c aavm.c backend_aa.c crc32.c -mtiny`
-
-<br>
 
 # Playing
 
@@ -116,8 +112,6 @@ A makefile is included in `/zip/cosmo_source` that gives you two build options:
 1. A raw z-machine with can be run with the `-g` flag and a path to a `.z3` game file.
 2. A self-contained, fully embedded game + z-machine which can run as-is without any additional files necessary. This leverages the power of the APE file format and its ability to autoload launch arguments and embed data files directly into its .zip-based archive.
 
-<br>
-
 # Testing the Workflow
 
 Once I have built the APE files (actually portable executables), I copy them as-is to each of my systems and run them natively. Windows wants file extensions, so I do have to append `.exe` to each executable, but otherwise the executables are unchanged from system to system.
@@ -139,7 +133,6 @@ Using only APE builds of each tool
 4. Play in each interpreter
 `./dfrotz ./test.z3`
 
-<br><br><br>
 # Next
 
 ## Adding additional libraries
