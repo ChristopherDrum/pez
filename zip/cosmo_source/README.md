@@ -1,4 +1,4 @@
-## Some Notes
+## About This Project
 This build of Infocom's Unix ZIP (z-machine interpreter) was created using the cosmocc compiler and the Cosmopolitan Libc libraries. The -mtiny was used to strip out debugging stuff. Read about Cosmopolitan here: https://github.com/jart/cosmopolitan
 
 You almost don't even need to ask, "Will this run on my computer?"
@@ -6,8 +6,23 @@ You almost don't even need to ask, "Will this run on my computer?"
 The magic of using Cosmopolitan is that this one file should run natively on pretty much any relatively recent 64-bit machine and OS: macOS (both Intel and M-series), Windows 8 through 11, Linux (lots of options), BSD (lots of options).
 
 The minimum system support list is here: https://github.com/jart/cosmopolitan#support-vector
-<br><br><br>
-## How to Use the Basic Z-machine
+
+### Changes From the Original
+To get this to build with a modern compiler, a few simple changes were required
+1. `NULL` definition conflict with modern C libraries; replaced those with `0` which matches the old definition
+1. Backspace (ASCII 8) recognized but my keyboard backspace (ASCII 128) needed to handling. Added check for this when inputting game commands.
+1. `<sys/termio.h>` deprecated, replaced with `<termios.h>`
+    - replaced attribute set/get calls with termios equivalents
+1. Simplified the `srand()` seeding
+1. Old C coding style used "locally-scoped forward declarations" for external functions that would be called in a routine. A modern C compiler doesn't seem to understand this pattern and complained about functions not being defined before use, or being "redefined." A full set of forward declarations for all functions made compilation much easier.
+1. Return types added to all functions.
+1. Function definitions declared in K&R style, with parameter types in a separate line after the initial declaration. I matched those declarations with the new forward declarations (though K&R style seems to work OK)
+1. I'm not entirely clear what was happening but stdout buffer needed more frequent `fflush()` calls than was being done. I wasn't seeing realtime updates of the status bar; screen refreshes were lagging by one full user action.
+1. Inclusion of a couple of Cosmopolitan best practices
+    - `__static_yoink("zipos");` at top of .c file
+    - Call `cosmo_args()` to leverage APE ability to embed launch arguments and embedded data
+<br><br>
+## How to Use `zm` (the basic z-machine)
 
 (Windows and Linux users, see below for a little additional information)
 
