@@ -1,5 +1,7 @@
-# Portable Executable Z-Machine
+# Portable Executable Zork
 ![Screenshot of resurrected ZIP (z-machine interpreter) by Infocom for Unix, running in Windows 11 PowerShell and Ubuntu WSL2](https://github.com/user-attachments/assets/35e9b894-9114-4bb9-bcaa-a186e454b043)
+
+Here, I'm using "Zork" as a shorthand to represent "the world of interactive fiction" in general. This project is not exclusive to Zork, and very much not exclusive to the z-machine. The [Å-machine](https://linusakesson.net/dialog/aamachine/index.php) and the [Scott Adams](https://www.ifwiki.org/Scott_Adams) games are also under investigation.
 
 The purpose of this repository is to gather my findings/research while using [Cosmopolitan Libc](https://github.com/jart/cosmopolitan) to build and run tools (modern and historical) for IF authoring. When necessary, I supply modified source code to enhance a project (make it more flexible, or improve output) or enable compilation via `cosmocc` (replace deprecated functions, etc.)
 
@@ -37,12 +39,14 @@ Inform7 is technically the more relevant language to use these days, but at my c
 The code can be cloned from: https://github.com/DavidKinder/Inform6<br><br>
 [It's super simple to compile](https://github.com/DavidKinder/Inform6#using-inform-6) and we can trivially modify its compilation to point to `cosmocc`.<br>From inside the `inform6` repo folder:<br>`cosmocc -o inform6 *.c -mtiny`
 
+It should also be possible (though I haven't tried it yet) to provide an absolutely standalone build of Inform6 with embedded libraries. The APE file format supports such a scenario and the APE build of vim is proof this can work.
+
 ## [DialogC](https://linusakesson.net/dialog/index.php)
-A newcomer to the scene, the interactive fiction community is working to keep the project alive (appears to have been abandoned?) [The Dialog language is quite different to Inform](https://linusakesson.net/dialog/index.php), taking a very Prolog "logic based" approach. This is conceptually similar to the changes made in Inform from v6 to v7.
+A newcomer to the scene, the interactive fiction community [is working to keep the project alive.](https://github.com/Dialog-IF) The Dialog language [is quite different to Inform](https://linusakesson.net/dialog/index.php), taking a very Prolog "logic based" approach. This is conceptually similar to the changes made in Inform from v6 to v7.
 
-Where Inform7 takes a "literate" and "English language-like" approach, Dialog looks and feels more like a "typical" programming language. However, at the end of the day it compiles itself down to the same z-machine opcodes as Inform.
+Where Inform7 takes a "literate" and "English language-like" approach, Dialog looks and feels more like a "typical" programming language. However, at the end of the day it can compile itself down to the same z-machine opcodes as Inform.
 
-Dialog can only target .z5 and higher for its builds, which will run on the `dfrotz` interpreter. I tested with compiling a .z8 file using this APE build and it ran perfectly in Status Line, so I feel confident an APE-based workflow for Dialog will be sound.
+Dialog can only target .z5 and higher for its builds, which will run on the `dfrotz` interpreter. I test compiled a .z8 file using an APE build of Dialog and it ran perfectly in Status Line, so I feel confident an APE-based workflow for Dialog will be sound.
 
 ### Building DialogC
 Source can be downloaded from: https://hd0.linusakesson.net/files/dialog-0m03_0_46.zip
@@ -109,7 +113,7 @@ Once I have built the APE files (actually portable executables), I copy them as-
 - Ubuntu Desktop (via VMware on the Windows box)
 
 ## A sample end-to-End test
-In a terminal or PowerShell from within the `starter_kit` folder
+Using only APE builds of each tool
 1. Start a new .inf file in vim 
 `./vim test.inf`
 2. Write a simple "Hello World" style single-room adventure
