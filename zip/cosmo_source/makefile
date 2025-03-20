@@ -7,8 +7,8 @@ embed:
 		exit 1; \
 	fi
 	cosmocc -o $$EXE.zip phg_zip.c -mtiny
-	@echo -g/zip/$$GAME > .args
-	zip $$EXE.zip .args $$GAME
+	@echo -g/zip/$(notdir $(GAME)) > .args
+	zip -j $$EXE.zip .args $$GAME
 	mv $$EXE.zip $$EXE
 	rm $$EXE.zip.com.dbg
 	rm $$EXE.zip.aarch64.elf

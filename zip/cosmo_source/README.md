@@ -7,7 +7,7 @@ The magic of using Cosmopolitan is that this one file should run natively on pre
 
 The minimum system support list is here: https://github.com/jart/cosmopolitan#support-vector
 
-### Changes From the Original
+### Changes From the Original Source
 To get this to build with a modern compiler, a few simple changes were required
 1. `NULL` definition conflict with modern C libraries; replaced those with `0` which matches the old definition
 1. Backspace (ASCII 8) recognized but my keyboard backspace (ASCII 128) needed to handling. Added check for this when inputting game commands.
@@ -65,10 +65,12 @@ Taken all together (assuming everything is in the same folder)<br>
 
 <br>
 
-## Notes for Windows and Linux
+## Troubleshooting
 
+- [Robust troubleshooting steps for all platforms can be found here.](https://github.com/Mozilla-Ocho/llamafile/?tab=readme-ov-file#gotchas-and-troubleshooting)
+- Building on macOS requires Xcode Command Line Tools be installed.
 - Windows users need to add `.exe` extension to the executable name.
-- Some Linux distibutions might need a helping hand to run APE files; this should be a one-time process (taken from the Cosmopolitan github page)
+- Some Linux distibutions need a helping hand to run APE files.
 
     ```
     sudo wget -O /usr/bin/ape https://cosmo.zip/pub/cosmos/bin/ape-$(uname -m).elf
