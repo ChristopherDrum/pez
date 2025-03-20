@@ -40,11 +40,11 @@ The code can be cloned from: https://github.com/DavidKinder/Inform6<br><br>
 [It's super simple to compile](https://github.com/DavidKinder/Inform6#using-inform-6) and we can trivially modify its compilation to point to `cosmocc`.<br>From inside the `inform6` repo folder:<br>`cosmocc -o inform6 *.c -mtiny`
 
 ## [DialogC](https://linusakesson.net/dialog/index.php)
-A newcomer to the scene, the interactive fiction community is working to keep the project alive (appears to have been abandoned?) [The Dialog language is quite different to Inform](https://linusakesson.net/dialog/index.php), taking a very Prolog "logic based" approach. This is conceptually similar to the changes made in Inform from v6 to v7.
+A newcomer to the scene, the interactive fiction community [is working to keep the project alive.](https://github.com/Dialog-IF) The Dialog language [is quite different to Inform](https://linusakesson.net/dialog/index.php), taking a very Prolog "logic based" approach. This is conceptually similar to the changes made in Inform from v6 to v7.
 
-Where Inform7 takes a "literate" and "English language-like" approach, Dialog looks and feels more like a "typical" programming language. However, at the end of the day it compiles itself down to the same z-machine opcodes as Inform.
+Where Inform7 takes a "literate" and "English language-like" approach, Dialog looks and feels more like a "typical" programming language. However, at the end of the day it can compile itself down to the same z-machine opcodes as Inform.
 
-Dialog can only target .z5 and higher for its builds, which will run on the `dfrotz` interpreter. I tested with compiling a .z8 file using this APE build and it ran perfectly in Status Line, so I feel confident an APE-based workflow for Dialog will be sound.
+Dialog can only target .z5 and higher for its builds, which will run on the `dfrotz` interpreter. I test compiled a .z8 file using an APE build of Dialog and it ran perfectly in Status Line, so I feel confident an APE-based workflow for Dialog will be sound.
 
 ### Building DialogC
 Source can be downloaded from: https://hd0.linusakesson.net/files/dialog-0m03_0_46.zip
