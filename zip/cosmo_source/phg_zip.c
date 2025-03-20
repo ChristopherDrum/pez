@@ -2825,6 +2825,10 @@ int md_getl(char *buf, int cnt)
 		  z_exit();		/* otherwise, allow exit */
 	 	break;
 	  	}
+		case 4: {		/* I think this lets ctrl-d work? */
+			z_exit();
+			break;
+		}
 	      case ESC: {
 		while (getchar() != -1)	/* throw away escape sequences */
 		  ;
