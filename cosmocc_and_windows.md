@@ -15,12 +15,11 @@ Even simpler: `bash -c "cosmocc -o hello.com hello.c"`<br><br>
   The `bash -c "..."` pattern works great for cosmos utilities, including `vim`. But why doesn't `bash` itself need that pattern? Neither does `dash`. What is the difference between those tools and the other tools?
   1. Even stranger, if I start up a terminal directly into `bash` I can't get it to resolve the path to `cosmocc` even though it is listed in `echo $PATH`
   1. OK, the Cosmopolitan instructions for registering APE loader with Linux worked for WSL2, it seems. I don't know if this persists between launches, but now from PowerShell or Ubuntu shell I can run `wsl cosmocc -o hello hello.c` and it works just fine.
-  - update: no, it requires running a bunch of commands in WSL2 first, which don't seem to persist across sessions; maybe we can do a little script?
-  - another update:
-
-  ```bash
-  sudo sh -c 'echo -1 > /proc/sys/fs/binfmt_misc/cli'     # remove Ubuntu's MZ interpreter
-  sudo sh -c 'echo -1 > /proc/sys/fs/binfmt_misc/status'  # remove ALL binfmt_misc entries
-  ```
-seems to be the trick. I put an alias to this in my .zshrc which I can trigger with `prepcosmo` before I start doing builds.
+    - update: no, it requires running a bunch of commands in WSL2 first, which don't seem to persist across sessions; maybe we can do a little script?
+    - another update:
+      ```bash
+      sudo sh -c 'echo -1 > /proc/sys/fs/binfmt_misc/cli'     # remove Ubuntu's MZ interpreter
+      sudo sh -c 'echo -1 > /proc/sys/fs/binfmt_misc/status'  # remove ALL binfmt_misc entries
+      ```
+      seems to be the trick. I put an alias to this in my .zshrc which I can trigger with `prepcosmo` before I start doing builds.
 1. (2025/03/20) Running zip/cosmo_source/makefile in PowerShell directly works perfectly; no `wsl` prefix/setup/prep necessary.
