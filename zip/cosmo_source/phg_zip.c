@@ -405,8 +405,9 @@ void md_initty();
 
 int main(int argc, char **argv)  
 {
-    /*cosmo_args() exists, but this old code relies heavily on argc*/
-    LoadZipArgs(&argc, &argv);
+    int _argc = cosmo_args("/zip/.args", &argv);
+	if (_argc != -1) argc = _argc;
+
     char *datname;
 
     if (datname = init(argc,argv)) THEN	/* get command line stuff */
