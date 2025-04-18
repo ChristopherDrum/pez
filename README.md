@@ -145,7 +145,7 @@ Getting `ncurses` working should enable us to do a universal build of Curses Fro
 
 ## ZIL with [ZAP](https://eblong.com/infocom/#zap)
 
-Getting a universal toolset for running these would be a great addition to having ZIP running. ZIL was the programming language Infocom used internally for their game development, where we tend to use Inform today. This was then compiled into z-machine assembly using a tool called ZILCH. That assembly was then processed into z-machine code through a program called ZAP. The output of ZIP was a data file that ZIP interpreters could play. 
+Getting a universal toolset for running these would be a great addition to having ZIP running. ZIL was the programming language Infocom used internally for their game development, where we tend to use Inform today. This was then compiled into z-machine assembly using a tool called ZILCH. That assembly was then processed into z-machine code through a program called ZAP. The output of ZAP was a data file that ZIP interpreters could play. 
 
 ZILF and ZAPF are from-scratch replacements to the ZILCH and ZAP toolchain above. [I use these tools](https://github.com/ChristopherDrum/status-line-classics/blob/main/build.sh) to provide bespoke customizations of classic Infocom source code which are formatted to look good in Status Line. However, these tools were written in Visual Studio in C# and would need to be completely rewritten in portable C to preserve via Cosmopolitan.
 
