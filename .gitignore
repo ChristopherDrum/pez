@@ -2,7 +2,6 @@
 .DS_Store
 pez*
 test*
-*.dat
 *.o
 zap/.aarch64/
 *.elf
