@@ -1,4 +1,4 @@
-__static_yoink("zipos");
+//__static_yoink("zipos");
 
 /************************************************************************
 *									*
@@ -143,13 +143,13 @@ A	PHG		Initial implementation.  Known paging bug, rarely
 	
 ************************************************************************/
 
+#include <cosmo.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <sys/signal.h>
 #include <termios.h>
 #include <ctype.h>
-#include <cosmo.h>
 //original dev comment above says that tam.h is included but not implemented; we don't need it
 //#include <tam.h>			/* contains AT&T 7300 window support */
 #include "phg_zipdefs.h"

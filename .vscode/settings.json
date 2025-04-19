@@ -1,5 +1,16 @@
 {
     "cSpell.words": [
         "Libc"
-    ]
+    ],
+    "files.associations": {
+        "signal.h": "c",
+        "stdlib.h": "c",
+        "stdio.h": "c",
+        "dprintf.h": "c",
+        "temp.h": "c",
+        "tempnam.h": "c",
+        "phg_zipdefs.h": "c",
+        "cosmo.h": "c",
+        "termios.h": "c"
+    }
 }

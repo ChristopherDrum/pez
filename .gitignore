@@ -5,3 +5,5 @@ test*
 *.dat
 *.o
 zap/.aarch64/
+*.elf
+*.dbg
