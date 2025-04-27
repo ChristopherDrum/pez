@@ -1,4 +1,3 @@
-/build
 .DS_Store
 pez*
 test*
@@ -6,3 +5,5 @@ test*
 zap/.aarch64/
 *.elf
 *.dbg
+sudo
+**/build

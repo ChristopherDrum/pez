@@ -1,3 +1,4 @@
+// __static_yoink("zipos");
 /*
  *	ScottFree Revision 1.14
  *
@@ -17,7 +18,7 @@
 #include <stdlib.h>
 #endif
 #include <ctype.h>
-#include <curses.h>
+#include <ncurses.h>
 #include <stdarg.h>
 #include <signal.h>
 
@@ -1162,7 +1163,7 @@ int PerformActions(int vb,int no)
 					if(f2==2)
 						doagain=1;
 					if(vb!=0 && doagain==0)
-						return;
+						return 0;
 				}
 			}
 		}
@@ -1298,8 +1299,75 @@ int PerformActions(int vb,int no)
 	
 void main(int argc, char *argv[])
 {
+	setenv("TERM","linux",1);
 	FILE *f;
-	int vb,no;
+	int vb,no,menu;
+	argc = 3;
+	argv[1] = "-t";
+	argv[2] = "/zip/games/adv02.dat";
+
+	menu = 0;
+	char *gameList[31] = {
+		"Scott Adams Classic Adventures",
+		"------------------------------------------",
+		"A - Adventureland",
+		"B - Pirate Adventure (a.k.a. Pirate's Cove)",
+		"C - Secret Mission (orig. Mission Impossible)",
+		"D - Voodoo Castle",
+		"E - The Count",
+		"F - Strange Odyssey",
+		"G - Mystery Fun House",
+		"H - Pyramid of Doom",
+		"I - Ghost Town",
+		"J - Savage Island, Part I",
+		"K - Savage Island, Part II",
+		"L - The Golden Voyage",
+		"",
+		"Later Adventures",
+		"------------------------------------------",
+		"M - Sorcerer of Claymorgue Castle (SAGA+)"
+		"N - Return to Pirate's Isle",
+		"O - Buckaroo Banzai (SAGA+)"
+		"P - Adventureland (sampler version)",
+		"",
+		"Marvel(TM) QuestProbe Series",
+		"------------------------------------------",
+		"Q - The Hulk",
+		"R - Spiderman (SAGA+)",
+		"",
+		"Further Information",
+		"------------------------------------------",
+		"S - Shareware Notice",
+		"T - About This Collection",
+		"U - How To Play a Text Adventure"
+	};
+
+	char* shareware_notice = 
+	"These Scott Adams original text Adventure games\n"
+	"are still copyrighted by Scott Adams and are not Public Domain.\n"
+	"They may be freely downloaded and enjoyed though.\n"
+	"They are shareware but the contribution is strictly\n"
+	"voluntary and the amount left to your own discretion.\n"
+	"\n"
+	"Please note that international checks (in small amounts)\n"
+	"are usually more expensive to cash than their face value\n"
+	"is worth so please do not send same.\n"
+	"\n"
+	"If you are unable or unwilling to pay for these games\n"
+	"you may still freely enjoy them.\n"
+	"\n"
+	"Please send any payments to:\n"
+	"\tScott Adams\n"
+	"\t845 Badland Road\n"
+	"\tPlatteville WI USA 53818-9760\n"
+	"\n"
+	"Homepage: https://www.msadams.com/index.htm\n"
+	"Email: msadams@bigfoot.com\n"
+	"November 24, 1997\n";
+
+	while(menu) {
+
+	}
 	
 	while(argv[1])
 	{
